@@ -28,6 +28,7 @@ public class Guia3Ejercicio6 {
      */    
     
     Scanner leer = new Scanner(System.in);
+    Scanner sali = new Scanner(System.in);
     
     int num1;
     int num2;
@@ -46,7 +47,7 @@ public class Guia3Ejercicio6 {
         System.out.println("5 - Salir");
         
         opcion = 0;
-    while (opcion != 5){
+    while (opcion != 6){
         System.out.println("Ingrese una opción");
         opcion = leer.nextInt();
     	switch (opcion) {
@@ -68,11 +69,14 @@ public class Guia3Ejercicio6 {
                continue;
            case 5:
                System.out.println("¿Está seguro que desea salir del programa (S/N)?");
-               salir = leer.nextLine();
-               //if (salir == "S" )
-                   //continue;
-               //else;
+               salir = sali.nextLine();
                
+               if (salir.equals("S")){
+                   break;
+                }else;
+                    
+             
+              
         }
     }
     System.out.println("Saliendo...");
