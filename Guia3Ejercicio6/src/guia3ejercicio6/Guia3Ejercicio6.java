@@ -72,11 +72,14 @@ public class Guia3Ejercicio6 {
                salir = sali.nextLine();
                
                if (salir.equals("S")){
+                   opcion = 6;
                    break;
-                }else;
-                    
-             
-              
+               }else{
+                   System.out.println("Vuelva a ingresar dos numeros");
+                     num1 = leer.nextInt();
+                     num2 = leer.nextInt(); 
+               }
+               
         }
     }
     System.out.println("Saliendo...");

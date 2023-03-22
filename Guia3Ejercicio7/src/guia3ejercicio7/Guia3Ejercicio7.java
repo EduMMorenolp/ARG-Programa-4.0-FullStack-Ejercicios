@@ -36,25 +36,27 @@ public class Guia3Ejercicio7 {
         int cont2 = 0;
         int maxcarac;
 
-        do{
+        do {
             System.out.println("Ingrese las cadenas");
             cadena = leer.nextLine();
             maxcarac = cadena.length();
-               // System.out.println("a" + cadena.substring(1, 0));
-            if (maxcarac == 5) {
-                if ((cadena.substring(0).equals("X")) && (cadena.substring(4).equals("O"))) {
+            // System.out.println("a" + cadena.substring(1, 0));
+            if (maxcarac == 5 && cadena.charAt(0) == 'X' && cadena.charAt(4) == 'O') {
                     cont2 += 1;
+                    System.out.println("Entrada Correcta: " + cadena);
                     
-                }else {
+                } else if (maxcarac == 5 && cadena.charAt(0) != 'X' && cadena.charAt(4) != 'O' ){
                     cont += 1;
-                    System.out.println("Entrada Ingresada: " + cadena);
-                }    
-                }else{
+                    System.out.println("Entrada Incorrecta: " + cadena);
                     System.out.println("Ingreso Incorrecto Vuelva a intentar");
-            }             
-        }while (cadena.equals("&&&&&&"));
-                System.out.println("Ingresos Correctos : " + cont);
-                System.out.println("Ingresos Incorrectos : " + cont2);
-        }
+                    
+            }else {
+            System.out.println("Max 5 Caracteres");
+
+            }
+        }while (!cadena.equalsIgnoreCase("&&&&&&"));
+        System.out.println("Ingresos Correctos : " + cont2);
+        System.out.println("Ingresos Incorrectos : " + cont);
+    }
     }
 
