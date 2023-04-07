@@ -46,9 +46,7 @@ public class Cuenta {
         int dinero = leer.nextInt();
         saldo = saldo - dinero;
          if (saldo < 0){
-             System.out.println("Ya no tiene dinero en la cuenta"); 
-             
-             
+             System.out.println("Ya no tiene dinero en la cuenta");          
         }else{System.out.println("Dinero Restante en cuenta :" + saldo );  
         }            
     } 
