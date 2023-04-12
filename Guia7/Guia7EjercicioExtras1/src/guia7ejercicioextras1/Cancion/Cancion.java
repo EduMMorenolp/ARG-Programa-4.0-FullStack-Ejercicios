@@ -45,7 +45,6 @@ public class Cancion {
         Scanner leer = new Scanner(System.in);
         System.out.print("Ingrese titulo : ");
         this.titulo = leer.nextLine();
-        System.out.print("Ingrese autor : ");
-        this.autor = leer.nextLine();
+        this.autor = leer.nextLine();  
     }
 }

@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -9,7 +9,10 @@ package guia7ejercicioextras3.Juego;
  *
  * @author no_de
  */
+
 import java.util.Scanner;
+import Limpiarpantalla.Clear;
+import java.awt.AWTException;
 
 public class Juego {
     private int numero;
@@ -22,13 +25,17 @@ public class Juego {
         jugador2Ganadas = 0;
     }
     
-    public void iniciar_juego() {
+    public void iniciar_juego() throws AWTException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Jugador 1, elige un número:");
         numero = scanner.nextInt();
         intentos = 5; // Se puede modificar el número de intentos
         
+        Clear.limpiarpantalla();      
+        
+        System.out.println("Jugador 2, adivina el número:");
         while (intentos > 0) {
+            
             System.out.println("Jugador 2, adivina el número:");
             int adivinanza = scanner.nextInt();
             
