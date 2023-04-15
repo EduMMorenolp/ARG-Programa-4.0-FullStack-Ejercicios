@@ -15,13 +15,13 @@ import java.util.Scanner;
 public class cuentaBancariaServicios {
     
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
-    
+
     public cuentaBancaria Crearcuenta(){ 
-        System.out.println("Ingrese Cuenta Bancaria ");
+        System.out.println("Ingrese su Numero de Cuenta Bancaria para operar");
         int numeroCuenta = leer.nextInt();
         System.out.println("Ingrese DNI de Cliente");
         long dniCliente = leer.nextLong();
-        System.out.println("Cuanto Dinero Ingresa ?");
+        System.out.println("Cuanto Dinero Ingresa?");
         double saldoActual = leer.nextDouble();
         
         return new cuentaBancaria(numeroCuenta, dniCliente, saldoActual);    
@@ -56,11 +56,10 @@ public class cuentaBancariaServicios {
         }
     }
     public void consultarSaldo(cuentaBancaria numeroCuenta){
-        System.out.println("Su saldo es de : " + numeroCuenta.getNumeroCuenta() + " = " + numeroCuenta.getSaldoActual());
+        System.out.println("Su saldo es de : \n " + "Numero de Cuenta :"+ numeroCuenta.getNumeroCuenta() + " Saldo : " + numeroCuenta.getSaldoActual());
     }
     public void consultarDatos(cuentaBancaria numeroCuenta){
         System.out.println("Sus Datos son : \n Numero de Cuenta : " + numeroCuenta.getNumeroCuenta()
                           + "\n DNI : " + numeroCuenta.getDniCliente() );
     }   
-   
-}
+    }

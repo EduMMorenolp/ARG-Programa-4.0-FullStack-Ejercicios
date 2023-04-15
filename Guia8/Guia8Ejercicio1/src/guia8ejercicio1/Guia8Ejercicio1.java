@@ -38,35 +38,44 @@ public class Guia8Ejercicio1 {
         
         
         cuentaBancariaServicios Persona1 = new cuentaBancariaServicios();
+        System.out.println("BIENVENIDO ! a USI BANK");
         System.out.println(" Cree Una Cuenta BANCARIA ");
         cuentaBancaria Cuenta1 = Persona1.Crearcuenta();
         
         Scanner leer = new Scanner(System.in);
         
-        System.out.println("BIENVENIDO ! a USI BANK");
-
-         System.out.println("Ingrese una opcion : \n"
-                 + "OPCION 1 = Ingresar dinero \n"
+        System.out.println(
+                   "OPCION 1 = Ingresar dinero \n"
                  + "OPCION 2 = Retirar dinero \n"
                  + "OPCION 3 = Retirar dinero Entra rapido \n"
                  + "OPCION 4 = Consultar saldo \n"
-                 + "OPCION 5 = Consultar datos  ");
-         int var = leer.nextInt();
+                 + "OPCION 5 = Consultar datos  \n"
+                 + "OPCION 6 = Salir");
+        int var;
+        do {   
+        System.out.println("Ingrese una opcion : ");
+        var = leer.nextInt();       
         switch (var) {
             case 1: 
                  Persona1.ingresar(Cuenta1);
-                 Persona1.consultarSaldo(Cuenta1);
+                 break;
             case 2:
-              
+                 Persona1.retirar(Cuenta1);
+                 break;
             case 3: 
-                
+                 Persona1.extraRapida(Cuenta1);
+                 break;
+            case 4:
+                Persona1.consultarSaldo(Cuenta1);
                 break;
-            default:
-                throw new AssertionError();
-        }
-  
+            case 5:
+                Persona1.consultarDatos(Cuenta1);
+                break;
+            case 6:
+                System.out.println("Adios... vuelva pronto.");
+            } 
+        } while (var != 6);
     }
-
-    }
-
-
+}
+    
+   
