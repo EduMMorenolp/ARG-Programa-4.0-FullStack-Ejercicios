@@ -5,6 +5,10 @@
  */
 package guia8ejercicioextra2;
 
+import java.util.Scanner;
+import nif.Nif;
+import nifservicios.NifServicio;
+
 /**
  *
  * @author no_de
@@ -34,6 +38,32 @@ public class Guia8EjercicioExtra2 {
          * tabla de caracteres es la siguiente:
          *
          */
+
+        NifServicio DNIs = new NifServicio();
+        
+        Scanner leer = new Scanner(System.in);
+        int var;
+        System.out.println("OPCION 1 : Cargar DNI \n"
+                    + "OPCION 2 : Mostrar DNI \n"
+                    + "OPCION 3 : Salir");
+        do {
+            System.out.println("Ingrese la OPCION : ");
+            var = leer.nextInt();
+            switch (var) {
+                case 1:
+                    DNIs.crearNif();
+                    break;
+                case 2:
+                    DNIs.mostrar();
+                    break;
+                case 3:
+                    System.out.println("Adios....");
+                    break;
+                default:
+                System.out.println("Opción inválida. Por favor, ingrese una opción válida.");
+                break;
+            }
+        } while (var != 3);
     }
 
 }
