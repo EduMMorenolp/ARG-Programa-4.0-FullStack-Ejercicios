@@ -8,7 +8,7 @@ Este repositorio contiene los ejercicios resueltos del curso FullStack de ARG Pr
 
 La idea es que los estudiantes puedan utilizar este repositorio como una guía para resolver los ejercicios por su cuenta y como referencia para comparar sus soluciones.
 
-# Puedes Ayudar dandole una estrilleta al REPOSITORIO
+# Puedes Ayudar dandole una estrellita al REPOSITORIO
 
 <img src="https://doc.eggeducacion.com/static/media/logo.4c3ffc62.svg" alt="FotoEGG" width="300">
 
