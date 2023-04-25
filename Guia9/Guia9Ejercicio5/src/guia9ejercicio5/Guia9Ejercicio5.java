@@ -5,6 +5,10 @@
  */
 package guia9ejercicio5;
 
+import entidades.Persona;
+import java.util.Scanner;
+import servicio.PersonaServicio;
+
 /**
  *
  * @author no_de
@@ -29,8 +33,17 @@ public class Guia9Ejercicio5 {
          * que la edad consultada o false en caso contrario. Método
          * mostrarPersona que muestra la información de la persona deseada.
          */
-        
-        
+        Scanner leer = new Scanner(System.in);
+        PersonaServicio p1 = new PersonaServicio(); 
+        Persona per1 = p1.crearPersona();
+        System.out.println(" Ingrese una edad para comparar si es > O < a la deseada");
+        int edad = leer.nextInt();
+        p1.mostrarPersona();
+         if (p1.menorQue(per1, edad)){
+            System.out.println(" Es menor que la edad igresada");
+        }else{
+            System.out.println(" Es mayor que la edad ingresada");
+        }
         
     }
 
