@@ -86,5 +86,4 @@ public class Curso {
         return "Curso{" + "leer=" + leer + ", nombreCurso=" + nombreCurso + ", cantidadHorasPorDia=" + cantidadHorasPorDia + ", cantidadDiasPorSemana=" + cantidadDiasPorSemana + ", turno=" + turno + ", precioPorHora=" + precioPorHora + ", alumnos=" + alumnos + '}';
     }
 
-   
 }

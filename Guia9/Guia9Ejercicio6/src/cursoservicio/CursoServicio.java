@@ -32,7 +32,7 @@ public class CursoServicio {
         }  
     }
     
-    
+      
     public Curso crearCurso() {
         /**
          * METODO E Método crearCurso(): el método crear curso, le pide los
@@ -72,6 +72,6 @@ public class CursoServicio {
         return Ganancias;
     }
     
-    
+
     
 }
