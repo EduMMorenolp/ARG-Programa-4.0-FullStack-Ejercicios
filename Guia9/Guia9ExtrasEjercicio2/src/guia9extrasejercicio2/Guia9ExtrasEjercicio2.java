@@ -5,6 +5,8 @@
  */
 package guia9extrasejercicio2;
 
+import ahorcadoservicios.ahorcadoServicios;
+
 /**
  *
  * @author no_de
@@ -60,7 +62,10 @@ public class Guia9ExtrasEjercicio2 {
          * Longitud de la palabra: 6 Mensaje: La letra no pertenece a la palabra
          * Mensaje: Lo sentimos, no hay más oportunidades
          */
-
+        
+        ahorcadoServicios juego = new ahorcadoServicios();
+            
+        juego.juego();
     }
 
 }
