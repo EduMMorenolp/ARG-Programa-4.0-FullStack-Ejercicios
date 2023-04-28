@@ -6,7 +6,7 @@
 package ahorcadoservicios;
 
 import entidades.Ahorcado;
-import java.util.Arrays;
+//import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -29,6 +29,8 @@ public class ahorcadoServicios {
          * índice del vector. Y también, guarda la cantidad de jugadas máximas y
          * el valor que ingresó el usuario.
          */
+        
+        
 
         System.out.println("Ingrese una palabra : ");
         String palabra = leer.nextLine();

@@ -18,17 +18,17 @@ public class Ahorcado {
      * usuario.
      */
     
-    private String[] vectorPalabra = new String[0];
+    private String[] vectorPalabra; //= new String[0];
     private int cantletras;
     private int jugadasMax;
 
     public Ahorcado() {
     }
 
-    public Ahorcado(int cantletras, int jugadasMax) {
+    public Ahorcado(int cantletras, int jugadasMax, String[] vectorPalabra) {
         this.cantletras = cantletras;
         this.jugadasMax = jugadasMax;
-        this.vectorPalabra[0] = "Holamundo";
+        this.vectorPalabra = vectorPalabra;
     }
 
     public int getJugadasMax() {
