@@ -20,7 +20,7 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 
 ¡Espero que encuentres este repositorio útil!
 
-<img src="https://media.licdn.com/dms/image/sync/D4D27AQFGt40tmIgdcg/articleshare-shrink_480/0/1682313121778?e=1682974800&v=beta&t=X5u7LVH25NqommihnlS7R8MqeuDCZtD5TtK_ZWYw0uw" alt="FotoEGG" width="300">
+<img src="https://avatars.githubusercontent.com/u/126937215?v=4" alt="FotoEduMoreno" width="300">
 
 <div align="center">
   <img src="https://profile-counter.glitch.me/ARGPrograma4FullStackEjer/count.svg?"  />
