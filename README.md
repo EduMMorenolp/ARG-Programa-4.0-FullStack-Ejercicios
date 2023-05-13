@@ -25,3 +25,9 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 <div align="center">
   <img src="https://profile-counter.glitch.me/ARGPrograma4FullStackEjer/count.svg?"  />
 </div>
+
+# Podes Ayudar con $$ por los servicios prestados... 
+
+<a mp-mode="dftl" href="https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848810689e018813682e960130" name="MP-payButton" class='blue-ar-l-rn-none'>Una AYUDITA para Este Pobre tipo... </a>
+
+
