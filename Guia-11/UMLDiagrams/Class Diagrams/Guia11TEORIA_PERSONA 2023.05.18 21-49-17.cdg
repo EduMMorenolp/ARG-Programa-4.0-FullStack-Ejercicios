@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Guia11TEORIA_PERSONA">
   <ClassDiagramComponents>
-    <Class name="Dni" package="dni" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="Dni" package="dni" visibility="public" xPosition="259.0" yPosition="38.0">
       <Fields>
         <Field name="serie" type="String" visibility="private"/>
         <Field name="Dni" type="int" visibility="private"/>
@@ -26,7 +26,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Guia11TEORIA_PERSONA" package="guia11teoria_persona" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Guia11TEORIA_PERSONA" package="guia11teoria_persona" visibility="public" xPosition="673.0" yPosition="419.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -67,6 +67,7 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
+    <IsRelation name="is" source="guia11teoria_persona.Guia11TEORIA_PERSONA" target="persona.Persona"/>
     <HasRelation name="Dni" source="persona.Persona" target="dni.Dni" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="persona.Persona" target="dni.Dni" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
