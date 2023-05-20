@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia11ExtrasEjercicio1">
+  <ClassDiagramComponents>
+    <Class name="Guia11ExtrasEjercicio1" package="guia11extrasejercicio1" visibility="public" xPosition="263.0" yPosition="21.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Perro" package="perro" visibility="public" xPosition="36.0" yPosition="174.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="raza" type="String" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="tamanio" type="String" visibility="private"/>
+        <Field name="adoptado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="raza"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="String" name="tamanio"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTamanio" returnType="String" visibility="public"/>
+        <Method name="setTamanio" returnType="void" visibility="public">
+          <Argument type="String" name="tamanio"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getRaza" returnType="String" visibility="public"/>
+        <Method name="setRaza" returnType="void" visibility="public">
+          <Argument type="String" name="raza"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="isAdoptado" returnType="boolean" visibility="public"/>
+        <Method name="setAdoptado" returnType="void" visibility="public">
+          <Argument type="boolean" name="adoptado"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Persona" package="persona" visibility="public" xPosition="526.0" yPosition="410.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apeliido" type="String" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="edad" type="int" visibility="private"/>
+        <Field name="perro" type="Perro" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apeliido"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="int" name="edad"/>
+          <Argument type="Perro" name="perro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getPerro" returnType="Perro" visibility="public"/>
+        <Method name="setPerro" returnType="void" visibility="public">
+          <Argument type="Perro" name="perro"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApeliido" returnType="String" visibility="public"/>
+        <Method name="setApeliido" returnType="void" visibility="public">
+          <Argument type="String" name="apeliido"/>
+        </Method>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="getEdad" returnType="int" visibility="public"/>
+        <Method name="setEdad" returnType="void" visibility="public">
+          <Argument type="int" name="edad"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="servicioAdopcion" package="servicioadopcion" visibility="public" xPosition="558.0" yPosition="87.0">
+      <Fields>
+        <Field name="personas" type="ArrayList&lt;Persona&gt;" visibility="package"/>
+        <Field name="perros" type="ArrayList&lt;Perro&gt;" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="agregarPersona" returnType="Persona" visibility="public">
+          <Argument type="Persona" name="p"/>
+        </Method>
+        <Method name="agregarPerros" returnType="Perro" visibility="public">
+          <Argument type="Perro" name="d"/>
+        </Method>
+        <Method name="listaPersonas" returnType="void" visibility="public"/>
+        <Method name="listaPerros" returnType="void" visibility="public"/>
+        <Method name="adoptarPerro" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="servicioadopcion.servicioAdopcion" target="persona.Persona" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perro" source="persona.Persona" target="perro.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="servicioadopcion.servicioAdopcion" target="perro.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="personas" source="servicioadopcion.servicioAdopcion" target="persona.Persona" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Persona&gt;"/>
+    <UseRelation source="persona.Persona" target="perro.Perro" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="perros" source="servicioadopcion.servicioAdopcion" target="perro.Perro" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Perro&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
