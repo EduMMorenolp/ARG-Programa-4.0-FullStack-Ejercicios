@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
 import java.util.Scanner;
+import polizas.Coutas;
 import polizas.Polizas;
 import vehiculos.Vehiculos;
 
@@ -84,9 +85,10 @@ public class servicioAseguradora {
     
     public Polizas ingresoPoliza(){
         
-        Scanner leer = new Scanner(System.in);
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         
         Polizas poliza = new Polizas();
+        String resp2;
         
         /**
          * Date Fecha Inicio
@@ -142,8 +144,8 @@ public class servicioAseguradora {
         System.out.println("Ingrese Monto Asegurado : ");
         poliza.setMontoAsegurado(leer.nextInt());
         System.out.println("Desea Cobertura Granizo ? S/N : ");
-        String resp = leer.nextLine().toUpperCase();
-        if (resp.equals("S")){
+        resp2 = leer.next().toUpperCase();
+        if (resp2.equals("S")){
             poliza.setGranizo(true);
             System.out.println("Ingrese el Monto MAXIMO de Cobertura Granizo : ");
             poliza.setMontoMaxGranizo(leer.nextInt());
@@ -160,20 +162,11 @@ public class servicioAseguradora {
         /**
          * INGRESO DE LA COUTA 
          */
-        
-        poliza.setCoutas(poliza.ingresoCoutas());
+        poliza.setCoutas();
         
         return poliza;
     }
-    
-    public void menu(){
-        
-        
-        
-        
-        
-        
-    }
+  
     
        
 }

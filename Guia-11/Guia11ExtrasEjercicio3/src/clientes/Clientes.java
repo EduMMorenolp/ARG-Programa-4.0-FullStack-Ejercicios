@@ -5,6 +5,9 @@
  */
 package clientes;
 
+import java.util.ArrayList;
+import vehiculos.Vehiculos;
+
 /**
  *
  * @author no_de
@@ -23,7 +26,7 @@ public class Clientes {
     private int dni;
     private int domicilio;
     private int telefono;
-    
+    private ArrayList<Vehiculos> Autos = new ArrayList<>();
 
     public Clientes() {
     }
@@ -87,7 +90,15 @@ public class Clientes {
 
     @Override
     public String toString() {
-        return "Clientes{" + "nombre=" + nombre + ", apellido=" + apellido + ", mail=" + mail + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + '}';
+        return "Nombre: " + nombre + "\n Apellido: " + apellido + "\n Mail: " + mail + "\n DNI: " + dni + "\n Domicilio: " + domicilio + "\n Tel: " + telefono + "\n Autos:" + Autos + '}';
     }
-     
+
+    public ArrayList<Vehiculos> getAutos() {
+        return Autos;
+    }
+
+    public void setAutos(ArrayList<Vehiculos> Autos) {
+        this.Autos = Autos;
+    }
+    
 }

@@ -6,6 +6,7 @@
 package polizas;
 
 import java.util.Date;
+import java.util.Scanner;
 
 /**
  *
@@ -69,7 +70,7 @@ public class Coutas {
     }
 
     public String setfDePago() {
-        return fDePago = new FormaDePago().FormasDePago();
+        return fDePago = FormasDePago();
     }
 
     public String getfDePago() {
@@ -78,9 +79,43 @@ public class Coutas {
 
     @Override
     public String toString() {
-        return "Coutas{" + "numCouta=" + numCouta + ", montoCouta=" + montoCouta + ", pago=" + pago + ", fVencimiento=" + fVencimiento + ", fDePago=" + fDePago + '}';
+        return "\n numCouta=" + numCouta + "\n montoCouta=" + montoCouta + "\n pago=" + pago + "\n fecha Vencimiento=" + fVencimiento + "\n forma de Pago=" + fDePago;
     }
     
-    
+    public String FormasDePago() {
+        Scanner leer = new Scanner(System.in);
+        FormaDePago fdp = new FormaDePago();
+        System.out.println("ELIGA LA FORMA DE PAGO : \n");
+        System.out.println("OPCION 1 : Efectivo \n"
+                + "OPCION 2 : Transferencia bancaria \n"
+                + "OPCION 3 : Tarjeta de credito \n"
+                + "OPCION 4 : Debito automatico \n"
+                + "OPCION 5 : Pago en line \n");
+        int var;
+        String fDePago = " ";
+        do{
+        var = leer.nextInt();
+        switch (var) {
+            case 1:
+                fDePago = fdp.getEfectivo();
+                break;
+            case 2:
+                fDePago = fdp.getTransBanca();
+                break;
+            case 3:
+                fDePago = fdp.getTarjeBanca();
+                break;
+            case 4:
+                fDePago = fdp.getDevAuto();
+                break;
+            case 5:
+                fDePago = fdp.getPagoLinea();
+                break;
+            default:
+                System.out.println("Ingreso Mal la OPCION vuelva a ingresar : ");
+        }
+        } while (var != 1 && var != 2 && var != 3 && var != 4 && var != 5);
+        return fDePago;
+    }
     
 }

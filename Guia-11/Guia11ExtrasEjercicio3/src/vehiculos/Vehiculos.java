@@ -5,6 +5,8 @@
  */
 package vehiculos;
 
+import polizas.Polizas;
+
 /**
  *
  * @author no_de
@@ -23,6 +25,7 @@ public class Vehiculos {
     private String chasis;
     private int anio;
     private int numMotor;
+    private Polizas Poliza;
 
     public Vehiculos() {
     }
@@ -95,7 +98,17 @@ public class Vehiculos {
 
     @Override
     public String toString() {
-        return "Vehiculos{" + "marca=" + marca + ", modelo=" + modelo + ", color=" + color + ", tipo=" + tipo + ", chasis=" + chasis + ", anio=" + anio + ", numMotor=" + numMotor + '}';
+        return "Vehiculo:" + "\n Marca=" + marca + "\n Modelo=" + modelo + "\n Color=" + color + "\n Tipo=" + tipo + "\n Chasis=" + chasis + "\n Año=" + anio + "\n Numero de Motor=" + numMotor + "\n Poliza:" + Poliza;
     }
+
+    public Polizas getPoliza() {
+        return Poliza;
+    }
+
+    public void setPoliza(Polizas Poliza) {
+        this.Poliza = Poliza;
+    }
+
+ 
     
 }

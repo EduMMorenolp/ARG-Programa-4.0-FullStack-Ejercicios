@@ -53,48 +53,57 @@ public class Guia11ExtrasEjercicio3 {
          */
         
         servicioAseguradora seguro = new servicioAseguradora();
-        Scanner leer = new Scanner(System.in);
-        
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
         ArrayList<Clientes> listaClientes = new ArrayList<>();
         ArrayList<Vehiculos> listaVehiculos = new ArrayList<>();
-        
+        String resp;
+        int var;
+
         
         
         
         System.out.println("--- BIENVENIDO A LA TERCERA SEGUROS ---");
-        
-        listaClientes.add(seguro.ingresoClientes());
-        listaClientes.add(seguro.ingresoClientes());
-        
-        for (Clientes listaCliente : listaClientes) {
-            
-            System.out.println(listaCliente.toString());
-            System.out.println("Desea seleccionar este cliente ? S/N : ");
-            String resp = leer.nextLine().toUpperCase();
-            if (resp.equals("S")){
-                System.out.println("Agregarle un vehiculo ");
-                listaVehiculos.add(seguro.ingresoVehiculo());
-                listaVehiculos.add(seguro.ingresoVehiculo());
-                
+        do {
+            System.out.println("Ingrese una OPCION \n"
+                    + "OPCION 1 - ingreso de Cliente \n"
+                    + "OPCION 2 - ingreso de Nuevo Vehiculo y Su Poliza \n"
+                    + "OPCION 3 - Mostrar Cliente y Sus Vehiculos \n"
+                    + "OPCION 4 - SALIR");
+            var = leer.nextInt();
+            switch (var) {
+                case 1:
+                    System.out.println("-- INGRESE LOS DATOS DEL CLIENTE -- ");
+                    listaClientes.add(seguro.ingresoClientes());
+                    break;
+                case 2:
+                    for (Clientes listaCliente : listaClientes) {
+                        System.out.println("-- INGRESE LOS DATOS DEL VEHICULO DEL CLIENTE -- ");
+                        System.out.println(listaCliente.toString());
+                        System.out.println("Desea seleccionar este cliente ? S/N : ");
+                        resp = leer.next().toUpperCase();
+                        if (resp.equals("S")) {
+                            System.out.println("Agregarle un vehiculo a" + listaCliente.getNombre());
+                            Vehiculos auto = seguro.ingresoVehiculo();
+                            System.out.println("-- INGRESANDO POLIZA DE SEGUROS --");
+                            auto.setPoliza(seguro.ingresoPoliza());
+                            listaVehiculos.add(auto);
+                            listaCliente.setAutos(listaVehiculos);
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.println("-- MOSTRANDO CLIENTES --");
+                    for (Clientes listaCliente : listaClientes) {
+                        System.out.println(listaCliente.toString());
+                    }
+                    break;
+                case 4:
+                    System.out.println("Adios...");
+                    break;
+                default:
+                    throw new AssertionError();
             }
-        }
-        
-//        System.out.println("Ingrese una OPCION \n"
-//                + "OPCION 1 - ingreso de Cliente \n"
-//                + "OPCION 2 - ingreso de Nuevo Vehiculo y Su Poliza \n"
-//                + "OPCION 3 - Mostrar Cliente y Sus Vehiculos \n"
-//                + "OPCION 4 - SALIR");
-//        int var = leer.nextInt();
-//        switch (var) {
-//            case 1:
-//                listaClientes.add(seguro.ingresoClientes());
-//                break;
-//            case 2:
-//                
-//                
-//            default:
-//                throw new AssertionError();
-//        }
-//    }
+        } while (var != 4);
     }
 }

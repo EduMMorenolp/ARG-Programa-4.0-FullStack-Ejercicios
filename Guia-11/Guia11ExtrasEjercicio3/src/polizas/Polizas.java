@@ -68,14 +68,14 @@ public class Polizas {
         System.out.println("Ingrese la Cantidad de Coutas : ");
         coutas.setNumCouta(leer.nextInt());
         System.out.println("Ingrese el Monto de la Couta : ");
-        coutas.setMontoCouta(montoAsegurado);
+        coutas.setMontoCouta(leer.nextInt());
         System.out.println("Ingrese la Fecha de vencimiento de la Couta : ");
         /**
          * Para TRABAJAR CON DATE este quilombo... 
          */
         boolean fechaValida = false;
         do {
-            String fechaInicioStr = leer.nextLine();
+            String fechaInicioStr = leer.next();
 
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
             try {
@@ -88,7 +88,6 @@ public class Polizas {
             }
         } while (!fechaValida);
         System.out.println("Ingrese la forma de Pago : ");
- 
         coutas.setfDePago();
         
         return coutas;
@@ -160,13 +159,13 @@ public class Polizas {
         return coutas;
     }
 
-    public void setCoutas(Coutas coutas) {
-        this.coutas = coutas;
+    public void setCoutas() {
+        this.coutas = ingresoCoutas();
     }
 
     @Override
     public String toString() {
-        return "Polizas{" + "fInicio=" + fInicio + ", fFin=" + fFin + ", formaPago=" + formaPago + ", tipoCobertura=" + tipoCobertura + ", montoAsegurado=" + montoAsegurado + ", montoMaxGranizo=" + montoMaxGranizo + ", numPoliza=" + numPoliza + ", granizo=" + granizo + '}';
+        return "\n fecha de Inicio=" + fInicio + "\n fecha de Fin=" + fFin + "\n forma Pago=" + formaPago + "\n Tipo de Cobertura=" + tipoCobertura + "\n monto Asegurado=" + montoAsegurado + "\n montoMaxGranizo=" + montoMaxGranizo + "\n numPoliza=" + numPoliza + "\n granizo=" + granizo + "\n Coutas" + coutas;
     }
 
 }
