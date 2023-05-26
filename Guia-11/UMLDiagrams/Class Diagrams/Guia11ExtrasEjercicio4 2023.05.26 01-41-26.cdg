@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia11ExtrasEjercicio4">
+  <ClassDiagramComponents>
+    <Class name="Alumnos" package="Entidades" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="cantidadVotos" type="int" visibility="private"/>
+        <Field name="nombreCompleto" type="String" visibility="private"/>
+        <Field name="votos" type="Votos" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="dni"/>
+          <Argument type="int" name="cantidadVotos"/>
+          <Argument type="String" name="nombreCompleto"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getVotos" returnType="Votos" visibility="public"/>
+        <Method name="setVotos" returnType="void" visibility="public">
+          <Argument type="Votos" name="votos"/>
+        </Method>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="getCantidadVotos" returnType="int" visibility="public"/>
+        <Method name="setCantidadVotos" returnType="void" visibility="public">
+          <Argument type="int" name="cantidadVotos"/>
+        </Method>
+        <Method name="getNombreCompleto" returnType="String" visibility="public"/>
+        <Method name="setNombreCompleto" returnType="void" visibility="public">
+          <Argument type="String" name="nombreCompleto"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Votos" package="Entidades" visibility="public" xPosition="477.0" yPosition="20.0">
+      <Fields>
+        <Field name="alumno" type="Alumnos" visibility="private"/>
+        <Field name="votados" type="HashSet&lt;Alumnos&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Alumnos" name="alumno"/>
+          <Argument type="HashSet&lt;Alumnos&gt;" name="votados"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAlumno" returnType="Alumnos" visibility="public"/>
+        <Method name="setAlumno" returnType="void" visibility="public">
+          <Argument type="Alumnos" name="alumno"/>
+        </Method>
+        <Method name="getVotados" returnType="HashSet&lt;Alumnos&gt;" visibility="public"/>
+        <Method name="setVotados" returnType="void" visibility="public">
+          <Argument type="HashSet&lt;Alumnos&gt;" name="votados"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Guia11_Ejercicio4" package="guia11_ejercicio4" visibility="public" xPosition="477.0" yPosition="578.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Simulador" package="Servicios" visibility="public" xPosition="477.0" yPosition="295.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="generarListaAlumnos" returnType="ArrayList&lt;String&gt;" visibility="public"/>
+        <Method name="generarListaDNI" returnType="ArrayList&lt;Integer&gt;" visibility="public">
+          <Argument type="ArrayList&lt;String&gt;" name="alumnoLista"/>
+        </Method>
+        <Method name="crearAlumno" returnType="ArrayList&lt;Alumnos&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Integer&gt;" name="Dnis"/>
+          <Argument type="ArrayList&lt;String&gt;" name="alumnos"/>
+        </Method>
+        <Method name="mostrarAlumnos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Alumnos&gt;" name="alumnos"/>
+        </Method>
+        <Method name="votacion" returnType="ArrayList&lt;Alumnos&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Alumnos&gt;" name="alumnos"/>
+        </Method>
+        <Method name="mostrarVotos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Alumnos&gt;" name="alumnos"/>
+        </Method>
+        <Method name="recuentoVotos" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Alumnos&gt;" name="alumnos"/>
+        </Method>
+        <Method name="facilitadores" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Alumnos&gt;" name="alumnos"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="EnumApellidos" package="enumNombres" visibility="public" xPosition="20.0" yPosition="460.0">
+      <Literals>
+        <Literal name="GONZALEZ"/>
+        <Literal name="RODRIGUEZ"/>
+        <Literal name="GOMEZ"/>
+        <Literal name="FERNANDEZ"/>
+        <Literal name="LOPEZ"/>
+        <Literal name="MARTINEZ"/>
+        <Literal name="SANCHEZ"/>
+        <Literal name="PEREZ"/>
+        <Literal name="GARCIA"/>
+        <Literal name="ROMERO"/>
+        <Literal name="TORRES"/>
+        <Literal name="NAVARRO"/>
+        <Literal name="RAMIREZ"/>
+      </Literals>
+    </Enum>
+    <Enum name="EnumNombres" package="enumNombres" visibility="public" xPosition="196.0" yPosition="460.0">
+      <Literals>
+        <Literal name="MANUEL"/>
+        <Literal name="LUIS"/>
+        <Literal name="GUIDO"/>
+        <Literal name="CRISTIAN"/>
+        <Literal name="LUCIA"/>
+        <Literal name="MARIA"/>
+        <Literal name="CAMILA"/>
+        <Literal name="CAROLINA"/>
+        <Literal name="SOFIA"/>
+        <Literal name="MELANI"/>
+        <Literal name="BRUNO"/>
+        <Literal name="CEREZA"/>
+        <Literal name="EREN"/>
+        <Literal name="LUFY"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="alumno" source="Entidades.Votos" target="Entidades.Alumnos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="votos" source="Entidades.Alumnos" target="Entidades.Votos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Votos" target="Entidades.Alumnos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Alumnos" target="Entidades.Votos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="votados" source="Entidades.Votos" target="Entidades.Alumnos" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="HashSet&lt;Alumnos&gt;"/>
+    <UseRelation source="Servicios.Simulador" target="Entidades.Alumnos" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

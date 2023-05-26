@@ -7,6 +7,9 @@ package polizas;
 
 /**
  * @author no_de
+ * 
+ * 
+ * 
  */
 public class FormaDePago {
     

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Ejercicio4Extra">
+  <ClassDiagramComponents>
+    <Class name="Alumnos" package="" visibility="public" xPosition="591.0" yPosition="372.0">
+      <Fields>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="cantidadVotos" type="int" visibility="private"/>
+        <Field name="nombreCompleto" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Simulador" package="" visibility="public" xPosition="43.0" yPosition="137.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crear" returnType="ArrayList&lt;Alumnos&gt;" visibility="public"/>
+        <Method name="generarDNI" returnType="ArrayList&lt;Integer&gt;" visibility="public"/>
+        <Method name="crearAlumno" returnType="void" visibility="public"/>
+        <Method name="mostrarAlumnos" returnType="void" visibility="public"/>
+        <Method name="votacion" returnType="ArrayList&lt;Alumnos&gt;" visibility="public">
+          <Argument type="ArrayList&lt;Alumnos&gt;" name="alumnos"/>
+        </Method>
+        <Method name="mostrarVotos" returnType="void" visibility="public"/>
+        <Method name="recuentoVotos" returnType="void" visibility="public"/>
+        <Method name="facilitadores" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Votos" package="" visibility="public" xPosition="591.0" yPosition="124.0">
+      <Fields>
+        <Field name="alumno" type="Alumno" visibility="private"/>
+        <Field name="votados" type="ArrayList&lt;Alumnos&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

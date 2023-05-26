@@ -2,7 +2,7 @@
 
 <ClassDiagram name="Guia11ExtrasEjercicio3">
   <ClassDiagramComponents>
-    <Class name="Clientes" package="clientes" visibility="public" xPosition="20.0" yPosition="20.0">
+    <Class name="Clientes" package="clientes" visibility="public" xPosition="32.0" yPosition="22.0">
       <Fields>
         <Field name="nombre" type="String" visibility="private"/>
         <Field name="apellido" type="String" visibility="private"/>
@@ -55,7 +55,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Guia11ExtrasEjercicio3" package="guia11extrasejercicio3" visibility="public" xPosition="320.0" yPosition="20.0">
+    <Class name="Guia11ExtrasEjercicio3" package="guia11extrasejercicio3" visibility="public" xPosition="628.0" yPosition="22.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -64,7 +64,7 @@
         </Method>
       </Methods>
     </Class>
-    <Class name="Coutas" package="polizas" visibility="public" xPosition="620.0" yPosition="20.0">
+    <Class name="Coutas" package="polizas" visibility="public" xPosition="933.0" yPosition="998.0">
       <Fields>
         <Field name="numCouta" type="int" visibility="private"/>
         <Field name="montoCouta" type="int" visibility="private"/>
@@ -104,7 +104,7 @@
         <Method name="FormasDePago" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="FormaDePago" package="polizas" visibility="public" xPosition="920.0" yPosition="20.0">
+    <Class name="FormaDePago" package="polizas" visibility="public" xPosition="1235.0" yPosition="663.0">
       <Fields>
         <Field name="efectivo" type="String" visibility="private" isFinal="true"/>
         <Field name="transBanca" type="String" visibility="private" isFinal="true"/>
@@ -123,7 +123,7 @@
         <Method name="getPagoLinea" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Polizas" package="polizas" visibility="public" xPosition="1220.0" yPosition="20.0">
+    <Class name="Polizas" package="polizas" visibility="public" xPosition="32.0" yPosition="789.0">
       <Fields>
         <Field name="fInicio" type="Date" visibility="private"/>
         <Field name="fFin" type="Date" visibility="private"/>
@@ -184,7 +184,7 @@
         <Method name="toString" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="servicioAseguradora" package="servicioaseguradora" visibility="public" xPosition="1520.0" yPosition="20.0">
+    <Class name="servicioAseguradora" package="servicioaseguradora" visibility="public" xPosition="617.0" yPosition="489.0">
       <Fields/>
       <Constructors/>
       <Methods>
@@ -193,7 +193,7 @@
         <Method name="ingresoPoliza" returnType="Polizas" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="Vehiculos" package="vehiculos" visibility="public" xPosition="1820.0" yPosition="20.0">
+    <Class name="Vehiculos" package="vehiculos" visibility="public" xPosition="885.0" yPosition="22.0">
       <Fields>
         <Field name="marca" type="String" visibility="private"/>
         <Field name="modelo" type="String" visibility="private"/>
@@ -254,14 +254,15 @@
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="coutas" source="polizas.Polizas" target="polizas.Coutas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <HasRelation name="Poliza" source="vehiculos.Vehiculos" target="polizas.Polizas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="polizas.Polizas" target="polizas.Coutas" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="servicioaseguradora.servicioAseguradora" target="vehiculos.Vehiculos" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="clientes.Clientes" target="vehiculos.Vehiculos" sourceCardinality="1..1" targetCardinality="1..1"/>
-    <UseRelation source="servicioaseguradora.servicioAseguradora" target="polizas.Polizas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Poliza" source="vehiculos.Vehiculos" target="polizas.Polizas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <UseRelation source="vehiculos.Vehiculos" target="polizas.Polizas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="forma de pago" source="polizas.FormaDePago" target="polizas.Coutas" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation source="polizas.Polizas" target="polizas.Coutas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="coutas" source="polizas.Polizas" target="polizas.Coutas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
     <HasRelation name="Autos" source="clientes.Clientes" target="vehiculos.Vehiculos" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Vehiculos&gt;"/>
     <UseRelation source="servicioaseguradora.servicioAseguradora" target="clientes.Clientes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="servicioaseguradora.servicioAseguradora" target="polizas.Polizas" sourceCardinality="1..1" targetCardinality="1..1"/>
   </ClassDiagramRelations>
 </ClassDiagram>
