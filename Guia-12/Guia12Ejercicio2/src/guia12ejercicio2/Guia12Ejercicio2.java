@@ -5,6 +5,9 @@
  */
 package guia12ejercicio2;
 
+import electrodomestico.Electrodomestico;
+import electrodomestico.entidades.Lavadora;
+
 /**
  *
  * @author no_de
@@ -78,7 +81,25 @@ public class Guia12Ejercicio2 {
          * precio final de los dos electrodomésticos.
          */
         
+        Electrodomestico a1 = new Electrodomestico(1000d, "Verde", 'Z', 80);
         
+        a1.precioFinal();
+        System.out.println(a1.toString());
+        
+        Electrodomestico a2 = new Electrodomestico();
+        
+        a2.crearElectrodomestico();
+        a2.precioFinal();
+        System.out.println(a2.toString());
+        
+        Lavadora lav1 = new Lavadora();
+        
+        lav1.crearLavador();
+        lav1.precioFinal();
+        System.out.println(lav1.toString());
+        
+        // Me falta arreglar el tema del CHAR de Consumo.
+        // Y les dejo tarea para la casa la entidad Televisor.... 
         
     }
 
