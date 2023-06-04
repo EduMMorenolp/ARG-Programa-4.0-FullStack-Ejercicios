@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package guia12ejercicio2;
+package guia12ejercicio2y3;
 
 import electrodomestico.Electrodomestico;
 import electrodomestico.entidades.Lavadora;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *
  * @author no_de
  */
-public class Guia12Ejercicio2 {
+public class Guia12Ejercicio2y3 {
 
     /**
      * @param args the command line arguments
