@@ -27,8 +27,6 @@ public class Electrodomestico {
         this.color = color;
         this.consumoEnergia = consumoEnergia;
         this.peso = peso;
-        comprobarConsumoEnergetico(consumoEnergia);
-        comprobarColor(color);
     }
 
     public Electrodomestico() {
@@ -42,8 +40,8 @@ public class Electrodomestico {
          * entre A y F) A | B | C | D | E | F
          */
         letra = Character.toUpperCase(letra);
-        if (!"A".equals(letra) && !"B".equals(letra) && !"C".equals(letra)
-                && !"D".equals(letra) && !"E".equals(letra) && !"F".equals(letra)) {
+        if (letra != 'A' && letra != 'B' && letra != 'C'
+        && letra != 'D' && letra != 'E' && letra != 'F') {
             // el char no se declara entre comillas "" sino entre comillas simples.
             setConsumoEnergia('F');
         }
@@ -60,7 +58,6 @@ public class Electrodomestico {
         color = color.toLowerCase();
         if (!"blanco".equals(color) && !"negro".equals(color) && !"rojo".equals(color)
                 && !"azul".equals(color) && !"gris".equals(color)) {
-            // el char no se declara entre comillas "" sino entre comillas simples.
             this.color = "blanco";
         }
     }
@@ -73,7 +70,7 @@ public class Electrodomestico {
          */
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         
-        System.out.println("--- CREANDO ELECTRODOMESTICO ---");
+        System.out.println("--- INGRESE ELECTRODOMESTICO ---");
 
         System.out.println("Ingrese el precio : ");
         this.precio = leer.nextInt() + 1000;

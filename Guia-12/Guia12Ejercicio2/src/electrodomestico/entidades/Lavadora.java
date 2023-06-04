@@ -39,7 +39,7 @@ public class Lavadora extends Electrodomestico {
          * del padre y después llenamos el atributo propio de la lavadora.
          */
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        System.out.println("--- CREANDO LAVADORA ---");
+        System.out.println("--- LAVADORA ---");
         crearElectrodomestico();
         System.out.println("Ingrese la carga de la Lavadora : ");
         // Asi tube que setear todos los atributos de Electrodomestico mala mia.
@@ -62,12 +62,10 @@ public class Lavadora extends Electrodomestico {
         if (carga > 30){
             setPrecio(getPrecio() + 500 );
         }
-        
     }
 
     @Override
-    public String toString() {
-        
+    public String toString() { 
         return super.toString() + " Lavadora{" + "carga=" + carga + '}';
     }
 
