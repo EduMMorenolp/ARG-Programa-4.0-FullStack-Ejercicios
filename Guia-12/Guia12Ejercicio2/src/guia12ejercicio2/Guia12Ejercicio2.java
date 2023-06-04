@@ -8,6 +8,7 @@ package guia12ejercicio2;
 import electrodomestico.Electrodomestico;
 import electrodomestico.entidades.Lavadora;
 import electrodomestico.entidades.Televisor;
+import java.util.ArrayList;
 
 /**
  *
@@ -82,11 +83,17 @@ public class Guia12Ejercicio2 {
          * precio final de los dos electrodomésticos.
          */
         
+        System.out.println("EJERCICIO GUIA12 NUMERO 2");
+
         // CREACION AUTOMATICA DE ELECTRODOMESTICOS 
-        Electrodomestico elec = new Electrodomestico(1000d, "Verde", 'Z', 80);
-        Lavadora lav = new Lavadora(45, 1500, "Negro", 'Z', 45);
-        Televisor tel = new Televisor(50, true, 3000, "Violeta", 'K', 55);
-        
+        Electrodomestico elec = new Electrodomestico(1000d, "Gris", 'A', 80);
+        Lavadora lav = new Lavadora(45, 1500d, "Negro", 'Z', 45);
+        Televisor tel = new Televisor(50, true, 3000d, "Violeta", 'C', 55);
+        // LLamo a los metodos para modificar los elementos
+        // Que ingrese mal adrede.
+        lav.comprobarConsumoEnergetico(lav.getConsumoEnergia());
+        tel.comprobarColor(tel.getColor());
+
         elec.precioFinal();
         System.out.println(elec.toString());
         lav.precioFinal();
@@ -109,7 +116,53 @@ public class Guia12Ejercicio2 {
         tel1.crearTelevisor();
         tel1.precioFinal();
         System.out.println(tel1.toString());
-        */
+         */
+
+        /**
+         * Siguiendo el ejercicio anterior, en el main vamos a crear un
+         * ArrayList de Electrodomésticos para guardar 4 electrodomésticos, ya
+         * sean lavadoras o televisores, con valores ya asignados. Luego,
+         * recorrer este array y ejecutar el método precioFinal() en cada
+         * electrodoméstico. Se deberá también mostrar el precio de cada tipo de
+         * objeto, es decir, el precio de todos los televisores y el de las
+         * lavadoras. Una vez hecho eso, también deberemos mostrar, la suma del
+         * precio de todos los Electrodomésticos. Por ejemplo, si tenemos una
+         * lavadora con un precio de 2000 y un televisor de 5000, el resultado
+         * final será de 7000 (2000+5000) para electrodomésticos, 2000 para
+         * lavadora y 5000 para televisor
+         */
+        
+        System.out.println("EJERCICIO GUIA12 NUMERO 3");
+        
+        ArrayList<Electrodomestico> electros = new ArrayList<>();
+        double sumaElectro = 0;
+        double sumaLava = 0;
+        double sumaTele = 0;
+        
+        Lavadora lav2 = new Lavadora(65, 2000d, "Negro", 'C', 65);
+        Lavadora lav3 = new Lavadora(45, 1500d, "Blanca", 'A', 45);
+        Televisor tel2 = new Televisor(50, true, 5000d, "Negro", 'A', 55);
+        Televisor tel3 = new Televisor(32, false, 3500d, "Gris", 'C', 55);
+        
+        electros.add(lav2);
+        electros.add(lav3);
+        electros.add(tel2);
+        electros.add(tel3);
+        
+        System.out.println("-- LISTA DE PRECIOS --");
+        for (Electrodomestico electro : electros) {
+            System.out.println("Precio : " + electro.getPrecio());
+            sumaElectro += electro.getPrecio();
+            if (electro instanceof Lavadora) {
+                sumaLava += electro.getPrecio();
+            } else if (electro instanceof Televisor) {
+                sumaTele += electro.getPrecio();
+            }
+        }
+        
+        System.out.println("Precio Total de todos los Electrodomesticos : " + sumaElectro);
+        System.out.println("Precio Total de las Lavadoras : " + sumaLava);
+        System.out.println("Precio Total de los Televisores : " + sumaTele);
     }
 
 }
