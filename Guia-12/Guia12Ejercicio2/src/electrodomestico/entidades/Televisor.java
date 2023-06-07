@@ -52,7 +52,7 @@ public class Televisor extends Electrodomestico {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
         System.out.println("--- TELEVISOR ---");
-        crearElectrodomestico();
+        super.crearElectrodomestico();
         System.out.println("Ingrese la resolucion del Televisor : ");
         this.resolucion = leer.nextInt();
         System.out.println("Ingrese, tiene sintonisador TDT ? S/N : ");
@@ -74,6 +74,8 @@ public class Televisor extends Electrodomestico {
          * deben afectar al precio.
          */
         
+        // hay que llamar el super de precio final para no borrar todo el meotod del padre
+        super.precioFinal();
         if (resolucion > 40) {
             setPrecio(getPrecio() * 1.3 );  // Incrementa el precio en un 30%
         }

@@ -38,9 +38,10 @@ public class Lavadora extends Electrodomestico {
          * de la clase padre, lo utilizamos para llenar los atributos heredados
          * del padre y después llenamos el atributo propio de la lavadora.
          */
+        
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("--- LAVADORA ---");
-        crearElectrodomestico();
+        super.crearElectrodomestico();
         System.out.println("Ingrese la carga de la Lavadora : ");
         // Asi tube que setear todos los atributos de Electrodomestico mala mia.
         // Tarea para la casa.
@@ -58,7 +59,7 @@ public class Lavadora extends Electrodomestico {
          * necesario. Recuerda que las condiciones que hemos visto en la clase
          * Electrodoméstico también deben afectar al precio.
          */
-        
+        super.precioFinal();
         if (carga > 30){
             setPrecio(getPrecio() + 500 );
         }
