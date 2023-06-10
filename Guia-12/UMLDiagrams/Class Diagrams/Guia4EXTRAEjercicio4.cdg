@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia4EXTRAEjercicio4">
+  <ClassDiagramComponents>
+    <Class name="Persona" package="" visibility="package" xPosition="73.0" yPosition="49.0">
+      <Fields>
+        <Field name="Nombre" type="String" visibility="protected"/>
+        <Field name="Apellido" type="String" visibility="protected"/>
+        <Field name="EstadoCivil" type="String" visibility="protected"/>
+        <Field name="numID" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Profesor" package="" visibility="public" xPosition="631.0" yPosition="423.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Estudiante" package="" visibility="public" xPosition="73.0" yPosition="423.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="crearEstudiante" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Empleado" package="" visibility="public" xPosition="351.0" yPosition="117.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersonalServicio" package="" visibility="public" xPosition="631.0" yPosition="87.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="Empleado" target="Persona"/>
+    <IsRelation name="is" source="Estudiante" target="Persona"/>
+    <HasRelation name="p" source="Profesor" target="Empleado" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="ArrayList"/>
+    <HasRelation name="r" source="PersonalServicio" target="Empleado" type="Default" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
