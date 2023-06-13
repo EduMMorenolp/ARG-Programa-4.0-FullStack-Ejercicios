@@ -5,6 +5,8 @@
  */
 package guia12extrasejercicio4;
 
+import servicios.Servicios;
+
 /**
  * @author no_de
  */
@@ -42,8 +44,48 @@ public class Guia12EXTRASEjercicio4 {
         */
         
         
+        System.out.println("Hola Cris, Hola Pato, Hola Luis, Hola Edu"); 
+        
+        Servicios ser = new Servicios();
+        
+        ser.menuFacultad();
+        
+        
+        /*
+        Tienen que desde git hacer el pull obetener los camibios que realizo
+        EduMoreno y hacer un merge, desde su Rama de trabajo de la Edu
+        modificacionesEdu, esto subira los cambios que eh reazilado y una vez 
+        impletado las tareas, notificar la realizacion del mismo.
+        */
+        
+        /*
+        TAREAS PARA CRIS 
+        - Completar y Terminar el METODO crearPROFESOR en SERVICIOS.
+        - Completar y hacer el swicht del mismo.
+        LOGICA y CONSTRUCCION en el MENU en SERVICIOS
+        OPCION 2
+        OPCION 7 
+        */
+        
+        /*
+        TAREAS PARA PATO
+        - Completar y Terminar el MEOTOD crearPersonalServicio en SERVICIOS.
+        - Completar y hacer el swicht del mismo.
+        LOGICA y CONSTRUCCION en el MENU en SERVICIOS
+        OPCION 1
+        OPCION 8
+        */
+        
+        /*
+        TAREAS PARA LUIS
+        - Completar y Terminar el MEOTOD ingresarEstudiante en SERVICIOS.
+        - Completar y hacer el swicht del mismo.
+        LOGICA y CONSTRUCCION en el MENU en SERVICIOS
+        OPCION 3
+        OPCION 6
+        */
         
         
     }
-
+    
 }
