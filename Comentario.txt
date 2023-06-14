@@ -7,3 +7,8 @@ https://github.com/EduMMorenolp/ARG-Programa-4.0-FullStack-Ejercicios
 La intención es que los estudiantes puedan utilizar este repositorio como una guía para resolver los ejercicios por sí mismos y como una referencia para comparar sus soluciones.
 Si están interesados, pueden visitar el enlace a continuación para acceder al repositorio completo:
 https://github.com/EduMMorenolp/ARG-Programa-4.0-FullStack-Ejercicios
+
+¡Saludos a todos! Me complace compartir con ustedes mi perfil en GitHub. Aquí podrán encontrar una recopilación de ejercicios resueltos del curso, organizados en diferentes temas y con su respectiva carpeta asignada.
+La idea detrás de este repositorio es brindar a los estudiantes una guía para resolver los ejercicios de forma independiente, así como también servir como referencia para comparar sus propias soluciones.
+Si desean explorar más, los invito a visitar el enlace que les proporciono a continuación, donde podrán acceder al repositorio completo:
+https://github.com/EduMMorenolp/ARG-Programa-4.0-FullStack-Ejercicios
