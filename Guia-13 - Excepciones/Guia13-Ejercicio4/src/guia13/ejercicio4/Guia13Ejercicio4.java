@@ -6,6 +6,7 @@
 package guia13.ejercicio4;
 
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  *
@@ -31,8 +32,27 @@ public class Guia13Ejercicio4 {
         // NumberFormatException
         // ArithmeticException
         
+        
+        
+        DivisionNumero n = new DivisionNumero();
+        
+        /*
+        Ejemplo para InputMismatchException:
+
+        Ingresa un valor no numérico cuando se te solicite ingresar un número.
+        Por ejemplo, si se te solicita ingresar un número y en su lugar ingresas "Hola".
+        Ejemplo para NumberFormatException:
+
+        Ingresa una cadena que no se pueda convertir a un número entero válido.
+        Por ejemplo, si se te solicita ingresar un número y en su lugar ingresas "10.5".
+        Ejemplo para ArithmeticException:
+
+        Ingresa el número cero como el segundo número en la operación de división.
+        Por ejemplo, si se te solicita ingresar el segundo número y en su lugar ingresas "0".
+        */
+        
         try {
-            int resultado = realizarOperacion();
+            int resultado = n.realizarOperacion();
             System.out.println("El resultado de la operación es: " + resultado);
         } catch (InputMismatchException e) {
             System.out.println("Error: El valor ingresado no es un número válido.");
@@ -41,33 +61,5 @@ public class Guia13Ejercicio4 {
         } catch (ArithmeticException e) {
             System.out.println("Error: División por cero.");
         }
-    }
-
-    public static int realizarOperacion() {
-        int resultado = 0;
-        try {
-            System.out.print("Ingrese un número: ");
-            int num1 = obtenerNumero();
-            System.out.print("Ingrese otro número: ");
-            int num2 = obtenerNumero();
-            resultado = num1 / num2;
-        } catch (InputMismatchException e) {
-            throw e;
-        } catch (NumberFormatException e) {
-            throw e;
-        } catch (ArithmeticException e) {
-            throw e;
-        }
-        return resultado;
-    }
-
-    public static int obtenerNumero() {
-        int numero = 0;
-        try {
-            numero = Integer.parseInt(System.console().readLine());
-        } catch (NumberFormatException e) {
-            throw e;
-        }
-        return numero;
     }
 }
