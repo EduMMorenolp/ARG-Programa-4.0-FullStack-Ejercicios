@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia13-Ejercicios-IRONMAN">
+  <ClassDiagramComponents>
+    <Class name="Botas" package="Armadura" visibility="public" xPosition="195.0" yPosition="312.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Cascos" package="Armadura" visibility="public" xPosition="432.0" yPosition="65.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Esqueleto" package="Armadura" visibility="public" xPosition="446.0" yPosition="217.0">
+      <Fields>
+        <Field name="colorPrimario" type="String" visibility="package"/>
+        <Field name="colorSecundario" type="String" visibility="package"/>
+        <Field name="nivelSalud" type="int" visibility="package"/>
+        <Field name="nivelEnergia" type="int" visibility="package"/>
+        <Field name="botaIzquierda" type="Botas" visibility="package"/>
+        <Field name="botaDerecha" type="Botas" visibility="package"/>
+        <Field name="guanteIzquierdo" type="Guantes" visibility="package"/>
+        <Field name="guanteDerecho" type="Guantes" visibility="package"/>
+        <Field name="casco" type="Cascos" visibility="package"/>
+        <Field name="bateria" type="Generador" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Generador" package="Armadura" visibility="public" xPosition="652.0" yPosition="103.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Guantes" package="Armadura" visibility="public" xPosition="727.0" yPosition="339.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="armaduraServicios" package="armaduraServicio" visibility="public" xPosition="446.0" yPosition="546.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Caminar" returnType="void" visibility="public"/>
+        <Method name="Correr" returnType="void" visibility="public"/>
+        <Method name="Propulsar" returnType="void" visibility="public"/>
+        <Method name="Volar" returnType="void" visibility="public"/>
+        <Method name="Escribir" returnType="void" visibility="public"/>
+        <Method name="Leer" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia13EjerciciosIRONMAN" package="guia13.ejercicios.ironman" visibility="public" xPosition="132.0" yPosition="65.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="botaIzquierda" source="Armadura.Esqueleto" target="Armadura.Botas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="casco" source="Armadura.Esqueleto" target="Armadura.Cascos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bateria" source="Armadura.Esqueleto" target="Armadura.Generador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="botaDerecha" source="Armadura.Esqueleto" target="Armadura.Botas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteIzquierdo" source="Armadura.Esqueleto" target="Armadura.Guantes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteDerecho" source="Armadura.Esqueleto" target="Armadura.Guantes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

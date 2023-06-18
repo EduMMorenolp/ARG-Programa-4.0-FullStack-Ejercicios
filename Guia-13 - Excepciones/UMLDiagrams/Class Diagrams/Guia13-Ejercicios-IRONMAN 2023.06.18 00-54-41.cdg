@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Guia13-Ejercicios-IRONMAN">
+  <ClassDiagramComponents>
+    <Class name="armaduraServicios" package="armaduraServicio" visibility="public" xPosition="502.0" yPosition="420.0">
+      <Fields>
+        <Field name="Armadura" type="Esqueleto" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearArmadura" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="JarvisServicio" package="armaduraServicio" visibility="public" xPosition="265.0" yPosition="579.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Botas" package="Entidades" visibility="public" isFinal="true" xPosition="696.0" yPosition="192.0">
+      <Fields>
+        <Field name="consumo" type="int" visibility="protected"/>
+        <Field name="estado" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getConsumo" returnType="int" visibility="public"/>
+        <Method name="setConsumo" returnType="void" visibility="public">
+          <Argument type="int" name="consumo"/>
+        </Method>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="usarBotas" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cascos" package="Entidades" visibility="public" xPosition="1052.0" yPosition="242.0">
+      <Fields>
+        <Field name="consumo" type="int" visibility="protected"/>
+        <Field name="estado" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="usarCascos" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Esqueleto" package="Entidades" visibility="public" xPosition="737.0" yPosition="701.0">
+      <Fields>
+        <Field name="colorPrimario" type="String" visibility="protected"/>
+        <Field name="colorSecundario" type="String" visibility="protected"/>
+        <Field name="nivelSalud" type="int" visibility="protected"/>
+        <Field name="resistencia" type="int" visibility="protected"/>
+        <Field name="botaIzquierda" type="Botas" visibility="protected"/>
+        <Field name="botaDerecha" type="Botas" visibility="protected"/>
+        <Field name="guanteIzquierdo" type="Guantes" visibility="protected"/>
+        <Field name="guanteDerecho" type="Guantes" visibility="protected"/>
+        <Field name="casco" type="Cascos" visibility="protected"/>
+        <Field name="bateria" type="Generador" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="colorPrimario"/>
+          <Argument type="String" name="colorSecundario"/>
+          <Argument type="int" name="resistencia"/>
+          <Argument type="Botas" name="botaIzquierda"/>
+          <Argument type="Botas" name="botaDerecha"/>
+          <Argument type="Guantes" name="guanteIzquierdo"/>
+          <Argument type="Guantes" name="guanteDerecho"/>
+          <Argument type="Cascos" name="casco"/>
+          <Argument type="Generador" name="bateria"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getColorPrimario" returnType="String" visibility="public"/>
+        <Method name="setColorPrimario" returnType="void" visibility="public">
+          <Argument type="String" name="colorPrimario"/>
+        </Method>
+        <Method name="getColorSecundario" returnType="String" visibility="public"/>
+        <Method name="setColorSecundario" returnType="void" visibility="public">
+          <Argument type="String" name="colorSecundario"/>
+        </Method>
+        <Method name="getNivelSalud" returnType="int" visibility="public"/>
+        <Method name="setNivelSalud" returnType="void" visibility="public">
+          <Argument type="int" name="nivelSalud"/>
+        </Method>
+        <Method name="getBotaIzquierda" returnType="Botas" visibility="public"/>
+        <Method name="setBotaIzquierda" returnType="void" visibility="public">
+          <Argument type="Botas" name="botaIzquierda"/>
+        </Method>
+        <Method name="getBotaDerecha" returnType="Botas" visibility="public"/>
+        <Method name="setBotaDerecha" returnType="void" visibility="public">
+          <Argument type="Botas" name="botaDerecha"/>
+        </Method>
+        <Method name="getGuanteIzquierdo" returnType="Guantes" visibility="public"/>
+        <Method name="setGuanteIzquierdo" returnType="void" visibility="public">
+          <Argument type="Guantes" name="guanteIzquierdo"/>
+        </Method>
+        <Method name="getGuanteDerecho" returnType="Guantes" visibility="public"/>
+        <Method name="setGuanteDerecho" returnType="void" visibility="public">
+          <Argument type="Guantes" name="guanteDerecho"/>
+        </Method>
+        <Method name="getCasco" returnType="Cascos" visibility="public"/>
+        <Method name="setCasco" returnType="void" visibility="public">
+          <Argument type="Cascos" name="casco"/>
+        </Method>
+        <Method name="getBateria" returnType="Generador" visibility="public"/>
+        <Method name="setBateria" returnType="void" visibility="public">
+          <Argument type="Generador" name="bateria"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="Caminar" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="Correr" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="Propulsar" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="Volar" returnType="void" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="Disparo" returnType="int" visibility="public">
+          <Argument type="int" name="cantidad"/>
+        </Method>
+        <Method name="Escribir" returnType="void" visibility="public"/>
+        <Method name="Leer" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Generador" package="Entidades" visibility="public" xPosition="1378.0" yPosition="230.0">
+      <Fields>
+        <Field name="energiaTotal" type="float" visibility="protected"/>
+        <Field name="estado" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="float" name="energiaTotal"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEnergiaTotal" returnType="float" visibility="public"/>
+        <Method name="setEnergiaTotal" returnType="void" visibility="public">
+          <Argument type="float" name="energiaTotal"/>
+        </Method>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guantes" package="Entidades" visibility="public" xPosition="1691.0" yPosition="230.0">
+      <Fields>
+        <Field name="consumo" type="int" visibility="protected"/>
+        <Field name="danio" type="int" visibility="protected"/>
+        <Field name="estado" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="consumo"/>
+          <Argument type="int" name="danio"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getConsumo" returnType="int" visibility="public"/>
+        <Method name="setConsumo" returnType="void" visibility="public">
+          <Argument type="int" name="consumo"/>
+        </Method>
+        <Method name="getDanio" returnType="int" visibility="public"/>
+        <Method name="setDanio" returnType="void" visibility="public">
+          <Argument type="int" name="danio"/>
+        </Method>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="usarGuantes" returnType="int" visibility="public"/>
+        <Method name="Atacar" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Guia13EjerciciosIRONMAN" package="guia13.ejercicios.ironman" visibility="public" xPosition="248.0" yPosition="420.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Jarvis" package="Jarvis" visibility="public" xPosition="385.0" yPosition="1051.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="estadoDispositivos" returnType="void" visibility="public"/>
+        <Method name="estadoBaterias" returnType="void" visibility="public"/>
+        <Method name="estadoReactor" returnType="void" visibility="public"/>
+        <Method name="revisarDispositivos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Enum name="EnumUso" package="Entidades" visibility="public" xPosition="1103.0" yPosition="63.0">
+      <Literals>
+        <Literal name="NORMAL"/>
+        <Literal name="MEDIO"/>
+        <Literal name="INTENSO"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="botaIzquierda" source="Entidades.Esqueleto" target="Entidades.Botas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Jarvis.Jarvis" target="Entidades.Esqueleto"/>
+    <HasRelation name="casco" source="Entidades.Esqueleto" target="Entidades.Cascos" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bateria" source="Entidades.Esqueleto" target="Entidades.Generador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Esqueleto" target="Entidades.Generador" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteDerecho" source="Entidades.Esqueleto" target="Entidades.Guantes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="botaDerecha" source="Entidades.Esqueleto" target="Entidades.Botas" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Esqueleto" target="Entidades.Botas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Esqueleto" target="Entidades.Cascos" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="armaduraServicio.armaduraServicios" target="Entidades.Esqueleto"/>
+    <UseRelation source="Entidades.Esqueleto" target="Entidades.Guantes" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteIzquierdo" source="Entidades.Esqueleto" target="Entidades.Guantes" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Armadura" source="armaduraServicio.armaduraServicios" target="Entidades.Esqueleto" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
