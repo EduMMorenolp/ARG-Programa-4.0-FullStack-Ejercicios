@@ -12,6 +12,7 @@ package Entidades;
 public class Generador {
     
     protected float energiaTotal;
+    protected float energiaTT;
     // ESTADO :
     // True : reparado
     // False : dañado
@@ -22,7 +23,12 @@ public class Generador {
 
     public Generador(float energiaTotal, boolean estado) {
         this.energiaTotal = energiaTotal;
+        this.energiaTT = energiaTotal;
         this.estado = estado;
+    }
+
+    public float getEnergiaTT() {
+        return energiaTT;
     }
 
     public float getEnergiaTotal() {
@@ -44,5 +50,5 @@ public class Generador {
     @Override
     public String toString() {
         return "Generador{" + "energiaTotal=" + energiaTotal + ", estado=" + estado + '}';
-    }   
+    }
 }

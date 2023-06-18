@@ -11,7 +11,7 @@ package Entidades;
  */
 public class Guantes {
     
-    protected int consumo;
+    protected int consumo = 1;
     protected int danio;
     // ESTADO :
     // True : reparado
@@ -21,7 +21,7 @@ public class Guantes {
     public Guantes() {
     }
 
-    public Guantes(int consumo, int danio, boolean estado) {
+    public Guantes(int danio, boolean estado) {
         this.danio = danio;
         this.estado = estado;
     }

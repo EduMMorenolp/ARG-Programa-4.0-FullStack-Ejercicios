@@ -5,6 +5,8 @@
  */
 package Entidades;
 
+import java.util.Scanner;
+
 /**
  *
  * @author no_de
@@ -27,6 +29,7 @@ public class Esqueleto {
      * La batería a pesar de estar en el pecho de Tony, es considerada como
      * parte de la armadura.
      */
+    protected String nombreArmadura;
     protected String colorPrimario;
     protected String colorSecundario;
     protected int nivelSalud;
@@ -41,7 +44,8 @@ public class Esqueleto {
     public Esqueleto() {
     }
 
-    public Esqueleto(String colorPrimario, String colorSecundario, int resistencia, Botas botaIzquierda, Botas botaDerecha, Guantes guanteIzquierdo, Guantes guanteDerecho, Cascos casco, Generador bateria) {
+    public Esqueleto(String nombreArmadura, String colorPrimario, String colorSecundario, int resistencia, Botas botaIzquierda, Botas botaDerecha, Guantes guanteIzquierdo, Guantes guanteDerecho, Cascos casco, Generador bateria) {
+        this.nombreArmadura = nombreArmadura;
         this.colorPrimario = colorPrimario;
         this.colorSecundario = colorSecundario;
         this.nivelSalud = 100;
@@ -52,6 +56,22 @@ public class Esqueleto {
         this.guanteDerecho = guanteDerecho;
         this.casco = casco;
         this.bateria = bateria;
+    }
+
+    public String getNombreArmadura() {
+        return nombreArmadura;
+    }
+
+    public void setNombreArmadura(String nombreArmadura) {
+        this.nombreArmadura = nombreArmadura;
+    }
+
+    public int getResistencia() {
+        return resistencia;
+    }
+
+    public void setResistencia(int resistencia) {
+        this.resistencia = resistencia;
     }
 
     public String getColorPrimario() {
@@ -128,7 +148,7 @@ public class Esqueleto {
 
     @Override
     public String toString() {
-        return "Esqueleto{" + "colorPrimario=" + colorPrimario + ", colorSecundario=" + colorSecundario + ", nivelSalud=" + nivelSalud + ", botaIzquierda=" + botaIzquierda + ", botaDerecha=" + botaDerecha + ", guanteIzquierdo=" + guanteIzquierdo + ", guanteDerecho=" + guanteDerecho + ", casco=" + casco + ", bateria=" + bateria + '}';
+        return "Armadura {" + "colorPrimario : " + colorPrimario + "\n colorSecundario : " + colorSecundario + "\n nivelSalud : " + nivelSalud + '}';
     }
 
     public void Caminar(int tiempo) {
@@ -164,13 +184,20 @@ public class Esqueleto {
         }
         return danio;
     }
-
-    public void Escribir() {
-        
-        
+    
+    public String Leer(String texto) {
+        bateria.setEnergiaTotal(bateria.getEnergiaTotal() - casco.usarCascos());
+        return texto;
     }
 
-    public void Leer() {
-        
+    public String Escribir() {
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+        System.out.println(" -- BIENVENIDO TONY -- ");
+        bateria.setEnergiaTotal(bateria.getEnergiaTotal() - casco.usarCascos());
+        System.out.println(" Ingresa el Comando deseado : ");
+        System.out.println(" Caminar, Correr, Volar, Propulsar, Disparo");
+        String texto = Leer(leer.nextLine());
+        return texto;
     }
+
 }
