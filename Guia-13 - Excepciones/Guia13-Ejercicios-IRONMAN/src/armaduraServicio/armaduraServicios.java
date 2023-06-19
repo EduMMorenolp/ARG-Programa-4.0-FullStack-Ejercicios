@@ -20,7 +20,7 @@ public class armaduraServicios extends Esqueleto {
 
     public Esqueleto crearArmadura() {
 
-        Esqueleto armadura = new Esqueleto();
+        Esqueleto armadura;
 
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         System.out.println("-- CREACION DE ARMADURA --");
@@ -54,48 +54,49 @@ public class armaduraServicios extends Esqueleto {
     }
 
     // Método para la creación automática de la armadura
-    private Esqueleto crearArmaduraAutomatica() {
-        Esqueleto armadura = new Esqueleto();
+    public Esqueleto crearArmaduraAutomatica() {
+        
+        Esqueleto armaduraAU = new Esqueleto();
 
         System.out.println("-- CREACION AUTOMATICA DE ARMADURA --");
 
         // Creación de los objetos necesarios para las armaduras
-        Botas botaIzquierda = new Botas(true);
-        Botas botaDerecha = new Botas(true);
-        Guantes guanteIzquierdo = new Guantes(50, true);
-        Guantes guanteDerecho = new Guantes(60, true);
-        Cascos casco = new Cascos(true);
-        Generador bateria = new Generador(100, true);
+        Botas botaIzquierda2 = new Botas(true);
+        Botas botaDerecha2 = new Botas(true);
+        Guantes guanteIzquierdo2 = new Guantes(50, true);
+        Guantes guanteDerecho2 = new Guantes(60, true);
+        Cascos casco2 = new Cascos(true);
+        Generador bateria2 = new Generador(100, true);
 
         // Ingresar nombre de la armadura
         System.out.print("Nombre de la armadura: ");
-        String nombreArmadura = "Armadura Automática";
-        armadura.setNombreArmadura(nombreArmadura);
+        String nombreArmadura2 = "Armadura Automática";
+        armaduraAU.setNombreArmadura(nombreArmadura);
 
         // Ingresar color primario
         System.out.print("Color primario: ");
-        String colorPrimario = "Rojo";
-        armadura.setColorPrimario(colorPrimario);
+        String colorPrimario2 = "Rojo";
+        armaduraAU.setColorPrimario(colorPrimario);
 
         // Ingresar color secundario
         System.out.print("Color secundario: ");
-        String colorSecundario = "Negro";
-        armadura.setColorSecundario(colorSecundario);
+        String colorSecundario2 = "Negro";
+        armaduraAU.setColorSecundario(colorSecundario);
 
         // Ingresar resistencia
         System.out.print("Resistencia: ");
-        int resistencia = 150;
-        armadura.setResistencia(resistencia);
+        int resistencia2 = 150;
+        armaduraAU.setResistencia(resistencia);
 
         // Asignar los objetos a la armadura
-        armadura.setBotaIzquierda(botaIzquierda);
-        armadura.setBotaDerecha(botaDerecha);
-        armadura.setGuanteIzquierdo(guanteIzquierdo);
-        armadura.setGuanteDerecho(guanteDerecho);
-        armadura.setCasco(casco);
-        armadura.setBateria(bateria);
+        armaduraAU.setBotaIzquierda(botaIzquierda);
+        armaduraAU.setBotaDerecha(botaDerecha);
+        armaduraAU.setGuanteIzquierdo(guanteIzquierdo);
+        armaduraAU.setGuanteDerecho(guanteDerecho);
+        armaduraAU.setCasco(casco);
+        armaduraAU.setBateria(bateria);
 
-        return armadura;
+        return armaduraAU;
     }
 
     // Método para la creación manual de la armadura
@@ -107,43 +108,43 @@ public class armaduraServicios extends Esqueleto {
 
         // Ingresar nombre de la armadura
         System.out.print("Nombre de la armadura: ");
-        String nombreArmadura = leer.next();
+        String nombreArmadura1 = leer.next();
         armadura.setNombreArmadura(nombreArmadura);
 
         // Ingresar color primario
         System.out.print("Color primario: ");
-        String colorPrimario = leer.next();
+        String colorPrimario1 = leer.next();
         armadura.setColorPrimario(colorPrimario);
 
         // Ingresar color secundario
         System.out.print("Color secundario: ");
-        String colorSecundario = leer.next();
+        String colorSecundario1 = leer.next();
         armadura.setColorSecundario(colorSecundario);
 
         // Ingresar resistencia
         System.out.print("Resistencia: ");
-        int resistencia = leer.nextInt();
+        int resistencia1 = leer.nextInt();
         armadura.setResistencia(resistencia);
 
         // Creación de los objetos necesarios para las armaduras
-        Botas botaIzquierda = new Botas(true);
-        Botas botaDerecha = new Botas(true);
+        Botas botaIzquierda1 = new Botas(true);
+        Botas botaDerecha1 = new Botas(true);
 
         // Ingresar daño de los guantes izquierdo y derecho
         System.out.print("Daño del guante izquierdo: ");
         int danioGuanteIzquierdo = leer.nextInt();
-        Guantes guanteIzquierdo = new Guantes(danioGuanteIzquierdo, true);
+        Guantes guanteIzquierdo1 = new Guantes(danioGuanteIzquierdo, true);
 
         System.out.print("Daño del guante derecho: ");
         int danioGuanteDerecho = leer.nextInt();
-        Guantes guanteDerecho = new Guantes(danioGuanteDerecho, true);
+        Guantes guanteDerecho1 = new Guantes(danioGuanteDerecho, true);
 
-        Cascos casco = new Cascos(true);
+        Cascos casco1 = new Cascos(true);
 
         // Ingresar capacidad del generador
         System.out.print("Capacidad del generador: ");
         float capacidadGenerador = leer.nextFloat();
-        Generador bateria = new Generador(capacidadGenerador, true);
+        Generador bateria1 = new Generador(capacidadGenerador, true);
 
         // Asignar los objetos a la armadura
         armadura.setBotaIzquierda(botaIzquierda);

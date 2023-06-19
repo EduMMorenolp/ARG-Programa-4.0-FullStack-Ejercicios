@@ -5,6 +5,10 @@
  */
 package guia13.ejercicios.ironman;
 
+import Entidades.Esqueleto;
+import Jarvis.Jarvis;
+import armaduraServicio.armaduraServicios;
+
 /**
  *
  * @author no_de
@@ -139,7 +143,20 @@ public class Guia13EjerciciosIRONMAN {
          * en cuenta que la velocidad de vuelo promedio es de 300 km / hora.
          */
         
+        Jarvis Jar = new Jarvis();
+        armaduraServicios arm = new armaduraServicios();
         
+        Esqueleto armadura = arm.crearArmaduraAutomatica();
+        try{
+        Jar.estadoDispositivos(armadura);
+        Jar.estadoBaterias(armadura);
+        Jar.estadoReactor(armadura);
+        Jar.revisarDispositivos(armadura);
+        Jar.detectarObjetivos(armadura);
+        } catch ( Exception e){
+            System.out.println(" ERROR 404 ");
+            System.out.println(e.toString());
+        }
         
         
     }

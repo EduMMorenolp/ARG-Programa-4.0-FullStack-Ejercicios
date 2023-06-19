@@ -12,49 +12,50 @@ import java.util.Random;
  *
  * @author no_de
  */
-public class Jarvis extends Esqueleto {
+public class Jarvis {
 
-    public void estadoDispositivos() {
+    public void estadoDispositivos(Esqueleto armadura) {
         /**
-         * Mostrando Estado Hacer un método que JARVIS muestre el estado de
-         * todos los dispositivos y toda la información de la Armadura.
+         * Mostrar Estado Hacer un método que JARVIS muestre el estado de todos
+         * los dispositivos y toda la información de la Armadura.
          */
         System.out.println(" -- INFORMACION DE LA ARMADURA -- ");
-        super.toString();
+        System.out.println(armadura.toString());
         System.out.println(" -- ESTADO DE LA ARMADURA -- ");
-        if (super.bateria.isEstado()) {
-            System.out.println(" Bateria estado : Funcionando");
+
+        if (armadura.getBateria().isEstado()) {
+            System.out.println(" Bateria estado: Funcionando");
         } else {
-            System.out.println(" Bateria estado : Roto ");
+            System.out.println(" Bateria estado: Roto ");
         }
-        if (super.casco.isEstado()) {
-            System.out.println(" Casco estado : Funcionando");
+        if (armadura.getCasco().isEstado()) {
+            System.out.println(" Casco estado: Funcionando");
         } else {
-            System.out.println(" Casco estado : Roto ");
+            System.out.println(" Casco estado: Roto ");
         }
-        if (super.botaDerecha.isEstado()) {
-            System.out.println(" Bota Derecha estado : Funcionando");
+        if (armadura.getBotaDerecha().isEstado()) {
+            System.out.println(" Bota Derecha estado: Funcionando");
         } else {
-            System.out.println(" Bota Derecha : Roto ");
+            System.out.println(" Bota Derecha estado: Roto ");
         }
-        if (super.botaIzquierda.isEstado()) {
-            System.out.println(" Bota Izquierda estado : Funcionando");
+        if (armadura.getBotaIzquierda().isEstado()) {
+            System.out.println(" Bota Izquierda estado: Funcionando");
         } else {
-            System.out.println(" Bota Izquierda : Roto ");
+            System.out.println(" Bota Izquierda estado: Roto ");
         }
-        if (super.guanteIzquierdo.isEstado()) {
-            System.out.println(" Guante Izquierda estado : Funcionando");
+        if (armadura.getGuanteIzquierdo().isEstado()) {
+            System.out.println(" Guante Izquierdo estado: Funcionando");
         } else {
-            System.out.println(" Guante Izquierda : Roto ");
+            System.out.println(" Guante Izquierdo estado: Roto ");
         }
-        if (super.guanteDerecho.isEstado()) {
-            System.out.println(" Guante Derecho estado : Funcionando");
+        if (armadura.getGuanteDerecho().isEstado()) {
+            System.out.println(" Guante Derecho estado: Funcionando");
         } else {
-            System.out.println(" Guante Derecho : Roto ");
+            System.out.println(" Guante Derecho estado: Roto ");
         }
     }
 
-    public void estadoBaterias() {
+    public void estadoBaterias(Esqueleto armadura) {
         /**
          * Estado de la Batería Hacer un método para que JARVIS informe el
          * estado de la batería en porcentaje a través de la consola. Poner como
@@ -63,20 +64,20 @@ public class Jarvis extends Esqueleto {
          */
 
         System.out.println(" -- ESTADO DE LA BATERIA -- ");
-        float energiaTT = super.bateria.getEnergiaTT();
-        float energiaConsumida = super.bateria.getEnergiaTotal();
+        float energiaTT = armadura.getBateria().getEnergiaTT();
+        float energiaConsumida = armadura.getBateria().getEnergiaTotal();
         float porcentaje = (energiaConsumida / energiaTT) * 100;
         System.out.println("Porcentaje de energía consumida: " + porcentaje + "%");
     }
 
-    public void estadoReactor() {
+    public void estadoReactor(Esqueleto armadura) {
         /**
          * Hacer un método para que JARVIS informe el estado del reactor en
          * otras dos unidades de medida. Hay veces en las que Tony tiene
          * pretensiones extrañas. Buscar en Wikipedia la tabla de
          * transformaciones.
          */
-        float cargaReactor = super.bateria.getEnergiaTT() - super.bateria.getEnergiaTotal();
+        float cargaReactor = armadura.getBateria().getEnergiaTT() - armadura.getBateria().getEnergiaTotal();
         float kilovatios = cargaReactor * 0.000239006f; // Conversión a Kilovatios
         float julios = cargaReactor * 3600; // Conversión a Julios
 
@@ -85,7 +86,7 @@ public class Jarvis extends Esqueleto {
         System.out.println("Carga del reactor en Julios: " + julios + " J");
     }
 
-    public void revisarDispositivos() {
+    public void revisarDispositivos(Esqueleto armadura) {
         /**
          * Reparando Daños Hay veces que se puede reparar los daños de un
          * dispositivo, en general es el 40% de las veces que se puede hacer.
@@ -105,7 +106,7 @@ public class Jarvis extends Esqueleto {
 
         // Batería
         System.out.println("Revisando Batería");
-        if (!super.bateria.isEstado()) {
+        if (!armadura.getBateria().isEstado()) {
             boolean reparado = false;
             int intentos = 0;
 
@@ -113,7 +114,7 @@ public class Jarvis extends Esqueleto {
                 intentos++;
 
                 if (random.nextInt(100) <= 40) {
-                    super.bateria.setEstado(true);
+                    armadura.getBateria().setEstado(true);
                     System.out.println(" - Intento #" + intentos + ": La batería fue reparada exitosamente.");
                     reparado = true;
                     break;
@@ -127,7 +128,7 @@ public class Jarvis extends Esqueleto {
 
         // Casco
         System.out.println("Revisando Casco");
-        if (!super.casco.isEstado()) {
+        if (!armadura.getCasco().isEstado()) {
             boolean reparado = false;
             int intentos = 0;
 
@@ -135,7 +136,7 @@ public class Jarvis extends Esqueleto {
                 intentos++;
 
                 if (random.nextInt(100) <= 40) {
-                    super.casco.setEstado(true);
+                    armadura.getCasco().setEstado(true);
                     System.out.println(" - Intento #" + intentos + ": El casco fue reparado exitosamente.");
                     reparado = true;
                     break;
@@ -149,7 +150,7 @@ public class Jarvis extends Esqueleto {
 
         // Bota Derecha
         System.out.println("Revisando Bota Derecha");
-        if (!super.botaDerecha.isEstado()) {
+        if (!armadura.getBotaDerecha().isEstado()) {
             boolean reparado = false;
             int intentos = 0;
 
@@ -157,7 +158,7 @@ public class Jarvis extends Esqueleto {
                 intentos++;
 
                 if (random.nextInt(100) <= 40) {
-                    super.botaDerecha.setEstado(true);
+                    armadura.getBotaDerecha().setEstado(true);
                     System.out.println(" - Intento #" + intentos + ": La bota derecha fue reparada exitosamente.");
                     reparado = true;
                     break;
@@ -171,7 +172,7 @@ public class Jarvis extends Esqueleto {
 
         // Bota Izquierda
         System.out.println("Revisando Bota Izquierda");
-        if (!super.botaIzquierda.isEstado()) {
+        if (!armadura.getBotaIzquierda().isEstado()) {
             boolean reparado = false;
             int intentos = 0;
 
@@ -179,7 +180,7 @@ public class Jarvis extends Esqueleto {
                 intentos++;
 
                 if (random.nextInt(100) <= 40) {
-                    super.botaIzquierda.setEstado(true);
+                    armadura.getBotaIzquierda().setEstado(true);
                     System.out.println(" - Intento #" + intentos + ": La bota izquierda fue reparada exitosamente.");
                     reparado = true;
                     break;
@@ -193,7 +194,7 @@ public class Jarvis extends Esqueleto {
 
         // Guante Izquierdo
         System.out.println("Revisando Guante Izquierdo");
-        if (!super.guanteIzquierdo.isEstado()) {
+        if (!armadura.getGuanteIzquierdo().isEstado()) {
             boolean reparado = false;
             int intentos = 0;
 
@@ -201,7 +202,7 @@ public class Jarvis extends Esqueleto {
                 intentos++;
 
                 if (random.nextInt(100) <= 40) {
-                    super.guanteIzquierdo.setEstado(true);
+                    armadura.getGuanteIzquierdo().setEstado(true);
                     System.out.println(" - Intento #" + intentos + ": El guante izquierdo fue reparado exitosamente.");
                     reparado = true;
                     break;
@@ -215,7 +216,7 @@ public class Jarvis extends Esqueleto {
 
         // Guante Derecho
         System.out.println("Revisando Guante Derecho");
-        if (!super.guanteDerecho.isEstado()) {
+        if (!armadura.getGuanteDerecho().isEstado()) {
             boolean reparado = false;
             int intentos = 0;
 
@@ -223,7 +224,7 @@ public class Jarvis extends Esqueleto {
                 intentos++;
 
                 if (random.nextInt(100) <= 40) {
-                    super.guanteDerecho.setEstado(true);
+                    armadura.getGuanteDerecho().setEstado(true);
                     System.out.println(" - Intento #" + intentos + ": El guante derecho fue reparado exitosamente.");
                     reparado = true;
                     break;
@@ -233,6 +234,41 @@ public class Jarvis extends Esqueleto {
             } while (!reparado);
         } else {
             System.out.println(" - El guante derecho está funcionando correctamente.");
+        }
+    }
+
+    public void detectarObjetivos(Esqueleto armadura) {
+        Radar r = new Radar();
+        Random ram = new Random();
+        System.out.println(" -- DETECTANDO OBJETOS -- ");
+        r.detectarObjetos();
+        System.out.println(" -- POSICIONES DE OBJETOS -- ");
+        r.UbicacionObejtos();
+        System.out.println(" -- DESTRUYENDO ENEMIGOS --");
+        Objetos[] Objetos = r.getObjetos();
+        for (Objetos Objeto : Objetos) {
+            if (Objeto.hostil) {
+                System.out.println(" Objetivo Hostil - Destruyendolo ");
+                double x = Objeto.x;
+                double y = Objeto.y;
+                double z = Objeto.z;
+                // Calcular la distancia utilizando la fórmula de la distancia euclidiana
+                double distancia = Math.sqrt((x * x) + y + z);
+                if (distancia < 5000) {
+                    int cont = 0;
+                    do {
+                        cont += 1;
+                        System.out.println(" -- ATACANDO -- ");
+                        System.out.println(" Veces Atacado : " + cont);
+                        int cantb = ram.nextInt(2);
+                        Objeto.resistencia = Objeto.resistencia - armadura.Disparo(cantb);
+                    } while (Objeto.resistencia <= 0);
+                } else {
+                    System.out.println(" Hostil Fuera de RANGO ");
+                }
+            } else {
+                System.out.println(" Objetivo NO Hostil ");
+            }
         }
     }
 
