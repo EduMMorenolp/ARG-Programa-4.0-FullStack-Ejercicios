@@ -255,9 +255,7 @@ public class Jarvis {
                 double x = Objeto.x;
                 double y = Objeto.y;
                 double z = Objeto.z;
-                // Calcular la distancia utilizando la fórmula de la distancia euclidiana
-                double distancia = Math.sqrt((x * x) + y + z);
-                if (distancia < 5000) {
+                if (Objeto.distancia < 5000) {
                     int cont = 0;
                     do {
                         cont += 1;

@@ -37,7 +37,7 @@ public class Radar {
                 int randomY = random.nextInt(10);
                 int randomZ = random.nextInt(10);
                 int randomRest = random.nextInt(1000);
-                int randomDistancia = random.nextInt(5000);
+                int randomDistancia = random.nextInt(10000);
                 boolean randomHostil = random.nextBoolean();
                 Objetos.add(new Objetos(randomX, randomY, randomZ, randomHostil, randomRest, randomDistancia));
             }
