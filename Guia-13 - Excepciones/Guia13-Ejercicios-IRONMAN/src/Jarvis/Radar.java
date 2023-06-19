@@ -5,6 +5,7 @@
  */
 package Jarvis;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -13,27 +14,32 @@ import java.util.Random;
  */
 public class Radar {
 
-    private Objetos[] Objetos;
+    public ArrayList<Objetos> Objetos;
 
     public Radar() {
     }
 
-    public Radar(Objetos[] Objetos) {
+    public Radar(ArrayList<Objetos> Objetos) {
         this.Objetos = Objetos;
+    }
+
+    public ArrayList<Objetos> getObjetos() {
+        return Objetos;
     }
 
     public void detectarObjetos() {
         try {
+            Objetos = new ArrayList<>();
             Random random = new Random();
             int randomObjetos = random.nextInt(10);
             for (int i = 0; i < randomObjetos; i++) {
                 int randomX = random.nextInt(10);
                 int randomY = random.nextInt(10);
                 int randomZ = random.nextInt(10);
-                int randomRest = random.nextInt(25);
+                int randomRest = random.nextInt(1000);
                 int randomDistancia = random.nextInt(5000);
                 boolean randomHostil = random.nextBoolean();
-                Objetos[i] = new Objetos(randomX, randomY, randomZ, randomHostil, randomRest, randomDistancia);
+                Objetos.add(new Objetos(randomX, randomY, randomZ, randomHostil, randomRest, randomDistancia));
             }
         } catch (Exception e) {
             System.out.println("ERROR al crear Objeto");
@@ -41,17 +47,8 @@ public class Radar {
     }
 
     public void UbicacionObejtos() {
-        try {
-            for (int i = 0; i < Objetos.length; i++) {
-                Objetos[i].toString();
-            }
-        } catch (Exception e) {
-            System.out.println("ERROR al Ubicar Objetos");
+        for (Objetos Objeto : Objetos) {
+            System.out.println(Objeto.toString());
         }
     }
-
-    public Objetos[] getObjetos() {
-        return Objetos;
-    }
-
 }

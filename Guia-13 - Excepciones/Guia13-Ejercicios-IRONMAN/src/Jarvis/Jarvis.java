@@ -6,6 +6,7 @@
 package Jarvis;
 
 import Entidades.Esqueleto;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -77,11 +78,12 @@ public class Jarvis {
          * pretensiones extrañas. Buscar en Wikipedia la tabla de
          * transformaciones.
          */
-        float cargaReactor = armadura.getBateria().getEnergiaTT() - armadura.getBateria().getEnergiaTotal();
+        float cargaReactor = armadura.getBateria().getEnergiaTotal();
         float kilovatios = cargaReactor * 0.000239006f; // Conversión a Kilovatios
         float julios = cargaReactor * 3600; // Conversión a Julios
 
         System.out.println(" -- ESTADO DEL REACTOR -- ");
+        System.out.println("Carga del reactor Valor : " + cargaReactor);
         System.out.println("Carga del reactor en Kilovatios: " + kilovatios + " kW");
         System.out.println("Carga del reactor en Julios: " + julios + " J");
     }
@@ -242,10 +244,11 @@ public class Jarvis {
         Random ram = new Random();
         System.out.println(" -- DETECTANDO OBJETOS -- ");
         r.detectarObjetos();
+        System.out.println(" Numeros de Objetivos es : " + r.getObjetos().size());
         System.out.println(" -- POSICIONES DE OBJETOS -- ");
         r.UbicacionObejtos();
         System.out.println(" -- DESTRUYENDO ENEMIGOS --");
-        Objetos[] Objetos = r.getObjetos();
+        ArrayList<Objetos> Objetos= r.getObjetos();
         for (Objetos Objeto : Objetos) {
             if (Objeto.hostil) {
                 System.out.println(" Objetivo Hostil - Destruyendolo ");
@@ -261,8 +264,9 @@ public class Jarvis {
                         System.out.println(" -- ATACANDO -- ");
                         System.out.println(" Veces Atacado : " + cont);
                         int cantb = ram.nextInt(2);
-                        Objeto.resistencia = Objeto.resistencia - armadura.Disparo(cantb);
-                    } while (Objeto.resistencia <= 0);
+                        System.out.println("Resistencia Objetivo : " + Objeto.resistencia);
+                        Objeto.resistencia = Objeto.resistencia - armadura.Disparo(2);
+                    } while (Objeto.resistencia >= 0);
                 } else {
                     System.out.println(" Hostil Fuera de RANGO ");
                 }

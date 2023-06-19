@@ -45,7 +45,7 @@ public class Objetos {
         }else{
             estado = " NO Hostil";
         }
-        return "Objeto {" + " Posicion X : " + x + "\n Posicion Y : " + y + "\n Posicion Z : " + z + "\n  Hostil : " + estado + "\n Resistencia : " + resistencia + "\n Distancia :" + distancia +'}';
+        return "\n Objeto {" + "\n Posicion X : " + x + "\n Posicion Y : " + y + "\n Posicion Z : " + z + "\n  Hostil : " + estado + "\n Resistencia : " + resistencia + "\n Distancia :" + distancia +'}';
     }
     
     

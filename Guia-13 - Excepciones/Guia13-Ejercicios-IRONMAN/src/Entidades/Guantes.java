@@ -9,45 +9,24 @@ package Entidades;
  *
  * @author no_de
  */
-public class Guantes {
+public class Guantes extends Dispositivo{
     
-    protected int consumo = 1;
-    protected int danio;
-    // ESTADO :
-    // True : reparado
-    // False : dañado
-    public boolean estado;
+    private int danio; 
 
     public Guantes() {
     }
 
     public Guantes(int danio, boolean estado) {
+        super(estado);
         this.danio = danio;
-        this.estado = estado;
     }
-
-    public int getConsumo() {
-        return consumo;
-    }
-
-    public void setConsumo(int consumo) {
-        this.consumo = consumo;
-    }
-
+  
     public int getDanio() {
         return danio;
     }
 
     public void setDanio(int danio) {
         this.danio = danio;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
     }
     
     public int usarGuantes() {

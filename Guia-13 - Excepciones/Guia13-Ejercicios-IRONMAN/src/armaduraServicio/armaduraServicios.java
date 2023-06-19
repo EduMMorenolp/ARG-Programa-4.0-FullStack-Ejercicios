@@ -36,25 +36,20 @@ public class armaduraServicios extends Esqueleto {
                 armadura = crearArmaduraManual();
                 break;
             case 2:
-                armadura = crearArmaduraAutomatica();
+                armadura = crearArmaduraAutomatica2();
                 break;
             default:
                 System.out.println("Opción inválida. Se creará la armadura de forma automática.");
-                armadura = crearArmaduraAutomatica();
+                armadura = crearArmaduraAutomatica2();
                 break;
         }
-
-        // Mostrar información de la armadura creada
-        System.out.println("Información de la Armadura:");
-        System.out.println(armadura.toString());
-        System.out.println();
 
         return armadura;
 
     }
 
     // Método para la creación automática de la armadura
-    public Esqueleto crearArmaduraAutomatica() {
+    public Esqueleto crearArmaduraAutomatica2() {
         
         Esqueleto armaduraAU = new Esqueleto();
 
@@ -69,33 +64,30 @@ public class armaduraServicios extends Esqueleto {
         Generador bateria2 = new Generador(100, true);
 
         // Ingresar nombre de la armadura
-        System.out.print("Nombre de la armadura: ");
         String nombreArmadura2 = "Armadura Automática";
         armaduraAU.setNombreArmadura(nombreArmadura);
-
-        // Ingresar color primario
-        System.out.print("Color primario: ");
-        String colorPrimario2 = "Rojo";
         armaduraAU.setColorPrimario(colorPrimario);
 
+        // Ingresar color primario
+        String colorPrimario2 = "Rojo";
+        armaduraAU.setColorPrimario(colorPrimario2);
+
         // Ingresar color secundario
-        System.out.print("Color secundario: ");
         String colorSecundario2 = "Negro";
-        armaduraAU.setColorSecundario(colorSecundario);
+        armaduraAU.setColorSecundario(colorSecundario2);
 
         // Ingresar resistencia
-        System.out.print("Resistencia: ");
         int resistencia2 = 150;
-        armaduraAU.setResistencia(resistencia);
+        armaduraAU.setResistencia(resistencia2);
 
         // Asignar los objetos a la armadura
-        armaduraAU.setBotaIzquierda(botaIzquierda);
-        armaduraAU.setBotaDerecha(botaDerecha);
-        armaduraAU.setGuanteIzquierdo(guanteIzquierdo);
-        armaduraAU.setGuanteDerecho(guanteDerecho);
-        armaduraAU.setCasco(casco);
-        armaduraAU.setBateria(bateria);
-
+        armaduraAU.setBotaIzquierda(botaIzquierda2);
+        armaduraAU.setBotaDerecha(botaDerecha2);
+        armaduraAU.setGuanteIzquierdo(guanteIzquierdo2);
+        armaduraAU.setGuanteDerecho(guanteDerecho2);
+        armaduraAU.setCasco(casco2);
+        armaduraAU.setBateria(bateria2);
+        armaduraAU.nivelSalud = 100;
         return armaduraAU;
     }
 

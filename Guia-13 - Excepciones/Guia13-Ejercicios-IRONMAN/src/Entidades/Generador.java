@@ -9,22 +9,21 @@ package Entidades;
  *
  * @author no_de
  */
-public class Generador {
+public class Generador extends Dispositivo{
     
     protected float energiaTotal;
     protected float energiaTT;
     // ESTADO :
     // True : reparado
     // False : dañado
-    public boolean estado;
 
     public Generador() {
     }
 
     public Generador(float energiaTotal, boolean estado) {
+        super(estado);
         this.energiaTotal = energiaTotal;
         this.energiaTT = energiaTotal;
-        this.estado = estado;
     }
 
     public float getEnergiaTT() {
@@ -39,13 +38,6 @@ public class Generador {
         this.energiaTotal = energiaTotal;
     }
 
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
-    }
 
     @Override
     public String toString() {

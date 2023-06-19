@@ -5,29 +5,19 @@
  */
 package Entidades;
 
+import Jarvis.Radar;
+
 /**
  *
  * @author no_de
  */
-public class Cascos {
-    
-    protected int consumo = 1;
-    // ESTADO :
-    // True : reparado
-    // False : dañado
-    public boolean estado;
-    
+public class Cascos extends Dispositivo{ 
+
+    public Cascos() {
+    }
 
     public Cascos( boolean estado) {
-        this.estado = estado;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+        super(estado);
     }
     
     public int usarCascos() {

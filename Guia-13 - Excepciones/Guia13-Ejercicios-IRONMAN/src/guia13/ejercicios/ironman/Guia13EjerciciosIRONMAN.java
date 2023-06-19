@@ -144,15 +144,19 @@ public class Guia13EjerciciosIRONMAN {
          */
         
         Jarvis Jar = new Jarvis();
-        armaduraServicios arm = new armaduraServicios();
-        
-        Esqueleto armadura = arm.crearArmaduraAutomatica();
+        armaduraServicios arm2 = new armaduraServicios();
+        Esqueleto arm = arm2.crearArmaduraAutomatica2();
         try{
-        Jar.estadoDispositivos(armadura);
-        Jar.estadoBaterias(armadura);
-        Jar.estadoReactor(armadura);
-        Jar.revisarDispositivos(armadura);
-        Jar.detectarObjetivos(armadura);
+        Jar.estadoDispositivos(arm);
+        Jar.estadoBaterias(arm);
+        Jar.estadoReactor(arm);
+        arm.Caminar(5);
+        arm.Correr(2);
+        arm.Escribir();
+        arm.Propulsar(5);
+        arm.Volar(10);
+        Jar.revisarDispositivos(arm);
+        Jar.detectarObjetivos(arm);
         } catch ( Exception e){
             System.out.println(" ERROR 404 ");
             System.out.println(e.toString());

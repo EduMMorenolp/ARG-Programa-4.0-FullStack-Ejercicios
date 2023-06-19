@@ -9,35 +9,14 @@ package Entidades;
  *
  * @author no_de
  */
-public final class Botas {
-
-    protected int consumo = 1;
-    // ESTADO :
-    // True : reparado
-    // False : dañado
-    public boolean estado;
+public final class Botas extends Dispositivo{
 
     public Botas() {
     }
 
+    
     public Botas(boolean estado) {
-        this.estado = estado;
-    }
-
-    public int getConsumo() {
-        return consumo;
-    }
-
-    public void setConsumo(int consumo) {
-        this.consumo = consumo;
-    }
-
-    public boolean isEstado() {
-        return estado;
-    }
-
-    public void setEstado(boolean estado) {
-        this.estado = estado;
+        super(estado);
     }
 
     public int usarBotas() {
