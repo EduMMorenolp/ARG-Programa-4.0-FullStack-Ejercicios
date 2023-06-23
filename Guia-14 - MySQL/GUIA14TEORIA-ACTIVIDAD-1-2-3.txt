@@ -1,0 +1,138 @@
+-- ACTIVIDAD 1
+
+Hemos abordado temas centrales y pensamos que es oportuno analizar algunas definiciones. Por 
+ello, te proponemos respondas las siguientes preguntas a fin de asentar mejor algunos conceptos 
+clave:
+1) ¿Qué es una base de datos?
+d. Una colección organizada de información estructurada.
+2) ¿Qué es una tabla?
+d. Todas son correctas
+3) ¿Cuál de estos no es un tipo de base de datos?
+c. Base de datos imperativa
+4) ¿Cuál de estas SI es una ventaja al trabajar el almacenamiento de los datos con bases de 
+datos en lugar de hojas de cálculo?
+a. Los datos están más protegidos.
+5) En las bases de datos relacionales existe un elemento clave que identifica a cada registro 
+o fila y la hace única, ¿cómo se llama ese elemento?
+c. Llave primaria
+
+-- ACTIVIDAD 2
+
+Hemos abordado un montón de conceptos nuevos que te serán de mucha ayuda y utilidad para 
+seguir avanzando en esta guía, ¿te parece si repasamos un poco con una actividad?
+Para esta actividad deberás responder cada pregunta en base a las siguientes tablas creadas en 
+Workbench
+1) Primero deberás localizar en ambas tablas los siguientes elementos
+
+3) ¿Cuál es la función de una llave primaria? Selecciona la opción correcta
+d. Todas las anteriores son correctas.
+
+-- ACTIVIDAD 3
+
+Marca verdadero o falso. Justifica tus respuestas. Luego, compara tus respuestas con tus 
+compañeros de mesa.
+
+• Para que exista una relación se requiere de una llave foránea.
+Falso. Para que exista una relación entre dos tablas en una base de datos relacional, se requiere que haya una correspondencia de datos entre las tablas, pero no necesariamente se necesita una llave foránea. Las relaciones pueden establecerse utilizando otros atributos comunes entre las tablas.
+
+• Pueden existir relaciones entre tablas de muchos a muchos.
+Verdadero. En una base de datos relacional, es posible tener relaciones de muchos a muchos entre tablas. Esto significa que múltiples registros de una tabla pueden relacionarse con múltiples registros de otra tabla y viceversa. Para representar este tipo de relación, generalmente se utiliza una tabla de enlace o una tabla intermedia.
+
+• En un diagrama ERD con una llave dorada se identifica la llave foránea.
+Falso. En un diagrama de entidad-relación (ERD), la llave foránea se identifica mediante una línea sólida que conecta la tabla secundaria (la que contiene la llave foránea) con la tabla principal (la que contiene la llave primaria correspondiente). No existe un estándar universal que utilice una "llave dorada" como símbolo específico para representar las llaves foráneas.
+
+• Existen cuatro tipos de relaciones entre tablas.
+Falso. En la teoría de bases de datos relacionales, se reconocen principalmente tres tipos de relaciones entre tablas: relaciones uno a uno, relaciones uno a muchos y relaciones muchos a muchos. Estos tipos de relaciones cubren la mayoría de los escenarios de relación entre tablas en una base de datos.
+
+-- ACTIVIDAD 4
+
+Para la realización de los ejercicios que se describen a continuación, es necesario descargar el 
+archivo scriptsBD.zip que contiene algunos scripts con las bases de datos sobre las cuales se va 
+a trabajar. En cada ejercicio se indica el nombre del script que se debe utilizar. Para abrir y 
+ejecutar los scripts van a encontrar un pdf de cómo hacerlo en Moodle, con el nombre de Tutorial 
+Scripts SQL.
+1. ¡Ahora ejecutaremos un script y crearemos una base de datos por primera vez! Primero,
+deberemos abrir el script llamado “superhéroes.sql” y ejecutarlo de modo tal que se cree
+la base de datos y todas sus tablas.
+20
+2. Analiza el script detenidamente, línea por línea, ayudándote con la guía. Intenta
+comprender qué pasa en cada sentencia del script. Luego contesta:
+2.1. ¿Cuántas columnas posee la tabla “creador”?
+c. 2
+2.2. ¿Cuántas columnas numéricas posee la tabla “personaje”?
+a. 6
+2.3. ¿Cuántas columnas de la tabla “personaje” pueden ser nulas?
+b. 1
+2.4. ¿Qué significa la primera línea del script?
+c. Elimina la base de datos en caso de ya estar creada.
+3. Elimina la base de datos “superhéroes.sql”
+ drop database superheroes;
+
+-- ACTIVIDAD 5
+
+Volveremos a abrir y ejecutar el script “superhéroe”. 
+Hasta el momento, nuestra base de datos “superhéroe” se encuentra vacía. Sólo tenemos la 
+estructura (tablas y columnas). Por lo que ahora es el turno de insertar registros en cada tabla. 
+A continuación, te mostramos el modelo Entidad-Relación de la tabla superhéroe
+
+-- a) Primero insertar en la tabla “creador” los siguientes datos
+
+INSERT INTO creador (nombre) VALUES ('Marvel');
+INSERT INTO creador (nombre) VALUES ('DC Comics');
+
+-- b) Ahora, continuaremos insertando registros en la tabla personaje
+
+INSERT INTO personajes (nombre_real, personaje, inteligencia, fuerza, velocidad, poder, aparicion, ocupacion, id_creador)
+values ('Bruce Banner', 'Hulk', 160, '600 mil', 75, 98, 1962, 'Fisico Nuclear',1);	
+
+Tony Stark, Iron Man, 170, 200mil, 70, 123, 1963, Inventor Industrial, 1
+Thor Odinson, Thor, 145, infinita, 100, 235, 1962, Rey de Asgard, 1
+Wanda Maximoff, Bruja Escarlata, 170, 100mil, 90, 345, 1964, Bruja, 1
+Carol Danvers, CapitanaMarvel, 157, 250mil, 85, 128, 1968, Oficial de inteligencia, 1
+Thanos, Thanos, 170, infinita, 40, 306, 1973, Adorador de la muerte, 1
+Peter Parker, Spiderman, 165, 25mil, 80, 74, 1962, Fotografo, 1
+Steve Rogers, Capitan America, 145, 600, 45, 60, 1941, Oficial Federal, 1
+Bobby Drake, Ice Man, 140, 2mil, 64, 122, 1963, Contador, 1
+Barry Allen, Flash, 160, 10mil, 120, 168, 1956, Cientifico Forense, 2
+Bruce Wayne, Batman, 170, 500, 32, 47, 1939, Hombre de negocios, 2
+Clarck Kent, Superman, 165, infinita, 120, 182, 1948, Reportero, 2
+Diana Prince, Mujer Maravilla, 160, infinita, 95, 127,1949, Princesa guerrera, 2
+
+-- a) Cambiar en la tabla personajes el año de aparición a 1938 del personaje Superman.
+
+UPDATE personajes SET aparicion = 1938 WHERE personaje = 'Superman'  ORDER BY id_personaje LIMIT 1 ;
+
+-- b) Eliminar el registro que contiene al personaje Flash. 
+
+DELETE FROM personajes WHERE personaje = 'Flash' ORDER BY id_personaje LIMIT 1;
+
+-- ACTIVIDAD 6
+
+-- a) Ahora veamos cómo ha quedado la tabla “superheroes” que creaste anteriormente. Para ello
+-- necesitarás una consulta de tipo SELECT.
+
+select * from personajes;
+
+-- b) Realiza una consulta que devuelva todos los valores de la columna “nombre_real” de la tabla
+-- superhéroe.
+
+select nombre_real from personajes; 
+
+-- c) Realiza una consulta que devuelva todos los nombres reales de los personajes cuyo nombre
+-- empieza con “B”
+
+select nombre_real from personajes where nombre_real like 'B%';
+
+
+-- ACTIVIDAD 7
+
+-- Pongamos a prueba esta nueva cláusula: order by. Seguiremos trabajando con la tabla 
+-- “superhéroe”. Realiza una consulta que devuelva todos los registros ordenados por “inteligencia”.
+
+-- ACENDENTE 
+select inteligencia from personajes order by inteligencia ASC;
+-- DESCENDENTE
+select inteligencia from personajes order by inteligencia desc; 
+
+
+
