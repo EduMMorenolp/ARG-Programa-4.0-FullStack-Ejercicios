@@ -58,6 +58,3 @@ select inteligencia from personajes order by inteligencia ASC;
 -- DESCENDENTE
 select inteligencia from personajes order by inteligencia desc; 
 
- 
-
-
