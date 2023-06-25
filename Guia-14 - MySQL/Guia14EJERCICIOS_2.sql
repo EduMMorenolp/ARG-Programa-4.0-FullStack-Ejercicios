@@ -72,6 +72,13 @@ select * from producto where codigo_fabricante in (1,3,5);
 select nombre from producto where nombre like '%Portatil%';
 
 
+-- CONSULTAS MULTITABLA
+
+-- 1. Devuelve una lista con el código del producto, nombre del producto, código del fabricante 
+-- y nombre del fabricante, de todos los productos de la base de datos
+
+select p.codigo, p.nombre, f.codigo, f.nombre from producto p inner join fabricante f on p.codigo_fabricante = f.codigo;
+
 
 
 
