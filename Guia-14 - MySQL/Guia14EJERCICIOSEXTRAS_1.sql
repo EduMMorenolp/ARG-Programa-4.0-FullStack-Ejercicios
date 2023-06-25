@@ -51,3 +51,4 @@ SELECT j.Nombre, SUM(e.Puntos_por_partido) AS Total_Puntos FROM jugadores j INNE
 SELECT e.Nombre AS Nombre_equipo, COUNT(j.codigo) AS Numero_jugadores FROM equipos e INNER JOIN jugadores j ON e.Nombre = j.Nombre_equipo GROUP BY e.Nombre;
 
 -- 12. Mostrar el jugador que más puntos ha realizado en toda su carrera.
+
