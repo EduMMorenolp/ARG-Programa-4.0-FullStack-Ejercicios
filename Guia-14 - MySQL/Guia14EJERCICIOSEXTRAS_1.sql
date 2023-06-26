@@ -52,3 +52,18 @@ SELECT e.Nombre AS Nombre_equipo, COUNT(j.codigo) AS Numero_jugadores FROM equip
 
 -- 12. Mostrar el jugador que más puntos ha realizado en toda su carrera.
 
+SELECT j.Nombre AS Nombre_jugador, SUM(e.Puntos_por_partido) AS Total_puntos FROM jugadores j INNER JOIN estadisticas e ON j.codigo = e.jugador GROUP BY j.codigo, j.Nombre HAVING SUM(e.Puntos_por_partido) = ( SELECT MAX(total_puntos) FROM (SELECT jugador, SUM(Puntos_por_partido) AS total_puntos FROM estadisticas GROUP BY jugador ) AS subquery);
+
+-- 13. Mostrar el nombre del equipo, conferencia y división del jugador más alto de la NBA.
+
+SELECT e.Nombre AS Nombre_equipo, e.Conferencia, e.Division FROM jugadores j INNER JOIN equipos e ON j.Nombre_equipo = e.Nombre WHERE j.Altura = (SELECT MAX(Altura) FROM jugadores);
+
+-- 14. Mostrar el partido o partidos (equipo_local, equipo_visitante y diferencia) con mayor
+-- diferencia de puntos.
+
+SELECT p.equipo_local, p.equipo_visitante, ABS(p.puntos_local - p.puntos_visitante) AS diferencia FROM partidos p WHERE ABS(p.puntos_local - p.puntos_visitante) = (SELECT MAX(ABS(puntos_local - puntos_visitante))FROM partidos);
+
+-- 15. Mostrar quien gana en cada partido (codigo, equipo_local, equipo_visitante,
+-- equipo_ganador), en caso de empate sera null.
+
+SELECT codigo, equipo_local, equipo_visitante, CASE WHEN puntos_local > puntos_visitante THEN equipo_local WHEN puntos_local < puntos_visitante THEN equipo_visitante ELSE NULL END AS equipo_ganador FROM partidos;
