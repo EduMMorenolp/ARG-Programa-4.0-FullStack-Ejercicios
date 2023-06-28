@@ -118,14 +118,17 @@ SELECT id_depto, AVG(sal_emp) AS salario_promedio FROM empleados GROUP BY id_dep
 -- 25. Hallar los departamentos que tienen más de tres empleados. Mostrar el número de
 -- empleados de esos departamentos
 
-SELECT id_depto, COUNT(*) AS cantidad_empleados FROM empleados GROUP BY id_depto HAVING COUNT(*) > 3; 
+SELECT cargo_emp, COUNT(*) AS cantidad_empleados FROM empleados GROUP BY cargo_emp HAVING COUNT(*) > 3; 
 
 -- 26. Hallar los departamentos que no tienen empleados
 
-SELECT id_depto FROM departamentos WHERE id_depto NOT IN (SELECT id_depto FROM empleados);
+SELECT id_depto FROM departamentos WHERE id_depto NOT IN (SELECT cargo_emp FROM empleados);
 -- SELECT d.id_depto FROM departamentos d LEFT JOIN empleados e ON d.id_depto = e.id_depto WHERE e.id_emp IS NULL;
 
--- 27 ???? 
+-- 27. Mostrar la lista de empleados, con su respectivo departamento y el jefe de cada departamento
+
+select nombre, cargo_emp, nombre_jefe_depto from empleados right join departamentos on empleados.id_depto=departamentos.id_depto;
+
 -- 28. Mostrar la lista de los empleados cuyo salario es mayor o igual que el promedio de la
 -- empresa. Ordenarlo por departamento
 

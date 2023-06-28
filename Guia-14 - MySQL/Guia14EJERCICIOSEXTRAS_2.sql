@@ -134,4 +134,56 @@ SELECT c.nombre_cliente, e.nombre AS nombre_representante, o.ciudad AS ciudad_of
 -- 5. Devuelve el nombre de los clientes que no hayan hecho pagos y el nombre de sus 
 -- representantes junto con la ciudad de la oficina a la que pertenece el representante
 
+SELECT c.nombre_cliente, e.nombre AS nombre_representante, o.ciudad AS ciudad_oficina FROM cliente c INNER JOIN empleado e ON c.codigo_empleado_rep_ventas = e.codigo_empleado INNER JOIN oficina o ON e.codigo_oficina = o.codigo_oficina LEFT JOIN pago p ON c.codigo_cliente = p.codigo_cliente WHERE p.codigo_cliente IS NULL;
+
+-- 6. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada.
+
+SELECT o.linea_direccion1, o.linea_direccion2, o.ciudad, o.pais FROM oficina o WHERE o.codigo_oficina IN (SELECT e.codigo_oficina FROM empleado e INNER JOIN cliente c ON e.codigo_empleado = c.codigo_empleado_rep_ventas WHERE c.ciudad = 'Fuenlabrada');
+
+-- 7. Devuelve el nombre de los clientes y el nombre de sus representantes junto con la ciudad 
+-- de la oficina a la que pertenece el representante.
+
+select c.nombre_cliente, e.nombre, o.ciudad from cliente c inner join empleado e on e.codigo_empleado = e.codigo_empleado inner join oficina o on o.codigo_oficina = e.codigo_oficina ;
+
+-- 8. Devuelve un listado con el nombre de los empleados junto con el nombre de sus jefes.
+
+select e.nombre as nombre_empleado, j.nombre as nombre_jefe from empleado e left join empleado j on e.codigo_jefe = j.codigo_empleado;
+
+-- 9. Devuelve el nombre de los clientes a los que no se les ha entregado a tiempo un pedido.
+
+SELECT c.nombre_cliente FROM cliente c INNER JOIN pedido p ON c.codigo_cliente = p.codigo_cliente WHERE p.fecha_entrega > p.fecha_esperada;
+
+-- 10. Devuelve un listado de las diferentes gamas de producto que ha comprado cada cliente.
+
+SELECT c.codigo_cliente, c.nombre_cliente, GROUP_CONCAT(DISTINCT p.gama SEPARATOR ', ') AS gamas_compradas FROM cliente c INNER JOIN pedido pd ON c.codigo_cliente = pd.codigo_cliente INNER JOIN detalle_pedido dp ON pd.codigo_pedido = dp.codigo_pedido INNER JOIN producto p ON dp.codigo_producto = p.codigo_producto GROUP BY c.codigo_cliente, c.nombre_cliente;
+
+/*
+Consultas multitabla (Composición externa)
+Resuelva todas las consultas utilizando las cláusulas LEFT JOIN, RIGHT JOIN, JOIN.
+*/
+
+-- 1. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago
+
+SELECT c.codigo_cliente, c.nombre_cliente FROM cliente c LEFT JOIN pago p ON c.codigo_cliente = p.codigo_cliente WHERE p.codigo_cliente IS NULL;
+
+-- 2. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pedido.
+
+SELECT c.codigo_cliente, c.nombre_cliente FROM cliente c LEFT JOIN pedido p ON c.codigo_cliente = p.codigo_cliente WHERE p.codigo_cliente IS NULL;
+
+-- 3. Devuelve un listado que muestre los clientes que no han realizado ningún pago y los que no han realizado ningún pedido
+
+SELECT c.codigo_cliente, c.nombre_cliente, 'Sin pago' AS tipo FROM cliente c LEFT JOIN pago p ON c.codigo_cliente = p.codigo_cliente WHERE p.codigo_cliente IS NULL UNION SELECT c.codigo_cliente, c.nombre_cliente, 'Sin pedido' AS tipo FROM cliente c LEFT JOIN pedido pd ON c.codigo_cliente = pd.codigo_cliente WHERE pd.codigo_cliente IS NULL;
+
+-- 4. Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes 
+-- junto con la ciudad de la oficina a la que pertenece el representante.
+
+select c.nombre_cliente,p.id_transaccion, e.nombre as nombre_representante , o.region from cliente c join pago p on c.codigo_cliente = p.codigo_cliente join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado join oficina o on o.codigo_oficina = e.codigo_oficina;
+
+-- 5. Devuelve el nombre de los clientes que no hayan hecho pagos y el nombre de sus 
+-- representantes junto con la ciudad de la oficina a la que pertenece el representante.
+
+SELECT c.nombre_cliente, e.nombre AS representante, o.ciudad AS ciudad_oficina FROM cliente c LEFT JOIN pago p ON c.codigo_cliente = p.codigo_cliente JOIN empleado e ON c.codigo_empleado_rep_ventas = e.codigo_empleado JOIN oficina o ON e.codigo_oficina = o.codigo_oficina WHERE p.codigo_cliente IS NULL;
+
+-- 6. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada.
+
 
