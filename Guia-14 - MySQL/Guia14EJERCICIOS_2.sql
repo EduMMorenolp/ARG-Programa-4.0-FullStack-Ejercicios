@@ -79,15 +79,58 @@ select nombre from producto where nombre like '%Portatil%';
 
 select p.codigo, p.nombre, f.codigo, f.nombre from producto p inner join fabricante f on p.codigo_fabricante = f.codigo;
 
+/*
+-- 2. Devuelve una lista con el nombre del producto, precio y nombre de fabricante de todos 
+los productos de la base de datos. Ordene el resultado por el nombre del fabricante, por 
+orden alfabético.
+*/
+
+SELECT p.codigo, p.nombre, precio, codigo_fabricante, f.codigo, f.nombre from producto p join fabricante f on f.codigo = p.codigo_fabricante order by f.nombre asc; 
+
+-- 3. Devuelve el nombre del producto, su precio y el nombre de su fabricante, del producto más barato. 
+
+SELECT p.codigo, p.nombre, precio, codigo_fabricante, f.codigo, f.nombre from producto p join fabricante f on f.codigo = p.codigo_fabricante order by precio asc limit 1;
+
+-- 4. Devuelve una lista de todos los productos del fabricante Lenovo.
+
+select * , f.nombre from producto p join fabricante f on f.codigo=p.codigo_fabricante where f.nombre= "Lenovo";
+
+-- 5. Devuelve una lista de todos los productos del fabricante Crucial que tengan un precio mayor que $200
+
+select * , f.nombre from producto p join fabricante f on f.codigo=p.codigo_fabricante where f.nombre = "crucial" and precio > 200;
+
+-- 6. Devuelve un listado con todos los productos de los fabricantes Asus, Hewlett-Packard. Utilizando el operador IN
+
+select * , f.nombre from producto p join fabricante f on f.codigo=p.codigo_fabricante where f.nombre in("Asus", "Hewlett-Packard");
+
+/*
+-- 7. Devuelve un listado con el nombre de producto, precio y nombre de fabricante, de todos 
+los productos que tengan un precio mayor o igual a $180. Ordene el resultado en primer 
+lugar por el precio (en orden descendente) y en segundo lugar por el nombre (en orden 
+ascendente)
+*/
+
+select p.nombre, precio, f.nombre from producto p join fabricante f on f.codigo = p.codigo_fabricante where precio > 180 order by precio desc, p.nombre asc;
+
+/*
+1. Devuelve un listado de todos los fabricantes que existen en la base de datos, junto con los 
+productos que tiene cada uno de ellos. El listado deberá mostrar también aquellos 
+fabricantes que no tienen productos asociados.
+*/
+
+SELECT f.nombre, p.nombre from fabricante f left join producto p on f.codigo = p.codigo_fabricante;
+
 -- 2. Devuelve un listado donde sólo aparezcan aquellos fabricantes que no tienen ningún 
 -- producto asociado
 
 select f.codigo, f.nombre from fabricante f left join producto p on p.codigo_fabricante = f.codigo where p.codigo_fabricante is null;
 
+
+/*
 -- Subconsultas (En la cláusula WHERE)
 -- Con operadores básicos de comparación
-
 -- 1. Devuelve todos los productos del fabricante Lenovo. (Sin utilizar INNER JOIN).
+*/
 
 SELECT * FROM producto WHERE codigo_fabricante = ( SELECT codigo FROM fabricante WHERE nombre LIKE '%Lenovo%');
 

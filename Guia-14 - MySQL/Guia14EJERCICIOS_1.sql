@@ -120,6 +120,9 @@ SELECT id_depto, AVG(sal_emp) AS salario_promedio FROM empleados GROUP BY id_dep
 
 SELECT cargo_emp, COUNT(*) AS cantidad_empleados FROM empleados GROUP BY cargo_emp HAVING COUNT(*) > 3; 
 
+-- por departamento usando sentencia join.
+select nombre_depto, count(nombre) from empleados e join departamentos d on d.id_depto=e.id_depto group by nombre_depto having count(nombre)>3;
+
 -- 26. Hallar los departamentos que no tienen empleados
 
 SELECT id_depto FROM departamentos WHERE id_depto NOT IN (SELECT cargo_emp FROM empleados);
