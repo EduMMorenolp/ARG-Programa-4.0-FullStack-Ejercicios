@@ -174,16 +174,86 @@ SELECT c.codigo_cliente, c.nombre_cliente FROM cliente c LEFT JOIN pedido p ON c
 
 SELECT c.codigo_cliente, c.nombre_cliente, 'Sin pago' AS tipo FROM cliente c LEFT JOIN pago p ON c.codigo_cliente = p.codigo_cliente WHERE p.codigo_cliente IS NULL UNION SELECT c.codigo_cliente, c.nombre_cliente, 'Sin pedido' AS tipo FROM cliente c LEFT JOIN pedido pd ON c.codigo_cliente = pd.codigo_cliente WHERE pd.codigo_cliente IS NULL;
 
--- 4. Devuelve el nombre de los clientes que han hecho pagos y el nombre de sus representantes 
--- junto con la ciudad de la oficina a la que pertenece el representante.
+-- 4. Devuelve un listado que muestre solamente los empleados que no tienen una oficina asociada.
 
-select c.nombre_cliente,p.id_transaccion, e.nombre as nombre_representante , o.region from cliente c join pago p on c.codigo_cliente = p.codigo_cliente join empleado e on c.codigo_empleado_rep_ventas = e.codigo_empleado join oficina o on o.codigo_oficina = e.codigo_oficina;
+SELECT e.* FROM empleado e left JOIN oficina o ON e.codigo_oficina = o.codigo_oficina WHERE o.codigo_oficina IS NULL;
 
--- 5. Devuelve el nombre de los clientes que no hayan hecho pagos y el nombre de sus 
--- representantes junto con la ciudad de la oficina a la que pertenece el representante.
+-- 5. Devuelve un listado que muestre solamente los empleados que no tienen un cliente asociado.
 
-SELECT c.nombre_cliente, e.nombre AS representante, o.ciudad AS ciudad_oficina FROM cliente c LEFT JOIN pago p ON c.codigo_cliente = p.codigo_cliente JOIN empleado e ON c.codigo_empleado_rep_ventas = e.codigo_empleado JOIN oficina o ON e.codigo_oficina = o.codigo_oficina WHERE p.codigo_cliente IS NULL;
+SELECT e.* FROM empleado e LEFT JOIN cliente c ON e.codigo_empleado = c.codigo_empleado_rep_ventas WHERE c.codigo_empleado_rep_ventas IS NULL;
 
--- 6. Lista la dirección de las oficinas que tengan clientes en Fuenlabrada.
+-- 6. Devuelve un listado que muestre los empleados que no tienen una oficina asociada y los 
+-- que no tienen un cliente asociado.
+
+SELECT e.* FROM empleado e LEFT JOIN oficina o ON e.codigo_oficina = o.codigo_oficina LEFT JOIN cliente c ON e.codigo_empleado = c.codigo_empleado_rep_ventas WHERE o.codigo_oficina IS NULL AND c.codigo_empleado_rep_ventas IS NULL;
+
+-- 7. Devuelve un listado de los productos que nunca han aparecido en un pedido.
+
+SELECT p.* FROM producto p LEFT JOIN detalle_pedido dp ON p.codigo_producto = dp.codigo_producto WHERE dp.codigo_producto IS NULL;
+
+/*
+8. Devuelve las oficinas donde no trabajan ninguno de los empleados que hayan sido los 
+representantes de ventas de algún cliente que haya realizado la compra de algún producto 
+de la gama Frutales
+*/
+
+SELECT o.* FROM oficina o LEFT JOIN empleado e ON o.codigo_oficina = e.codigo_oficina LEFT JOIN cliente c ON e.codigo_empleado = c.codigo_empleado_rep_ventas LEFT JOIN pedido p ON c.codigo_cliente = p.codigo_cliente LEFT JOIN detalle_pedido dp ON p.codigo_pedido = dp.codigo_pedido LEFT JOIN producto pr ON dp.codigo_producto = pr.codigo_producto LEFT JOIN gama_producto gp ON pr.gama = gp.gama WHERE gp.gama = 'Frutales' AND e.codigo_empleado IS NULL;
+
+-- 9. Devuelve un listado con los clientes que han realizado algún pedido, pero no han realizado ningún pago.
+
+SELECT c.* FROM cliente c INNER JOIN pedido p ON c.codigo_cliente = p.codigo_cliente LEFT JOIN pago pa ON c.codigo_cliente = pa.codigo_cliente WHERE pa.codigo_cliente IS NULL;
+
+-- 10. Devuelve un listado con los datos de los empleados que no tienen clientes asociados y el 
+-- nombre de su jefe asociado
+
+SELECT e1.*, e2.nombre AS nombre_jefe FROM empleado e1 LEFT JOIN empleado e2 ON e1.codigo_jefe = e2.codigo_empleado WHERE e1.codigo_empleado NOT IN (SELECT codigo_empleado_rep_ventas FROM cliente);
+
+-- Consultas resumen
+
+-- 1. ¿Cuántos empleados hay en la compañía?
+
+select count(codigo_empleado) as cant_empleados from empleado;
+
+-- 2. ¿Cuántos clientes tiene cada país?
+
+select pais, count(*) as cant_clientes from cliente group by pais;
+
+-- 3. ¿Cuál fue el pago medio en 2009?
+
+select avg(total) as pago_medio from pago WHERE fecha_pago >= '2009-01-01' AND fecha_pago <= '2009-12-31'; 
+
+-- 4. ¿Cuántos pedidos hay en cada estado? Ordena el resultado de forma descendente por el número de pedidos
+
+SELECT estado, COUNT(*) AS cantidad_pedidos FROM pedido GROUP BY estado ORDER BY cantidad_pedidos DESC;
+
+-- 5. Calcula el precio de venta del producto más caro y más barato en una misma consulta.
+
+SELECT MAX(precio_venta) AS precio_mas_caro, MIN(precio_venta) AS precio_mas_barato FROM producto;
+
+-- 6. Calcula el número de clientes que tiene la empresa.
+
+select count(*) as cantidad_clientes from cliente;
+
+-- 7. ¿Cuántos clientes tiene la ciudad de Madrid?
+
+select count(*) as cantidad_clientes from cliente where ciudad = 'Madrid';
+
+-- 8. ¿Calcula cuántos clientes tiene cada una de las ciudades que empiezan por M?
+
+select ciudad, count(*) as cantidad_clientes from cliente where ciudad like 'M%' group by ciudad;
+
+-- 9. Devuelve el nombre de los representantes de ventas y el número de clientes al que atiende cada uno.
+
+select e.nombre, count(c.codigo_cliente) as num_clientes from empleado e inner join cliente c on c.codigo_empleado_rep_ventas = e.codigo_empleado group by e.nombre;
+
+-- 10. Calcula el número de clientes que no tiene asignado representante de ventas.
+
+SELECT COUNT(*) AS cantidad_clientes_sin_representante FROM cliente WHERE codigo_empleado_rep_ventas IS NULL;
+
+-- 11. Calcula la fecha del primer y último pago realizado por cada uno de los clientes. El listado deberá mostrar el nombre y los apellidos de cada cliente
+
+SELECT c.nombre_cliente, c.nombre_contacto, c.apellido_contacto, MIN(pa.fecha_pago) AS primera_fecha_pago, MAX(pa.fecha_pago) AS ultima_fecha_pago FROM cliente c right JOIN pago pa ON c.codigo_cliente = pa.codigo_cliente GROUP BY c.codigo_cliente, c.nombre_cliente, c.nombre_contacto, c.apellido_contacto;
+
+-- 12. Calcula el número de productos diferentes que hay en cada uno de los pedidos
 
 
