@@ -259,9 +259,210 @@ SELECT c.nombre_cliente, c.nombre_contacto, c.apellido_contacto, MIN(pa.fecha_pa
 SELECT codigo_pedido, COUNT(DISTINCT codigo_producto) AS cantidad_productos_diferentes FROM detalle_pedido GROUP BY codigo_pedido;
 
 -- 13. Calcula la suma de la cantidad total de todos los productos que aparecen en cada uno de los pedidos
--- NO HECHO
-select dp.codigo_pedido, COUNT(DISTINCT dp.codigo_producto) as cant_productos, count(po.precio_venta) from detalle_pedido dp join pedido p on p.codigo_pedido = dp.codigo_pedido join producto po on po.codigo_p = dp.codigo_pedido GROUP BY dp.codigo_pedido ;
 
--- CONSULTAS HECHAS.... 
-SELECT distinct emp.nombre, c.nombre_cliente, p.codigo_pedido, p.fecha_pedido, p.comentarios, dp.codigo_producto, dp.precio_unidad, dp.cantidad, pa.total from detalle_pedido dp join pedido p on dp.codigo_pedido=p.codigo_pedido join cliente c on p.codigo_cliente=c.codigo_cliente join empleado emp on c.codigo_empleado_rep_ventas= emp.codigo_empleado join pago pa on c.codigo_cliente= pa.codigo_cliente;
+select *, (cantidad * precio_unidad) as suma_productos from detalle_pedido;
 
+/*
+14. Devuelve un listado de los 20 productos más vendidos y el número total de unidades que 
+se han vendido de cada uno. El listado deberá estar ordenado por el número total de 
+unidades vendidas.
+*/
+
+SELECT p.codigo_producto, p.nombre, SUM(dp.cantidad) AS total_unidades_vendidas FROM producto p JOIN detalle_pedido dp ON p.codigo_producto = dp.codigo_producto GROUP BY p.codigo_producto, p.nombre ORDER BY total_unidades_vendidas DESC LIMIT 20;
+
+/*
+15. La facturación que ha tenido la empresa en toda la historia, indicando la base imponible, el 
+IVA y el total facturado. La base imponible se calcula sumando el coste del producto por el 
+número de unidades vendidas de la tabla detalle_pedido. El IVA es el 21 % de la base 
+imponible, y el total la suma de los dos campos anteriores.
+*/
+
+SELECT
+  SUM(dp.cantidad * p.precio_venta) AS base_imponible,
+  SUM(dp.cantidad * p.precio_venta * 0.21) AS iva,
+  SUM(dp.cantidad * p.precio_venta) + SUM(dp.cantidad * p.precio_venta * 0.21) AS total_facturado
+FROM detalle_pedido dp
+JOIN producto p ON dp.codigo_producto = p.codigo_producto;
+
+-- 16. La misma información que en la pregunta anterior, pero agrupada por código de producto
+
+SELECT
+  SUM(dp.cantidad * p.precio_venta) AS base_imponible,
+  SUM(dp.cantidad * p.precio_venta * 0.21) AS iva,
+  SUM(dp.cantidad * p.precio_venta) + SUM(dp.cantidad * p.precio_venta * 0.21) AS total_facturado
+FROM detalle_pedido dp
+JOIN producto p ON dp.codigo_producto = p.codigo_producto group by p.codigo_producto;
+
+-- 17. La misma información que en la pregunta anterior, pero agrupada por código de producto 
+-- filtrada por los códigos que empiecen por OR.
+
+SELECT
+  p.codigo_producto,
+  SUM(dp.cantidad * p.precio_venta) AS base_imponible,
+  SUM(dp.cantidad * p.precio_venta * 0.21) AS iva,
+  SUM(dp.cantidad * p.precio_venta) + SUM(dp.cantidad * p.precio_venta * 0.21) AS total_facturado
+FROM detalle_pedido dp
+JOIN producto p ON dp.codigo_producto = p.codigo_producto where p.codigo_producto like 'OR%' group by p.codigo_producto;
+
+/*
+18. Lista las ventas totales de los productos que hayan facturado más de 3000 euros. Se 
+mostrará el nombre, unidades vendidas, total facturado y total facturado con impuestos (21% 
+IVA
+*/
+
+SELECT
+  p.nombre AS nombre_producto,
+  dp.cantidad AS unidades_vendidas,
+  dp.cantidad * p.precio_venta AS total_facturado,
+  dp.cantidad * p.precio_venta * 1.21 AS total_facturado_con_impuestos
+FROM detalle_pedido dp
+JOIN producto p ON dp.codigo_producto = p.codigo_producto
+GROUP BY p.nombre, unidades_vendidas, total_facturado, total_facturado_con_impuestos
+HAVING total_facturado > 3000;
+
+/*
+Subconsultas con operadores básicos de comparación
+*/
+
+-- 1. Devuelve el nombre del cliente con mayor límite de crédito.
+
+select nombre_cliente, limite_credito from cliente order by limite_credito desc limit 1;
+
+SELECT nombre_cliente, limite_credito
+FROM cliente
+WHERE limite_credito = (SELECT MAX(limite_credito) FROM cliente);
+
+-- 2. Devuelve el nombre del producto que tenga el precio de venta más caro.
+
+select nombre, precio_venta from producto where precio_venta = ( select max(precio_venta) from producto );
+
+/*
+3. Devuelve el nombre del producto del que se han vendido más unidades. (Tenga en cuenta 
+que tendrá que calcular cuál es el número total de unidades que se han vendido de cada 
+producto a partir de los datos de la tabla detalle_pedido. Una vez que sepa cuál es el código 
+del producto, puede obtener su nombre fácilmente.)
+*/
+
+SELECT p.nombre
+FROM producto p
+JOIN (
+  SELECT codigo_producto, SUM(cantidad) AS total_unidades
+  FROM detalle_pedido
+  GROUP BY codigo_producto
+  ORDER BY total_unidades DESC
+  LIMIT 1
+) d ON p.codigo_producto = d.codigo_producto;
+
+-- 4. Los clientes cuyo límite de crédito sea mayor que los pagos que haya realizado. (Sin utilizar INNER JOIN)
+
+/*
+La función COALESCE es una función en SQL que se utiliza para devolver el primer valor no nulo de una lista de expresiones.
+ Toma como argumento una lista de expresiones separadas por comas y devuelve el primer valor no nulo de esa lista.
+*/
+
+SELECT nombre_cliente
+FROM cliente
+WHERE limite_credito > (
+  SELECT COALESCE(SUM(total), 0)
+  FROM pago
+  WHERE pago.codigo_cliente = cliente.codigo_cliente
+);
+
+-- 5. Devuelve el producto que más unidades tiene en stock.
+
+select nombre, cantidad_en_stock from producto where cantidad_en_stock = ( select max(cantidad_en_stock) from producto); 
+
+-- 6. Devuelve el producto que menos unidades tiene en stock.
+
+select nombre, cantidad_en_stock from producto where cantidad_en_stock = ( select min(cantidad_en_stock) from producto); 
+
+-- 7. Devuelve el nombre, los apellidos y el email de los empleados que están a cargo de Alberto Soria
+
+SELECT e.nombre, e.apellido1, e.apellido2, e.email
+FROM empleado AS e
+JOIN empleado AS jefe ON e.codigo_jefe = jefe.codigo_empleado
+WHERE jefe.nombre = 'Alberto' AND jefe.apellido1 = 'Soria';
+
+-- Subconsultas con ALL y ANY
+
+/*
+ALL: Este operador se utiliza para comparar un valor con todos los valores resultantes de una subconsulta.
+La condición se considera verdadera si la comparación es verdadera para todos los valores de la subconsulta.
+
+ANY o SOME: Estos operadores se utilizan para comparar un valor con al menos uno de los valores resultantes de una subconsulta.
+ La condición se considera verdadera si la comparación es verdadera para al menos uno de los valores de la subconsulta.
+ 
+ En resumen, ALL se utiliza para comparaciones con todos los valores de una subconsulta,
+ mientras que ANY o SOME se utiliza para comparaciones con al menos uno de los valores de una subconsulta.
+*/
+
+-- 1. Devuelve el nombre del cliente con mayor límite de crédito
+
+SELECT nombre_cliente
+FROM cliente
+WHERE limite_credito >= ALL (SELECT limite_credito FROM cliente);
+
+-- 2. Devuelve el nombre del producto que tenga el precio de venta más caro.
+
+
+select nombre, precio_venta from producto where precio_venta >= ALL ( select precio_venta from producto );
+
+-- 3. Devuelve el producto que menos unidades tiene en stock.
+
+select * from producto where cantidad_en_stock = any ( select min(cantidad_en_stock) from producto );
+
+-- Subconsultas con IN y NOT IN
+
+-- 1. Devuelve el nombre, apellido1 y cargo de los empleados que no representen a ningún cliente
+
+SELECT nombre, apellido1, puesto
+FROM empleado
+WHERE codigo_empleado NOT IN (SELECT codigo_empleado_rep_ventas FROM cliente);
+
+-- 2. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago.
+
+select nombre_cliente from cliente where codigo_cliente not in ( select codigo_cliente from pago);
+
+-- 3. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.
+
+select nombre_cliente from cliente where codigo_cliente in ( select codigo_cliente from pago);
+
+-- 4. Devuelve un listado de los productos que nunca han aparecido en un pedido.
+
+SELECT *
+FROM producto
+WHERE codigo_producto NOT IN (SELECT DISTINCT codigo_producto FROM detalle_pedido);
+
+-- 5. Devuelve el nombre, apellidos, puesto y teléfono de la oficina de aquellos empleados que 
+-- no sean representante de ventas de ningún cliente.
+
+SELECT e.nombre, e.apellido1, e.apellido2, e.puesto, o.telefono
+FROM empleado e
+JOIN oficina o ON e.codigo_oficina = o.codigo_oficina
+WHERE e.codigo_empleado NOT IN (SELECT codigo_empleado_rep_ventas FROM cliente WHERE codigo_empleado_rep_ventas IS NOT NULL);
+
+-- Subconsultas con EXISTS y NOT EXISTS
+
+-- 1. Devuelve un listado que muestre solamente los clientes que no han realizado ningún pago.
+
+SELECT c.nombre_cliente, c.nombre_contacto, c.apellido_contacto
+FROM cliente c
+WHERE NOT EXISTS (SELECT 1 FROM pago p WHERE p.codigo_cliente = c.codigo_cliente);
+
+-- 2. Devuelve un listado que muestre solamente los clientes que sí han realizado ningún pago.
+
+SELECT c.nombre_cliente, c.nombre_contacto, c.apellido_contacto
+FROM cliente c
+WHERE EXISTS (SELECT 1 FROM pago p WHERE p.codigo_cliente = c.codigo_cliente);
+
+-- 3. Devuelve un listado de los productos que nunca han aparecido en un pedido.
+
+SELECT p.codigo_producto, p.nombre
+FROM producto p
+WHERE NOT EXISTS (SELECT 1 FROM detalle_pedido dp WHERE dp.codigo_producto = p.codigo_producto);
+
+-- 4. Devuelve un listado de los productos que han aparecido en un pedido alguna vez.
+
+SELECT p.codigo_producto, p.nombre
+FROM producto p
+WHERE EXISTS (SELECT 1 FROM detalle_pedido dp WHERE dp.codigo_producto = p.codigo_producto);
