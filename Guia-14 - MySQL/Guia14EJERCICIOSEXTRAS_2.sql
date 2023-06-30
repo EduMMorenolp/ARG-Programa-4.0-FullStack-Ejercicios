@@ -256,4 +256,12 @@ SELECT c.nombre_cliente, c.nombre_contacto, c.apellido_contacto, MIN(pa.fecha_pa
 
 -- 12. Calcula el número de productos diferentes que hay en cada uno de los pedidos
 
+SELECT codigo_pedido, COUNT(DISTINCT codigo_producto) AS cantidad_productos_diferentes FROM detalle_pedido GROUP BY codigo_pedido;
+
+-- 13. Calcula la suma de la cantidad total de todos los productos que aparecen en cada uno de los pedidos
+-- NO HECHO
+select dp.codigo_pedido, COUNT(DISTINCT dp.codigo_producto) as cant_productos, count(po.precio_venta) from detalle_pedido dp join pedido p on p.codigo_pedido = dp.codigo_pedido join producto po on po.codigo_p = dp.codigo_pedido GROUP BY dp.codigo_pedido ;
+
+-- CONSULTAS HECHAS.... 
+SELECT distinct emp.nombre, c.nombre_cliente, p.codigo_pedido, p.fecha_pedido, p.comentarios, dp.codigo_producto, dp.precio_unidad, dp.cantidad, pa.total from detalle_pedido dp join pedido p on dp.codigo_pedido=p.codigo_pedido join cliente c on p.codigo_cliente=c.codigo_cliente join empleado emp on c.codigo_empleado_rep_ventas= emp.codigo_empleado join pago pa on c.codigo_cliente= pa.codigo_cliente;
 
