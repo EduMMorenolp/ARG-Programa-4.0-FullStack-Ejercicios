@@ -67,3 +67,10 @@ SELECT p.equipo_local, p.equipo_visitante, ABS(p.puntos_local - p.puntos_visitan
 -- equipo_ganador), en caso de empate sera null.
 
 SELECT codigo, equipo_local, equipo_visitante, CASE WHEN puntos_local > puntos_visitante THEN equipo_local WHEN puntos_local < puntos_visitante THEN equipo_visitante ELSE NULL END AS equipo_ganador FROM partidos;
+
+-- MENTORA EJERCICIO
+SELECT partidos.codigo, partidos.equipo_local, partidos.equipo_visitante, equipos.Nombre as 'Equipo ganador'
+FROM partidos JOIN equipos ON partidos.equipo_local or partidos.equipo_visitante = equipos.Nombre
+WHERE equipos.Nombre in ((SELECT equipo_local FROM equipos WHERE puntos_local> puntos_visitante limit 1), 
+(SELECT equipo_visitante FROM equipos WHERE puntos_local< puntos_visitante limit 1), (SELECT equipo_visitante FROM equipos WHERE puntos_local= puntos_visitante limit 1))
+LIMIT 0, 1000 ;

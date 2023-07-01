@@ -56,35 +56,111 @@ WHERE p.nombre = 'Arbok';
 
 -- 8. Mostrar aquellos pokemon que evolucionan por intercambio.
 
-/*
-NO ME SALIO .... 
-select * from nivel_aprendizaje;
-select * from forma_aprendizaje;
-select * from pokemon_forma_evolucion;
-select * from tipo_forma_aprendizaje;
 SELECT p.nombre
 FROM pokemon p
-JOIN forma_aprendizaje fa ON fa.id_forma_aprendizaje = p.numero_pokedex
-JOIN tipo_forma_aprendizaje tfa ON tfa.id_tipo_aprendizaje = fa.id_tipo_aprendizaje
-WHERE tfa.tipo_aprendizaje = 'Intercambio';
-*/
+JOIN pokemon_forma_evolucion pfe ON pfe.numero_pokedex = p.numero_pokedex
+JOIN forma_evolucion fe ON fe.id_forma_evolucion = pfe.id_forma_evolucion
+join tipo_evolucion te on te.id_tipo_evolucion = fe.id_forma_evolucion
+WHERE te.tipo_evolucion = 'Intercambio';
 
 -- 9. Mostrar el nombre del movimiento con más prioridad.
 
+SELECT nombre
+FROM movimiento
+WHERE prioridad = (SELECT MAX(prioridad) FROM movimiento);
 
-/*
-10. Mostrar el pokemon más pesado.
-11. Mostrar el nombre y tipo del ataque con más potencia.
-12. Mostrar el número de movimientos de cada tipo.
-13. Mostrar todos los movimientos que puedan envenenar.
-14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
-15. Mostrar todos los movimientos que aprende pikachu.
-16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
-17. Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel.
-18. Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%.
-19. Mostrar todos los pokemon que evolucionan por piedra. 
-20. Mostrar todos los pokemon que no pueden evolucionar. 
-21. Mostrar la cantidad de los pokemon de cada tipo. 
-*/
+-- 10. Mostrar el pokemon más pesado.
 
+select nombre from pokemon where peso = ( select max(peso) from pokemon );
 
+-- 11. Mostrar el nombre y tipo del ataque con más potencia.
+
+SELECT m.nombre, t.nombre as tipo , m.potencia 
+FROM movimiento m
+JOIN tipo t ON m.id_tipo = t.id_tipo
+WHERE m.potencia = (SELECT MAX(potencia) FROM movimiento);
+
+-- 12. Mostrar el número de movimientos de cada tipo.
+
+SELECT t.nombre AS tipo, COUNT(*) AS cantidad_movimientos
+FROM movimiento m
+JOIN tipo t ON m.id_tipo = t.id_tipo
+GROUP BY t.nombre;
+
+-- 13. Mostrar todos los movimientos que puedan envenenar.
+
+SELECT m.nombre
+FROM movimiento m
+JOIN movimiento_efecto_secundario nes ON nes.id_movimiento = m.id_movimiento
+JOIN efecto_secundario es ON es.id_efecto_secundario = nes.id_efecto_secundario
+WHERE es.efecto_secundario LIKE 'enve%';
+
+-- 14. Mostrar todos los movimientos que causan daño, ordenados alfabéticamente por nombre.
+
+SELECT nombre FROM movimiento WHERE potencia > 0 ORDER BY nombre ASC;
+
+-- 15. Mostrar todos los movimientos que aprende pikachu.
+
+SELECT m.nombre
+FROM movimiento m
+JOIN pokemon_movimiento_forma pmf ON pmf.id_movimiento = m.id_movimiento
+JOIN forma_aprendizaje fa ON fa.id_forma_aprendizaje = pmf.id_forma_aprendizaje
+JOIN pokemon p ON p.numero_pokedex = pmf.numero_pokedex
+WHERE p.numero_pokedex = 25;
+
+-- 16. Mostrar todos los movimientos que aprende pikachu por MT (tipo de aprendizaje).
+
+SELECT m.nombre
+FROM movimiento m
+JOIN pokemon_movimiento_forma pmf ON pmf.id_movimiento = m.id_movimiento
+JOIN forma_aprendizaje fa ON fa.id_forma_aprendizaje = pmf.id_forma_aprendizaje
+JOIN MT mt ON mt.id_forma_aprendizaje = fa.id_forma_aprendizaje
+JOIN pokemon p ON p.numero_pokedex = pmf.numero_pokedex
+WHERE p.numero_pokedex = 25;
+
+-- 17. Mostrar todos los movimientos de tipo normal que aprende pikachu por nivel.
+
+SELECT m.nombre
+FROM movimiento m
+JOIN pokemon_movimiento_forma pmf ON pmf.id_movimiento = m.id_movimiento
+JOIN forma_aprendizaje fa ON fa.id_forma_aprendizaje = pmf.id_forma_aprendizaje
+JOIN nivel_aprendizaje na ON na.id_forma_aprendizaje = fa.id_forma_aprendizaje
+JOIN pokemon p ON p.numero_pokedex = pmf.numero_pokedex
+JOIN tipo t ON t.id_tipo = m.id_tipo
+WHERE p.numero_pokedex = 25
+  AND t.nombre = 'Normal'
+  AND fa.id_tipo_aprendizaje = 3;
+  
+-- 18. Mostrar todos los movimientos de efecto secundario cuya probabilidad sea mayor al 30%.
+
+SELECT m.nombre, es.efecto_secundario, mes.probabilidad
+FROM movimiento m
+JOIN movimiento_efecto_secundario mes ON mes.id_movimiento = m.id_movimiento
+JOIN efecto_secundario es ON es.id_efecto_secundario = mes.id_efecto_secundario
+WHERE mes.probabilidad > 30;
+
+-- 19. Mostrar todos los pokemon que evolucionan por piedra. 
+
+SELECT p.nombre, f.tipo_evolucion, tp.nombre_piedra
+FROM pokemon p
+JOIN pokemon_forma_evolucion pfe ON pfe.numero_pokedex = p.numero_pokedex
+JOIN forma_evolucion f ON f.id_forma_evolucion = pfe.id_forma_evolucion
+JOIN piedra pi ON pi.id_forma_evolucion = f.id_forma_evolucion
+JOIN tipo_piedra tp ON tp.id_tipo_piedra = pi.id_tipo_piedra;
+
+-- 20. Mostrar todos los pokemon que no pueden evolucionar. 
+
+SELECT p.nombre
+FROM pokemon p
+LEFT JOIN pokemon_forma_evolucion pfe ON pfe.numero_pokedex = p.numero_pokedex
+WHERE pfe.numero_pokedex IS NULL;
+
+-- 21. Mostrar la cantidad de los pokemon de cada tipo. 
+
+SELECT t.nombre AS tipo, COUNT(p.numero_pokedex) AS cantidad
+FROM tipo t
+LEFT JOIN pokemon_tipo pt ON pt.id_tipo = t.id_tipo
+JOIN pokemon p ON p.numero_pokedex = pt.numero_pokedex
+GROUP BY t.nombre;
+
+-- BUEN CICLO Y CIERRE PARA TODAS Y TODOS.... y feliz MySQL ! 
