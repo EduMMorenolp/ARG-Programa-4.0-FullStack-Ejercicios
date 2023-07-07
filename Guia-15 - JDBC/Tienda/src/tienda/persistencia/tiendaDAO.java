@@ -38,24 +38,75 @@ public final class tiendaDAO extends DAO{
     
      public ArrayList<producto> listaProductos() throws Exception {
          try {
-            String sql = "SELECT * FROM producto";
+            String sql = "SELECT * FROM producto ";
             consultarBase(sql);
             producto p;
             ArrayList<producto> productos = new ArrayList();
             while (resultado.next()) {
                 p = new producto();
-                p.setCodigo(resultado.getInt("codigo"));
-                p.setNombre(resultado.getString("nombre"));
-                p.setPrecio(resultado.getInt("precio"));
-                p.setCodigoFabricante(resultado.getInt("codigo_fabricante"));
+                p.setCodigo(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getInt(3));
+                p.setCodigoFabricante(resultado.getInt(4));
                 productos.add(p);
             }
             desconectarBase();
             return productos;
         } catch (Exception e) {
+             System.out.println("ERROR lista productos");
             desconectarBase();
             throw e;
         }
+    }
+     
+    public ArrayList<producto> buscarProductos(String nombre) throws Exception{
+        try{
+           String sql = "SELECT * FROM producto WHERE nombre like '%" + nombre + "%' ";
+            consultarBase(sql);
+            producto p;
+            ArrayList<producto> productos = new ArrayList();
+            while (resultado.next()) {
+                p = new producto();
+                p.setCodigo(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getInt(3));
+                p.setCodigoFabricante(resultado.getInt(4));
+                productos.add(p);
+            }
+            desconectarBase();
+            return productos; 
+            
+            
+        }catch (Exception e) {
+             System.out.println("ERROR buscar productos");
+            desconectarBase();
+            throw e;
+        }      
+    }
+    
+     public ArrayList<producto> buscarProductosMasBaratos() throws Exception{
+        try{
+           String sql = " select * from producto order by precio limit 1 ";
+            consultarBase(sql);
+            producto p;
+            ArrayList<producto> productos = new ArrayList();
+            while (resultado.next()) {
+                p = new producto();
+                p.setCodigo(resultado.getInt(1));
+                p.setNombre(resultado.getString(2));
+                p.setPrecio(resultado.getInt(3));
+                p.setCodigoFabricante(resultado.getInt(4));
+                productos.add(p);
+            }
+            desconectarBase();
+            return productos; 
+            
+            
+        }catch (Exception e) {
+             System.out.println("ERROR buscar productos");
+            desconectarBase();
+            throw e;
+        }      
     }
      
     public void ingresarProducto(producto p) throws Exception {
@@ -63,7 +114,7 @@ public final class tiendaDAO extends DAO{
              if (p == null) {
                 throw new Exception("Error al ingresar el producto");
             }
-            String sql = "INSERT INTO producto VALUES ('" + p.getNombre() + "','" + p.getCodigo() + "','" + p.getCodigoFabricante() + "')"   ;
+            String sql = "INSERT INTO producto (nombre, precio, codigo_fabricante) VALUES ('" + p.getNombre() + "'," + p.getPrecio()+ "," + p.getCodigoFabricante() + ")"   ;
             insertarModificarEliminar(sql); 
         }catch (Exception e) {
             desconectarBase();
@@ -78,7 +129,7 @@ public final class tiendaDAO extends DAO{
              if (f == null) {
                 throw new Exception("Error al ingresar el fabricante");
             }
-            String sql = "INSERT INTO producto VALUES ('" + f.getNombre() + "','" + f.getCodigo()+ "')"   ;
+            String sql = "INSERT INTO fabricante (nombre) VALUES ('" + f.getNombre() + "')"   ;
             insertarModificarEliminar(sql); 
         }catch (Exception e) {
             desconectarBase();
@@ -93,8 +144,8 @@ public final class tiendaDAO extends DAO{
             if (p == null) {
                 throw new Exception("Error al editar el producto");
             }
-            String sql = "UPDATE producto set nombre = '" + p.getNombre()+ "' precio = '" + p.getPrecio()+ "' codigo_fabricante = '" + p.getCodigoFabricante()
-                    + "' where codigo = '" + p.getCodigo() + "'"; 
+            String sql = "UPDATE producto set nombre = '" + p.getNombre()+ "', precio = " + p.getPrecio()+ ", codigo_fabricante = " + p.getCodigoFabricante()
+                    + " where codigo = " + p.getCodigo() + " "; 
             insertarModificarEliminar(sql);
             
         }catch (Exception e) {

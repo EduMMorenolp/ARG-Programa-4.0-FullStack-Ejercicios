@@ -5,6 +5,8 @@
  */
 package tienda;
 
+import tienda.servicios.tiendaServicio;
+
 /**
  *
  * @author no_de
@@ -70,8 +72,14 @@ public class Tienda {
             h) Editar un producto con datos a elección.
          */
         
+        tiendaServicio ts = new tiendaServicio();
+        try{
         
-        
+            ts.Menu();
+            
+        } catch ( Exception e){
+            System.out.println(e);
+        }
     }
 
 }
