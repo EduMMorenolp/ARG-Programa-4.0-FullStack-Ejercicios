@@ -50,7 +50,7 @@ public class tiendaServicio {
                 // c) Listar aquellos productos que su precio esté entre 120 y 202.
                 p = tDAO.listaProductos();
                 for (producto aux : p) {
-                    if (aux.getPrecio() > 120 && aux.getPrecio() < 202) {
+                    if (aux.getPrecio() >= 120 && aux.getPrecio() <= 202) {
                         System.out.println("Nombres: " + aux.getNombre() + "\n Precios: " + aux.getPrecio());
                     }
                 }

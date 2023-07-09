@@ -130,7 +130,7 @@ public final class tiendaDAO extends DAO{
                 throw new Exception("Error al ingresar el fabricante");
             }
             String sql = "INSERT INTO fabricante (nombre) VALUES ('" + f.getNombre() + "')"   ;
-            insertarModificarEliminar(sql); 
+            insertarModificarEliminar(sql);
         }catch (Exception e) {
             desconectarBase();
             throw e;
