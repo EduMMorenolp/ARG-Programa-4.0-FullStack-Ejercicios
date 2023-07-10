@@ -70,8 +70,9 @@ public class estancias {
         this.fecha_desde = fecha_desde;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "estancias{" + "id_cliente=" + id_cliente + ", id_casa=" + id_casa + ", nombre_huesped=" + nombre_huesped + ", fecha_desde=" + fecha_desde + ", fecha_hasta=" + fecha_hasta + '}';
-    }    
-}
+        return "Estancia: " + "\nId del Cliente: " + id_cliente + "\nId de Casa: " + id_casa + "\nNombre del Huesped: " + nombre_huesped + "\nDisponible desde: " + fecha_desde + "\nDisponible hasta: " + fecha_hasta;
+        
+    }
+    }

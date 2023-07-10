@@ -40,6 +40,6 @@ public class comentarios {
 
     @Override
     public String toString() {
-        return "comentarios{" + "id_casa=" + id_casa + ", comentario=" + comentario + '}';
+        return "\n Comentarios : " + "\n id_casa : " + id_casa + "\n Comentario : " + comentario;
     }
 }

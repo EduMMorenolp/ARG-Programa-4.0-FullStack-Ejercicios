@@ -24,12 +24,12 @@ public class familiasDAO extends DAO {
     select * from familias where email like '%hotmail%';
      */
     public ArrayList<familias> listarfamilia(String opc) throws Exception {
-        String sql = "select * from familias";
-//        if ("a".equals(opc)) {
-//            sql = "select * from familias where num_hijos >= 3 and edad_maxima < 10 ";
-//        } else if ("c".equals(opc)) {
-//            sql = "select * from familias where email like '%hotmail%' ";
-//        }
+        String sql = "";
+        if ("a".equals(opc)) {
+            sql = "select * from familias where num_hijos >= 3 and edad_maxima < 10 ";
+        } else if ("c".equals(opc)) {
+            sql = "select * from familias where email like '%hotmail%' ";
+        }
         ArrayList<familias> listafamilias = new ArrayList();
         familias f;
         try {

@@ -5,7 +5,7 @@
  */
 package estancias.entidades;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 /**
  *
@@ -18,8 +18,8 @@ public class casas {
     private String codigo_postal;
     private String ciudad;
     private String pais;
-    private LocalDate fecha_desde;
-    private LocalDate fecha_hasta;
+    private Date fecha_desde;
+    private Date fecha_hasta;
     private int tiempo_minimo;
     private int tiempo_maximo;
     private double precio_habitacion;
@@ -28,7 +28,7 @@ public class casas {
     public casas() {
     }
 
-    public casas(String calle, int numero, String codigo_postal, String ciudad, String pais, LocalDate fecha_desde, LocalDate fecha_hasta, int tiempo_minimo, int tiempo_maximo, double precio_habitacion, String tipo_vivienda) {
+    public casas(String calle, int numero, String codigo_postal, String ciudad, String pais, Date fecha_desde, Date fecha_hasta, int tiempo_minimo, int tiempo_maximo, double precio_habitacion, String tipo_vivienda) {
         this.calle = calle;
         this.numero = numero;
         this.codigo_postal = codigo_postal;
@@ -82,19 +82,19 @@ public class casas {
         this.pais = pais;
     }
 
-    public LocalDate getFecha_desde() {
+    public Date getFecha_desde() {
         return fecha_desde;
     }
 
-    public void setFecha_desde(LocalDate fecha_desde) {
+    public void setFecha_desde(Date fecha_desde) {
         this.fecha_desde = fecha_desde;
     }
 
-    public LocalDate getFecha_hasta() {
+    public Date getFecha_hasta() {
         return fecha_hasta;
     }
 
-    public void setFecha_hasta(LocalDate fecha_hasta) {
+    public void setFecha_hasta(Date fecha_hasta) {
         this.fecha_hasta = fecha_hasta;
     }
 
@@ -132,6 +132,6 @@ public class casas {
 
     @Override
     public String toString() {
-        return "casas{" + "calle=" + calle + ", numero=" + numero + ", codigo_postal=" + codigo_postal + ", ciudad=" + ciudad + ", pais=" + pais + ", fecha_desde=" + fecha_desde + ", fecha_hasta=" + fecha_hasta + ", tiempo_minimo=" + tiempo_minimo + ", tiempo_maximo=" + tiempo_maximo + ", precio_habitacion=" + precio_habitacion + ", tipo_vivienda=" + tipo_vivienda + '}';
-    }  
+        return "Casas : " + "\nCalle: " + calle + "\nNúmero: " + numero + "\nCódigo Postal: " + codigo_postal + "\nCiudad: " + ciudad + "\nPaís: " + pais + "\nDisponible Desde: " + fecha_desde + "\nDisponible Hasta: " + fecha_hasta + "\nEstadia Minimo: " + tiempo_minimo + "\nEstadia Maximo=" + tiempo_maximo + "\nPrecio Habitación: $" + precio_habitacion + "\nTipo de Vivienda: " + tipo_vivienda;
+    } 
 }

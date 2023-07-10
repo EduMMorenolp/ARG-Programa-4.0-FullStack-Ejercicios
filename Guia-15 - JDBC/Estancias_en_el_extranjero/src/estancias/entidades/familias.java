@@ -85,6 +85,6 @@ public class familias {
 
     @Override
     public String toString() {
-        return "familias{" + "nombre=" + nombre + ", edad_minima=" + edad_minima + ", edad_maxima=" + edad_maxima + ", num_hijos=" + num_hijos + ", email=" + email + ", id_casa_familia=" + id_casa_familia + '}';
+        return "Familia: " + "\nNombre: " + nombre + "\nEdad Mínima: " + edad_minima + "\nEdad Máxima: " + edad_maxima + "\nCantida de Hijos: " + num_hijos + "\nEmail: " + email + "\nId de la casa: " + id_casa_familia;
     }
 }

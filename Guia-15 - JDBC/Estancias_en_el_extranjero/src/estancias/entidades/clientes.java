@@ -88,8 +88,8 @@ public class clientes {
         this.pais = pais;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return "clientes{" + "nombre=" + nombre + ", calle=" + calle + ", numero=" + numero + ", codigo_postal=" + codigo_postal + ", ciudad=" + ciudad + ", pais=" + pais + ", email=" + email + '}';
+        return "Cliente: " + "\nNombre: " + nombre + "\nCalle: " + calle + "\nNúmero: " + numero + "\nCódigo Postal: " + codigo_postal + "\nCiudad: " + ciudad + "\nPaís: " + pais + "\nEmail: " + email;
     }
 }

@@ -5,6 +5,7 @@ import estancias.servicios.clientesServicio;
 import estancias.servicios.comentariosServicio;
 import estancias.servicios.estanciasServicio;
 import estancias.servicios.familiasServicio;
+import java.util.Scanner;
 
 /**
  *
@@ -50,11 +51,48 @@ public class EstanciasMain {
         comentariosServicio comentS = new comentariosServicio();
         estanciasServicio estanS = new estanciasServicio();
         familiasServicio famiS = new familiasServicio();
-        try {
 
-            String a = "a";
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+        try {
+            String opc;
+            do{
             mostrarMenu();
-            famiS.listarFamilias(a);
+            opc = leer.next().toLowerCase();
+
+            switch (opc) {
+                case "a":
+                    famiS.listarFamilias(opc);
+                    break;
+                case "b":
+                    casasS.listarCasas(opc);
+                    break;
+                case "c":
+                    famiS.listarFamilias(opc);
+                    break;
+                case "d":
+                    casasS.listarCasas(opc);
+                    break;
+                case "e":
+                case "f":
+                case "g":
+                    casasS.listarCasas(opc);
+                    break;
+                case "h":
+                    casasS.listarCasas(opc);
+                    break;
+                case "i":
+                    casasS.listarCasas(opc);
+                    break;
+                case "j":
+                case "k":
+                    System.out.println("Nos vemos...");
+                    break;
+                default:
+                    System.out.println("OPCION INVALIDA vuelva a ingresar : ");
+                    opc = leer.next().toLowerCase();               
+            }
+            }while ( !"k".equals(opc) );
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -72,6 +110,7 @@ public class EstanciasMain {
                 + "        \n h) Obtener el número de casas que existen para cada uno de los países diferentes."
                 + "        \n i) Casas del Reino Unido de las que se ha dicho de ellas (comentarios) que están ‘limpias’."
                 + "        \n j) Insertar nuevos datos en la tabla estancias verificando la disponibilidad de las fechas."
+                + "        \n k) Salir"
                 + " \n Ingrese la Opcicion Deseada : ");
 
     }
