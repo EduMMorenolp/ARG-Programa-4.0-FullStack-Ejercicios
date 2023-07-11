@@ -67,6 +67,8 @@ public final class tiendaDAO extends DAO{
             ArrayList<producto> productos = new ArrayList();
             while (resultado.next()) {
                 p = new producto();
+                int i = resultado.getInt(0);
+                System.out.println("Resultado = " + i);
                 p.setCodigo(resultado.getInt(1));
                 p.setNombre(resultado.getString(2));
                 p.setPrecio(resultado.getInt(3));
