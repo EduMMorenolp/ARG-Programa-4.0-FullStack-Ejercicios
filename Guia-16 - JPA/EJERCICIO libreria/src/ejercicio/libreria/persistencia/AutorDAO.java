@@ -13,6 +13,10 @@ import ejercicio.libreria.entidades.Autor;
  */
 public class AutorDAO extends DAO<Autor> {
     
+    public void guardarAutor(Autor autor) throws Exception{
+        super.guardar(autor);
+    }
+    
     
     
     

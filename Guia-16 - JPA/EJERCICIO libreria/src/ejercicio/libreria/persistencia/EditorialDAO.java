@@ -5,10 +5,24 @@
  */
 package ejercicio.libreria.persistencia;
 
+import ejercicio.libreria.entidades.Editorial;
+
 /**
  *
  * @author no_de
  */
-public class EditorialDAO {
+public class EditorialDAO extends DAO<Editorial>{
+    
+    public void guardarEditorial(Editorial Editorial) throws Exception{
+        try{
+        super.guardar(Editorial);
+        } catch ( Exception e){
+            System.out.println(" Error al guardar Editorial ");
+        }
+    }
+    
+    
+    
+    
     
 }

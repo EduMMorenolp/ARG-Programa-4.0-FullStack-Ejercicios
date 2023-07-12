@@ -17,13 +17,14 @@ import javax.persistence.*;
 public class Editorial implements Serializable {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nombre;
     private boolean alta;
 
     public Editorial() {
     }
-
+    
     public Editorial(Integer id, String nombre, boolean alta) {
         this.id = id;
         this.nombre = nombre;

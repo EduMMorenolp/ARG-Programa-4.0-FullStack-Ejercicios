@@ -5,8 +5,8 @@
  */
 package ejercicio.libreria;
 
-import ejercicio.libreria.persistencia.DAO;
-import javax.persistence.*;
+
+import ejercicio.libreria.servicios.*;
 
 
 /**
@@ -38,12 +38,20 @@ public class EJERCICIOLibreria {
         • Validar campos obligatorios.
         • No ingresar datos duplicados. 
          */
-
         
-        // DAO daoito = new DAO();
-        
+       LibroServicio ls = new LibroServicio();
+       AutorServicio as = new AutorServicio();
+       EditorialServicio es = new EditorialServicio();
        
-        
+       
+       try{
+           
+       // ls.crearLibro(" Caballos ", 33 , 10, as.crearAutor(" Robinson "), es.crearEditorial(" Metalibro "));
+       ls.crearLibro(" Juanco ", 5 , 2, as.crearAutor(" DocDoom "), es.crearEditorial(" Astromostro "));
+       }catch ( Exception e ){
+           System.out.println("ERROR 404");
+           System.out.println(e);
+       }
     }
 
 }

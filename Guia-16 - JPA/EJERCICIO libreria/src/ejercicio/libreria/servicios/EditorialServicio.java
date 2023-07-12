@@ -5,10 +5,33 @@
  */
 package ejercicio.libreria.servicios;
 
+import ejercicio.libreria.entidades.Editorial;
+import ejercicio.libreria.persistencia.EditorialDAO;
+
 /**
  *
  * @author no_de
  */
 public class EditorialServicio {
+    
+    EditorialDAO eDAO = new EditorialDAO();
+    
+    public Editorial crearEditorial(String nombre) throws Exception {
+ 
+        
+        System.out.println("[Creando Editorial]");
+        
+        Editorial editorial = new Editorial();
+        
+        editorial.setNombre(nombre);
+        
+        try{
+        eDAO.guardarEditorial(editorial);
+        } catch ( Exception e){
+            System.out.println(" Error al crear Editorial ");
+         
+        }
+        return editorial;
+    }
     
 }
