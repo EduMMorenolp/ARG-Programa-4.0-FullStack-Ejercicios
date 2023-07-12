@@ -19,7 +19,7 @@ public class AutorServicio {
         this.aDAO = new AutorDAO(); 
     }
     
-    public Autor crearAutor(String nombre) throws Exception {
+    public Autor crearAutor(String nombre){
         
         System.out.println("[Creando Autor]");
         
@@ -36,4 +36,58 @@ public class AutorServicio {
         return autor;
     }
     
+    public Autor editarAutor(Integer id, String nombreNuevo){
+        
+        System.out.println("[Editando Autor]");
+        
+        Autor autor = new Autor();
+        
+        autor.setId(id);
+        autor.setNombre(nombreNuevo);
+        
+        try{
+           aDAO.editarAutor(autor);
+        } catch ( Exception e){
+            System.out.println(" Error al Editar autor ");
+        }
+        return autor;
+    }
+    
+    public void darDeAltaAutor(Integer id) throws Exception {
+        
+        System.out.println("[Dando de Alta Autor]");
+        
+        aDAO.darDeAltaAutor(id);
+        
+    }
+
+    public void darDeBajaAutor(Integer id) throws Exception {
+        
+        System.out.println("[Dando de Baja Autor]");
+        
+        aDAO.darDeAltaAutor(id);
+    }
+    
+    
+    
+    
+    
+//    public void eliminarAutor(Integer id) {
+//        
+//        System.out.println("[Eliminando Autor]");
+//        Autor autor;
+//        try{
+//           autor = aDAO.buscarAutorId(id);
+//            System.out.println("Desde Servicio : " + autor);
+//           aDAO.EliminarAutor(autor);
+//        } catch ( Exception e){
+//            System.out.println(" Error al Eliminar autor ");
+//        }
+//    }
+    
+    
+    
+    
+    
+
 }

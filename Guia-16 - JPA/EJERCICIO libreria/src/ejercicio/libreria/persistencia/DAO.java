@@ -66,7 +66,8 @@ public class DAO<t> {
         em.getTransaction().commit();
         desconectar();
         } catch ( Exception e){
-            System.out.println(" Error al eliminar en BD");
+            System.out.println(" Error al eliminar en BD : " + e.getMessage());
+            
         }
     }
 }

@@ -17,5 +17,9 @@ public class LibroDAO extends DAO<Libro>{
         super.guardar(libro);
     }
     
+    public void editarLibro(Libro libro) throws Exception {
+        super.editar(libro);
+    }
+    
     
 }

@@ -14,15 +14,13 @@ import ejercicio.libreria.entidades.Editorial;
 public class EditorialDAO extends DAO<Editorial>{
     
     public void guardarEditorial(Editorial Editorial) throws Exception{
-        try{
         super.guardar(Editorial);
-        } catch ( Exception e){
-            System.out.println(" Error al guardar Editorial ");
-        }
     }
     
     
-    
+    public void editarEditorial(Editorial Editorial) throws Exception{
+        super.editar(Editorial);     
+    }
     
     
 }

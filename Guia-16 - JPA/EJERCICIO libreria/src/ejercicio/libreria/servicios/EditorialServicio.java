@@ -34,4 +34,21 @@ public class EditorialServicio {
         return editorial;
     }
     
+    public Editorial editarEditorial(Integer id, String nombre) throws Exception {
+        
+        System.out.println("[Editando Editorial]");
+        
+        Editorial editorial = new Editorial();
+        
+        editorial.setId(id);
+        editorial.setNombre(nombre);
+        try{
+        eDAO.editarEditorial(editorial);
+        } catch ( Exception e){
+            System.out.println(" Error al editar Editorial ");
+        }
+        return editorial;
+        
+    }
+    
 }

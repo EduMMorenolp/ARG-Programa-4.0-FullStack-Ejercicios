@@ -39,5 +39,31 @@ public class LibroServicio {
         return libro;   
     }
     
+    public Libro editarLibro (Long Id,String titulo,int anio,int ejemplares, Autor autor, Editorial editorial) throws Exception{
+        
+        System.out.println("[Editando Libro]");
+        
+        Libro libro = new Libro();
+        
+        libro.setIsbn(Id);
+        libro.setTitulo(titulo);
+        libro.setAnio(anio);
+        libro.setEjemplares(ejemplares);
+        libro.setAutor(autor);
+        libro.setEditorial(editorial);
+        
+        try{
+        lDAO.guardarLibro(libro);
+        } catch ( Exception e){
+            System.out.println(" Error al editar Libro ");
+        }
+        return libro;   
+    }
     
+    
+    public void EliminarLibro (Long id ) throws Exception {
+        
+        
+        
+    }
 }

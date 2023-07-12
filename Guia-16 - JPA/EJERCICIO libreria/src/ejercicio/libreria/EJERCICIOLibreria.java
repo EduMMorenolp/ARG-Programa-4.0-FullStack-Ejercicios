@@ -5,9 +5,8 @@
  */
 package ejercicio.libreria;
 
-
 import ejercicio.libreria.servicios.*;
-
+import java.util.Scanner;
 
 /**
  *
@@ -38,20 +37,119 @@ public class EJERCICIOLibreria {
         • Validar campos obligatorios.
         • No ingresar datos duplicados. 
          */
-        
-       LibroServicio ls = new LibroServicio();
-       AutorServicio as = new AutorServicio();
-       EditorialServicio es = new EditorialServicio();
+
+        LibroServicio ls = new LibroServicio();
+        AutorServicio as = new AutorServicio();
+        EditorialServicio es = new EditorialServicio();
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
+
+        try {
+
+            // ls.crearLibro(" Caballos ", 33 , 10, as.crearAutor(" Robinson "), es.crearEditorial(" Metalibro "));
+            // ls.crearLibro(" Ana de arco ", 15 , 12, as.crearAutor(" Alice Beatriz "), es.crearEditorial(""));
+            // as.editarAutor(4, " DocDoomNegro ");
+            // ERROR as.eliminarAutor(4);
+            // as.darDeAltaAutor(4);
+            int opc;
+
+            do {
+                mostrarMenu();
+                opc = leer.nextInt();
+                switch (opc) {
+                    case 1:
+                        System.out.println(" Ingrese el nombre del Autor : ");
+                        String nombreAutor = leer.next();
+                        as.crearAutor(nombreAutor);
+                        break;
+                    case 2:
+                        System.out.println(" Ingrese el nombre del Editorial : ");
+                        String nombreEditorial = leer.next();
+                        es.crearEditorial(nombreEditorial);
+                        break;
+                    case 3:
+                        System.out.println(" Ingrese el nombre del Libro : ");
+                        String nombreLibro = leer.next();
+                        System.out.println(" Ingrese el nombre del Autor : ");
+                        String nombreAutor2 = leer.next();
+                        System.out.println(" Ingrese el nombre del Autor : ");
+                        String nombreEditorial2 = leer.next();
+                        System.out.println(" Ingrese el Año : ");
+                        int anio = leer.nextInt();
+                         System.out.println(" Ingrese el Año : ");
+                        int ejm = leer.nextInt();
+                        
+                        ls.crearLibro(nombreLibro, anio, ejm , as.crearAutor(nombreAutor2),es.crearEditorial(nombreEditorial2));                       
+                        break;                       
+                    case 4:
+                        System.out.println(" Ingrese el ID de Autor");
+                        Integer id = leer.nextInt();
+                        System.out.println(" Ingrese el NUEVO nombre del Autor : ");
+                        String nombreAutor3 = leer.next();
+                        as.editarAutor(id, nombreAutor3);
+                        break;
+                    case 5:
+                        System.out.println(" Ingrese el ID de Editorial");
+                        Integer id2 = leer.nextInt();
+                        System.out.println(" Ingrese el NUEVO nombre del Editorial : ");
+                        String nombreAutor4 = leer.next();
+                        as.editarAutor(id2, nombreAutor4);
+                        break;
+                    case 6:
+                        System.out.println(" Ingrese el ID del Libro");
+                        Long id3 = leer.nextLong();
+                        System.out.println(" Ingrese el nombre del Libro : ");
+                        String nombreLibro2 = leer.next();
+                        System.out.println(" Ingrese el nombre del Autor : ");
+                        String nombreAutor5 = leer.next();
+                        System.out.println(" Ingrese el nombre del Autor : ");
+                        String nombreEditorial5 = leer.next();
+                        System.out.println(" Ingrese el Año : ");
+                        int anio2 = leer.nextInt();
+                         System.out.println(" Ingrese el Año : ");
+                        int ejm2 = leer.nextInt();
+                        
+                        ls.editarLibro(id3, nombreLibro2, anio2, ejm2, as.crearAutor(nombreAutor5),es.crearEditorial(nombreEditorial5));
+                        break; 
+                    case 7:
+                        
+                    case 8:
+                        
+                    case 9:
+                        
+                    case 10:
+                        
+                    case 0:
+
+                        break;
+                    default:
+                        System.out.println(" Ingreso mal la OPCION vuelva a ingresar :");
+                        opc = leer.nextInt();   
+                }
+            } while ( opc != 0);
        
        
-       try{
-           
-       // ls.crearLibro(" Caballos ", 33 , 10, as.crearAutor(" Robinson "), es.crearEditorial(" Metalibro "));
-       ls.crearLibro(" Juanco ", 5 , 2, as.crearAutor(" DocDoom "), es.crearEditorial(" Astromostro "));
-       }catch ( Exception e ){
-           System.out.println("ERROR 404");
-           System.out.println(e);
-       }
+       
+       
+        } catch (Exception e) {
+            System.out.println("ERROR 404");
+            System.out.println(e);
+        }
     }
 
+    public static void mostrarMenu() {
+
+        System.out.println("\n ---- MENU ----");
+        System.out.println("\n 1 - Crear Autor "
+                + "\n 2 - Crear Editorial "
+                + "\n 3 - Crear Libro "
+                + "\n 4 - Editar Autor "
+                + "\n 5 - Editar Editorial "
+                + "\n 6 - Editar Libro "
+                + "\n 7 - Dar de Baja "
+                + "\n 8 - Dar de Alta "
+                + "\n 9 - Buscar Autor "
+                + "\n 10 - Buscar Libro "
+                + "\n 0 - Salir "
+                + "\n Ingrese la OPCION : ");
+    }
 }
