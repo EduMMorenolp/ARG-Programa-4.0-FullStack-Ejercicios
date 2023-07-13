@@ -51,4 +51,20 @@ public class EditorialServicio {
         
     }
     
+    
+    public void darDeAltaEditorial(Integer id) throws Exception {
+        
+        System.out.println("[Dando de Alta Editorial]");
+        
+        eDAO.darDeAltaEditorial(id);
+        
+    }
+
+    public void darDeBajaEditorial(Integer id) throws Exception {
+        
+        System.out.println("[Dando de Baja Editorial]");
+        
+        eDAO.darDeAltaEditorial(id);
+    }
+    
 }

@@ -61,9 +61,18 @@ public class LibroServicio {
     }
     
     
-    public void EliminarLibro (Long id ) throws Exception {
+    public void darDeAltaLibro(Integer id) throws Exception {
         
+        System.out.println("[Dando de Alta Libro]");
         
+        lDAO.darDeAltaLibro(id);
         
+    }
+
+    public void darDeBajaLibro(Integer id) throws Exception {
+        
+        System.out.println("[Dando de Baja Libro]");
+        
+        lDAO.darDeAltaLibro(id);
     }
 }

@@ -5,6 +5,7 @@
  */
 package ejercicio.libreria;
 
+import ejercicio.libreria.Enum.entidadesEnum;
 import ejercicio.libreria.servicios.*;
 import java.util.Scanner;
 
@@ -27,7 +28,7 @@ public class EJERCICIOLibreria {
         (check) - 4) Generar las tablas con JPA
         (check) - 5) Crear servicios previamente mencionados.
         (check) - 6) Crear los métodos para persistir entidades en la base de datos librería
-        7) Crear los métodos para dar de alta/bajo o editar dichas entidades.
+        (check) - 7) Crear los métodos para dar de alta/bajo o editar dichas entidades.
         8) Búsqueda de un Autor por nombre.
         9) Búsqueda de un libro por ISBN.
         10) Búsqueda de un libro por Título. 
@@ -43,15 +44,14 @@ public class EJERCICIOLibreria {
         EditorialServicio es = new EditorialServicio();
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
+        // ls.crearLibro(" Caballos ", 33 , 10, as.crearAutor(" Robinson "), es.crearEditorial(" Metalibro "));
+        // ls.crearLibro(" Ana de arco ", 15 , 12, as.crearAutor(" Alice Beatriz "), es.crearEditorial(""));
+        // as.editarAutor(4, " DocDoomNegro ");
+        // ERROR as.eliminarAutor(4);
+        // as.darDeAltaAutor(4);
+        // DAO dao = new DAO();
         try {
-
-            // ls.crearLibro(" Caballos ", 33 , 10, as.crearAutor(" Robinson "), es.crearEditorial(" Metalibro "));
-            // ls.crearLibro(" Ana de arco ", 15 , 12, as.crearAutor(" Alice Beatriz "), es.crearEditorial(""));
-            // as.editarAutor(4, " DocDoomNegro ");
-            // ERROR as.eliminarAutor(4);
-            // as.darDeAltaAutor(4);
             int opc;
-
             do {
                 mostrarMenu();
                 opc = leer.nextInt();
@@ -75,11 +75,10 @@ public class EJERCICIOLibreria {
                         String nombreEditorial2 = leer.next();
                         System.out.println(" Ingrese el Año : ");
                         int anio = leer.nextInt();
-                         System.out.println(" Ingrese el Año : ");
+                        System.out.println(" Ingrese el Año : ");
                         int ejm = leer.nextInt();
-                        
-                        ls.crearLibro(nombreLibro, anio, ejm , as.crearAutor(nombreAutor2),es.crearEditorial(nombreEditorial2));                       
-                        break;                       
+                        ls.crearLibro(nombreLibro, anio, ejm, as.crearAutor(nombreAutor2), es.crearEditorial(nombreEditorial2));
+                        break;
                     case 4:
                         System.out.println(" Ingrese el ID de Autor");
                         Integer id = leer.nextInt();
@@ -105,35 +104,93 @@ public class EJERCICIOLibreria {
                         String nombreEditorial5 = leer.next();
                         System.out.println(" Ingrese el Año : ");
                         int anio2 = leer.nextInt();
-                         System.out.println(" Ingrese el Año : ");
+                        System.out.println(" Ingrese el Año : ");
                         int ejm2 = leer.nextInt();
-                        
-                        ls.editarLibro(id3, nombreLibro2, anio2, ejm2, as.crearAutor(nombreAutor5),es.crearEditorial(nombreEditorial5));
-                        break; 
+                        ls.editarLibro(id3, nombreLibro2, anio2, ejm2, as.crearAutor(nombreAutor5), es.crearEditorial(nombreEditorial5));
+                        break;
                     case 7:
-                        
+                        System.out.println(" Que desea dar de alta ? LIBRO/EDITORIAL/AUTOR ");
+                        String resp2 = leer.next().toUpperCase();
+                        System.out.println("Ingrese el ID : ");
+                        int idas = leer.nextInt();
+                        if (entidadesEnum.AUTOR.equals(resp2)) {
+
+                            as.darDeAltaAutor(idas);
+                        }
+                        if (entidadesEnum.EDITORIAL.equals(resp2)) {
+
+                            es.darDeAltaEditorial(idas);
+                        }
+                        if (entidadesEnum.LIBRO.equals(resp2)) {
+                            ls.darDeAltaLibro(idas);
+                        }
                     case 8:
-                        
+                        System.out.println(" Que desea dar de baja ? LIBRO/EDITORIAL/AUTOR ");
+                        String resp = leer.next().toUpperCase();
+                        if (entidadesEnum.AUTOR.equals(resp)) {
+                            System.out.println("Ingrese el ID : ");
+                            int idas2 = leer.nextInt();
+                            as.darDeBajaAutor(idas2);
+                        }
+                        if (entidadesEnum.EDITORIAL.equals(resp)) {
+                            System.out.println("Ingrese el ID : ");
+                            int idas2 = leer.nextInt();
+                            es.darDeBajaEditorial(idas2);
+                        }
+                        if (entidadesEnum.LIBRO.equals(resp)) {
+                            System.out.println("Ingrese el ID : ");
+                            int idas2 = leer.nextInt();
+                            ls.darDeBajaLibro(idas2);
+                        }
                     case 9:
-                        
+                        String var;
+                        do {
+                            mostrarMenuBuscar();
+                            var = leer.next();
+                            switch (var) {
+                                case "a":
+
+                                    break;
+                                case "b":
+
+                                    break;
+                                case "c":
+
+                                    break;
+                                case "d":
+
+                                    break;
+                                case "f":
+                                    System.out.println(" Saliendo de Buscar Autor \n");
+                                default:
+                                    System.out.println("Ingreso mal la opcion");
+                                    var = leer.next();
+                            }
+                        } while (!"f".equals(var));
                     case 10:
-                        
+
                     case 0:
 
                         break;
                     default:
                         System.out.println(" Ingreso mal la OPCION vuelva a ingresar :");
-                        opc = leer.nextInt();   
+                        opc = leer.nextInt();
                 }
-            } while ( opc != 0);
-       
-       
-       
-       
+            } while (opc != 0);
+
         } catch (Exception e) {
             System.out.println("ERROR 404");
             System.out.println(e);
         }
+    }
+
+    public static void mostrarMenuBuscar() {
+        System.out.println("\n Ingrese la OPCION de Busqueda : "
+                + "\n a) Por ID "
+                + "\n b) Por Nombre "
+                + "\n c) Por Nombre de Autor "
+                + "\n d) Por Nombre de Editorial"
+                + "\n f) Salir ");
     }
 
     public static void mostrarMenu() {
@@ -152,4 +209,5 @@ public class EJERCICIOLibreria {
                 + "\n 0 - Salir "
                 + "\n Ingrese la OPCION : ");
     }
+
 }
