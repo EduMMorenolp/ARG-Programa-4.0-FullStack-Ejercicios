@@ -31,6 +31,7 @@ public class Libro implements Serializable {
     private Editorial editorial;
 
     public Libro() {
+         this.alta = true;
     }
 
     public Libro(Long isbn) {

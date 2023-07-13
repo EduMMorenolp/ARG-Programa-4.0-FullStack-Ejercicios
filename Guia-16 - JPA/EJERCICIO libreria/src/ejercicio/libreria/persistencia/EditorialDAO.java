@@ -7,6 +7,7 @@ package ejercicio.libreria.persistencia;
 
 import ejercicio.libreria.entidades.Editorial;
 import java.sql.SQLClientInfoException;
+import javax.persistence.EntityExistsException;
 
 /**
  *
@@ -15,8 +16,14 @@ import java.sql.SQLClientInfoException;
 public class EditorialDAO extends DAO<Editorial>{
     
     public void guardarEditorial(Editorial Editorial) throws Exception{
+        /*
+        Editorial autorExistente = buscarEditorialNombre(Editorial.getNombre());
+        if (autorExistente != null) {
+            throw new EntityExistsException("Ya existe un autor con el mismo nombre.");
+        }*/
         super.guardar(Editorial);
     }
+    
     
     
     public void editarEditorial(Editorial Editorial) throws Exception{
@@ -61,5 +68,15 @@ public class EditorialDAO extends DAO<Editorial>{
         }
     }
     
-    
+    public Editorial buscarEditorialNombre(String nombre) throws Exception {
+
+        System.out.println("[Buscando Editorial]");
+
+        conectar();
+        Editorial libro = (Editorial) em.createQuery("SELECT a FROM Editorial a WHERE a.nombre LIKE :nombre")
+                .setParameter("nombre", nombre)
+                .getSingleResult();
+        desconectar();
+        return libro;
+    }
 }

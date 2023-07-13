@@ -64,8 +64,23 @@ public class AutorServicio {
     public void darDeBajaAutor(Integer id) throws Exception {
         
         System.out.println("[Dando de Baja Autor]");
+
         
         aDAO.darDeAltaAutor(id);
+        
+        
+    }
+    
+    public void buscarAutor(String nombre) throws Exception {
+        
+        Autor autor;
+        try{
+        autor = aDAO.buscarAutorNombre(nombre);
+        
+        System.out.println(autor.toString());
+        } catch ( Exception e){
+            System.out.println(" No se encontro el Autor ");
+        }
     }
     
     

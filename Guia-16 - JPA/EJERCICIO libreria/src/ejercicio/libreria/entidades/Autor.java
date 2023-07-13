@@ -25,6 +25,7 @@ public class Autor implements Serializable {
     private boolean alta;
 
     public Autor() {
+        this.alta = true;
     }
 
     public Autor(Integer id, String nombre, boolean alta) {

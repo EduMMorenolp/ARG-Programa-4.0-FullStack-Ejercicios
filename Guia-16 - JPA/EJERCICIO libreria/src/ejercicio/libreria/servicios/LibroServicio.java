@@ -9,6 +9,8 @@ import ejercicio.libreria.entidades.Autor;
 import ejercicio.libreria.entidades.Editorial;
 import ejercicio.libreria.entidades.Libro;
 import ejercicio.libreria.persistencia.LibroDAO;
+import java.util.List;
+
 
 
 /**
@@ -74,5 +76,58 @@ public class LibroServicio {
         System.out.println("[Dando de Baja Libro]");
         
         lDAO.darDeAltaLibro(id);
+    }
+    
+    
+    public void buscarLibroPorId(int id) throws Exception {
+        
+        Libro libro;
+        try{
+        libro = lDAO.buscarLibroId(id);
+        System.out.println(libro.toString());
+        } catch ( Exception e){
+            System.out.println("No se encontro el ID");
+        }
+        
+    }
+    
+    public void buscarLibroPorNombre(String nombre) throws Exception {
+        try{
+        Libro libro;
+        libro = lDAO.buscarLibroNombre(nombre);
+        
+        System.out.println(libro.toString());
+        } catch ( Exception e){
+            System.out.println("No se encontro el nombre");
+        }
+    }
+    
+    public void buscarLibroPorNombreAutor(String nombre) throws Exception {
+        
+        List<Libro> libro;
+        try{
+        libro = lDAO.buscarLibrosPorNombreAutor(nombre);
+         for (Libro libro1 : libro) {
+            System.out.println(libro1.toString());
+        }
+        } catch ( Exception e){
+            System.out.println("No se encontro el nombre");
+        }
+        
+       
+    }
+    
+    public void buscarLibroPorNombreEditorial(String nombre) throws Exception {
+        
+        List<Libro> libro;
+        try{
+        libro = lDAO.buscarLibrosPorNombreEditorial(nombre);
+        for (Libro libro1 : libro) {
+            System.out.println(libro1.toString());
+        }
+        } catch ( Exception e){
+            System.out.println("No se encontro el nombre");
+        }
+        
     }
 }

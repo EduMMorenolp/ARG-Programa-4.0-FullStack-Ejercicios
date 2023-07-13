@@ -7,6 +7,7 @@ package ejercicio.libreria.persistencia;
 
 import ejercicio.libreria.entidades.Autor;
 import java.sql.SQLClientInfoException;
+import javax.persistence.EntityExistsException;
 
 /**
  *
@@ -15,6 +16,11 @@ import java.sql.SQLClientInfoException;
 public class AutorDAO extends DAO<Autor> {
 
     public void guardarAutor(Autor autor) throws Exception {
+        /*
+        Autor autorExistente = buscarAutorNombre(autor.getNombre());
+        if (autorExistente != null) {
+            throw new EntityExistsException("Ya existe un autor con el mismo nombre.");
+        }*/
         super.guardar(autor);
     }
 
@@ -25,9 +31,8 @@ public class AutorDAO extends DAO<Autor> {
 //    public void EliminarAutor(Autor autor) throws Exception {
 //        super.eliminar(autor);
 //    }
-    
     public void darDeAltaAutor(Integer id) throws Exception {
-        
+
         Autor autor = buscarAutorId(id);
         if (autor != null) {
             autor.setAlta(true);
@@ -42,20 +47,19 @@ public class AutorDAO extends DAO<Autor> {
             super.editar(autor);
         }
     }
-    
 
     public Autor buscarAutorId(Integer id) throws Exception {
-        
+
         System.out.println("[Buscando Autor]");
-        
+
         Autor autor;
         try {
             super.conectar();
-            
+
             autor = em.find(Autor.class, id);
-            
+
             System.out.println(" Encontrado : " + autor);
-            
+
             desconectar();
             return autor;
         } catch (SQLClientInfoException eSQL) {
@@ -63,6 +67,18 @@ public class AutorDAO extends DAO<Autor> {
             System.out.println(eSQL);
             return null;
         }
+    }
+
+    public Autor buscarAutorNombre(String nombre) throws Exception {
+
+        System.out.println("[Buscando Autor]");
+
+        conectar();
+        Autor autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre")
+                .setParameter("nombre", nombre)
+                .getSingleResult();
+        desconectar();
+        return autor;
     }
 
 }

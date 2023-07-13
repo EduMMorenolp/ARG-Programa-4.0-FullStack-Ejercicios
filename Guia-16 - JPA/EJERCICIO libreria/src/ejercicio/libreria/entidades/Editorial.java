@@ -23,6 +23,7 @@ public class Editorial implements Serializable {
     private boolean alta;
 
     public Editorial() {
+         this.alta = true;
     }
     
     public Editorial(Integer id, String nombre, boolean alta) {
