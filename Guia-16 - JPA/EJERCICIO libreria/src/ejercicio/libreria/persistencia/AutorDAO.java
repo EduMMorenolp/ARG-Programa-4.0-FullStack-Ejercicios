@@ -8,6 +8,7 @@ package ejercicio.libreria.persistencia;
 import ejercicio.libreria.entidades.Autor;
 import java.sql.SQLClientInfoException;
 import javax.persistence.EntityExistsException;
+import javax.persistence.NoResultException;
 
 /**
  *
@@ -70,15 +71,21 @@ public class AutorDAO extends DAO<Autor> {
     }
 
     public Autor buscarAutorNombre(String nombre) throws Exception {
-
         System.out.println("[Buscando Autor]");
-
-        conectar();
-        Autor autor = (Autor) em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre")
-                .setParameter("nombre", nombre)
-                .getSingleResult();
-        desconectar();
-        return autor;
+        try {
+            conectar();
+            Autor autor = em.createQuery("SELECT a FROM Autor a WHERE a.nombre LIKE :nombre", Autor.class)
+                    .setParameter("nombre", nombre)
+                    .getSingleResult();
+            desconectar();
+            return autor;
+        } catch (NoResultException e) {
+            System.out.println("No se encontró ningún autor con el nombre proporcionado: " + nombre);
+            return null; // o lanzar una excepción personalizada aquí
+        } catch (Exception e) {
+            System.out.println("Error al buscar autor por nombre: " + e.getMessage());
+            throw e;
+        }
     }
 
 }

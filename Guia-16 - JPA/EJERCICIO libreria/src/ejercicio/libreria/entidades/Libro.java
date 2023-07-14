@@ -18,7 +18,7 @@ public class Libro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long isbn;
-    
+    @Basic
     private String titulo;
     private Integer anio;
     private Integer ejemplares;

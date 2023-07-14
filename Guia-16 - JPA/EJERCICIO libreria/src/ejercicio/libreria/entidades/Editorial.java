@@ -19,6 +19,7 @@ public class Editorial implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Basic
     private String nombre;
     private boolean alta;
 

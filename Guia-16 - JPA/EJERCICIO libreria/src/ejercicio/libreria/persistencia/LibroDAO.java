@@ -9,7 +9,6 @@ import ejercicio.libreria.entidades.Libro;
 import java.sql.SQLClientInfoException;
 import java.util.Collections;
 import java.util.List;
-import javax.persistence.EntityExistsException;
 
 /**
  *
@@ -71,13 +70,17 @@ public class LibroDAO extends DAO<Libro> {
     public Libro buscarLibroNombre(String nombre) throws Exception {
 
         System.out.println("[Buscando Libro]");
-
+    try {
         conectar();
-        Libro libro = (Libro) em.createQuery("SELECT a FROM Libro a WHERE a.nombre LIKE :nombre")
-                .setParameter("nombre", nombre)
-                .getSingleResult();
+        Libro libro = em.createQuery("SELECT l FROM Libro l WHERE l.titulo LIKE :nombre", Libro.class)
+            .setParameter("nombre", nombre)
+            .getSingleResult();
         desconectar();
         return libro;
+    } catch (Exception e) {
+        System.out.println("Error al buscar libro por nombre: " + e.getMessage());
+        throw e;
+    }
     }
 
     public List<Libro> buscarLibrosPorNombreAutor(String nombreAutor) {

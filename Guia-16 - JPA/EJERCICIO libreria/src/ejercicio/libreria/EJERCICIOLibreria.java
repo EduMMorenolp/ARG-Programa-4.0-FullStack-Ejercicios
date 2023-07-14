@@ -8,6 +8,7 @@ package ejercicio.libreria;
 import ejercicio.libreria.Enum.entidadesEnum;
 import ejercicio.libreria.entidades.Autor;
 import ejercicio.libreria.entidades.Editorial;
+import ejercicio.libreria.entidades.Libro;
 import ejercicio.libreria.servicios.*;
 import java.util.Scanner;
 
@@ -45,53 +46,27 @@ public class EJERCICIOLibreria {
         AutorServicio as = new AutorServicio();
         EditorialServicio es = new EditorialServicio();
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-
-        // ls.crearLibro(" Caballos ", 33 , 10, as.crearAutor(" Robinson "), es.crearEditorial(" Metalibro "));
-        // ls.crearLibro(" Ana de arco ", 15 , 12, as.crearAutor(" Alice Beatriz "), es.crearEditorial(""));
-        // as.editarAutor(4, " DocDoomNegro ");
-        // ERROR as.eliminarAutor(4);
-        // as.darDeAltaAutor(4);
-        // DAO dao = new DAO();
-       
         
-        // ---- CARGANDO BASE DE DATOS AUTOMATICAMENTE ----
         /*
-        String nombresLibros = "El Gran Gatsby";
-        int anios = 1925;
-        int ejemplares = 10;
-        Autor autors = as.crearAutor("F. Scott Fitzgerald");
-        Editorial editorials = es.crearEditorial("Scribners");
-        ls.crearLibro(nombresLibros, anios, ejemplares, autors, editorials);
-        
-        nombresLibros = "Cien años de soledad";
-        anios = 1967;
-        ejemplares = 20;
-        autors = as.crearAutor("Gabriel García Márquez");
-        editorials = es.crearEditorial("Sudamericana");
-        ls.crearLibro(nombresLibros, anios, ejemplares, autors, editorials);
-        
-        nombresLibros = "1984";
-        anios = 1949;
-        ejemplares = 15;
-        autors = as.crearAutor("George Orwell");
-        editorials = es.crearEditorial("Secker & Warburg");
-        ls.crearLibro(nombresLibros, anios, ejemplares, autors, editorials);
-        
-        nombresLibros = "Orgullo y prejuicio";
-        anios = 1813;
-        ejemplares = 12;
-        autors = as.crearAutor("Jane Austen");
-        editorials = es.crearEditorial("Thomas Egerton");
-        ls.crearLibro(nombresLibros, anios, ejemplares, autors, editorials);
-        
-        nombresLibros = "Don Quijote de la Mancha";
-        anios = 1605;
-        ejemplares = 25;
-        autors = as.crearAutor("Miguel de Cervantes");
-        editorials = es.crearEditorial("Francisco de Robles");
-        ls.crearLibro(nombresLibros, anios, ejemplares, autors, editorials);
-    }
+        // ---- CARGANDO BASE DE DATOS AUTOMATICAMENTE ----
+        // Ejemplo 1
+        ls.crearLibro("El Gran Gatsby", 1925, 10, as.crearAutor("F. Scott Fitzgerald"), es.crearEditorial("Scribners"));
+
+        // Ejemplo 2
+        ls.crearLibro("Cien años de soledad", 1967, 20, as.crearAutor("Gabriel García Márquez"), es.crearEditorial("Sudamericana"));
+
+        // Ejemplo 3
+        ls.crearLibro("1984", 1949, 15, as.crearAutor("George Orwell"), es.crearEditorial("Secker & Warburg"));
+
+        // Ejemplo 4
+        ls.crearLibro("Orgullo y prejuicio", 1813, 12, as.crearAutor("Jane Austen"), es.crearEditorial("Thomas Egerton"));
+
+        // Ejemplo 5
+        ls.crearLibro("Don Quijote de la Mancha", 1605, 25, as.crearAutor("Miguel de Cervantes"), es.crearEditorial("Francisco de Robles"));
         */
+        
+        // ls.buscarLibroPorNombre("1984");
+         
         try {
             int opc;
             do {
@@ -263,9 +238,9 @@ public class EJERCICIOLibreria {
                 + "\n 8 - Dar de Alta "
                 + "\n 9 - Buscar Autor "
                 + "\n 10 - Buscar Libro "
-                + "\n 11 - Eliminar Autor/Libro/Editorial"
+                // + "\n 11 - Eliminar Autor/Libro/Editorial"
                 + "\n 0 - Salir "
                 + "\n Ingrese la OPCION : ");
     }
-    
+   
 }

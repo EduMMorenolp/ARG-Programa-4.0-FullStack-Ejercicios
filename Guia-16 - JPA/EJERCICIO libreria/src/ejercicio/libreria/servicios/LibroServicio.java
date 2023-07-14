@@ -94,10 +94,12 @@ public class LibroServicio {
     public void buscarLibroPorNombre(String nombre) throws Exception {
         try{
         Libro libro;
+        
         libro = lDAO.buscarLibroNombre(nombre);
         
         System.out.println(libro.toString());
         } catch ( Exception e){
+            System.out.println(e);
             System.out.println("No se encontro el nombre");
         }
     }

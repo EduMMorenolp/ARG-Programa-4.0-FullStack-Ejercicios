@@ -7,7 +7,6 @@ package ejercicio.libreria.persistencia;
 
 import ejercicio.libreria.entidades.Editorial;
 import java.sql.SQLClientInfoException;
-import javax.persistence.EntityExistsException;
 
 /**
  *
