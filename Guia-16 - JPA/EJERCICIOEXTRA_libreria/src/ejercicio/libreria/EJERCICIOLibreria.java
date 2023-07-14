@@ -39,11 +39,30 @@ public class EJERCICIOLibreria {
         • No ingresar datos duplicados. 
          */
 
+ /*
+        EJERCICIO EXTRA NUEVAS CONSIGNAS : 
+        
+        Tareas a realizar
+        (check) - 1) Al alumno le toca desarrollar, las siguientes funcionalidades: 
+        (check) - 2) Creación de un Cliente nuevo
+        (check) - 3) Crear entidad Préstamo
+        4) Registrar el préstamo de un libro.
+        5) Devolución de un libro
+        6) Búsqueda de todos los préstamos de un Cliente.
+        • Agregar validaciones a todas las funcionalidades de la aplicación:
+        • Validar campos obligatorios.
+        • No ingresar datos duplicados. 
+        • No generar condiciones inválidas. Por ejemplo, no se debe permitir prestar más 
+        ejemplares de los que hay, ni devolver más de los que se encuentran prestados. 
+        No se podrán prestar libros con fecha anterior a la fecha actual, etc.
+ 
+         */
         LibroServicio ls = new LibroServicio();
         AutorServicio as = new AutorServicio();
         EditorialServicio es = new EditorialServicio();
+
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
-        
+
         /*
         // ---- CARGANDO BASE DE DATOS AUTOMATICAMENTE ----
         // Ejemplo 1
@@ -60,14 +79,12 @@ public class EJERCICIOLibreria {
 
         // Ejemplo 5
         ls.crearLibro("Don Quijote de la Mancha", 1605, 25, as.crearAutor("Miguel de Cervantes"), es.crearEditorial("Francisco de Robles"));
-        */
-        
+         */
         // ls.buscarLibroPorNombre("1984");
-         
         try {
             int opc;
             do {
-                mostrarMenu();
+                mostrarMenus.mostrarMenu();
                 opc = leer.nextInt();
                 switch (opc) {
                     case 1:
@@ -166,7 +183,7 @@ public class EJERCICIOLibreria {
                     case 10:
                         String var;
                         do {
-                            mostrarMenuBuscar();
+                            mostrarMenus.mostrarMenuBuscar();
                             var = leer.next();
                             switch (var) {
                                 case "a":
@@ -197,45 +214,41 @@ public class EJERCICIOLibreria {
                                     var = leer.next();
                             }
                         } while (!"f".equals(var));
+                        break;
+                    case 99:
+                        int varC;
+                        do {
+                            mostrarMenus.mostrarMenuClientes();
+                            varC = leer.nextInt();
+                            switch (varC) {
+                                case 1:
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                case 4:
+                                    break;
+                                case 0:
+                                    System.out.println(" Saliendo del Menu Clientes ... ");
+                                    break;
+                                default:
+                                    System.out.println("Ingreso mal la opcion");
+                                    varC = leer.nextInt();
+                            }
+                        } while (varC != 0);
+                        break;
                     case 0:
-
+                        System.out.println(" Nos vemos ...");
                         break;
                     default:
                         System.out.println(" Ingreso mal la OPCION vuelva a ingresar :");
                         opc = leer.nextInt();
                 }
             } while (opc != 0);
-
         } catch (Exception e) {
             System.out.println("ERROR 404");
             System.out.println(e);
         }
-    }
-
-    public static void mostrarMenuBuscar() {
-        System.out.println("\n Ingrese la OPCION de Busqueda : "
-                + "\n a) Por ID "
-                + "\n b) Por Nombre "
-                + "\n c) Por Nombre de Autor "
-                + "\n d) Por Nombre de Editorial"
-                + "\n f) Salir ");
-    }
-
-    public static void mostrarMenu() {
-
-        System.out.println("\n ---- MENU ----");
-        System.out.println("\n 1 - Crear Autor "
-                + "\n 2 - Crear Editorial "
-                + "\n 3 - Crear Libro "
-                + "\n 4 - Editar Autor "
-                + "\n 5 - Editar Editorial "
-                + "\n 6 - Editar Libro "
-                + "\n 7 - Dar de Baja "
-                + "\n 8 - Dar de Alta "
-                + "\n 9 - Buscar Autor "
-                + "\n 10 - Buscar Libro "
-                // + "\n 11 - Eliminar Autor/Libro/Editorial"
-                + "\n 0 - Salir "
-                + "\n Ingrese la OPCION : ");
     }
 }
