@@ -79,17 +79,18 @@ public class LibroServicio {
     }
     
     
-    public void buscarLibroPorId(long id) throws Exception {
+    public Libro buscarLibroPorId(long id) throws Exception {
         
         Libro libro;
         try{
         libro = lDAO.buscarLibroId(id);
         System.out.println(libro.toString());
+        return libro;
         } catch ( Exception e){
             System.out.println(e.toString());
             System.out.println("No se encontro el ID");
         }
-        
+        return null;
     }
     
     public void buscarLibroPorNombre(String nombre) throws Exception {

@@ -44,8 +44,24 @@ public class ClienteServicio {
         } catch (Exception ex) {
             System.out.println("ERROR al buscar prestamos de clientes");
         }
+    }
+
+    public Cliente buscarClientePorDNI(int dni) {
         
+        Cliente cliente;
         
+        try{
+        cliente = cDAO.buscarClienteDNI(dni);
+        System.out.println(cliente.toString());
+        return cliente;
+        } catch ( Exception e){
+            System.out.println(e.toString());
+            System.out.println("No se encontro el Cliente por DNI ");
+        }
+        return null;
         
     }
+    
+    
+    
 }

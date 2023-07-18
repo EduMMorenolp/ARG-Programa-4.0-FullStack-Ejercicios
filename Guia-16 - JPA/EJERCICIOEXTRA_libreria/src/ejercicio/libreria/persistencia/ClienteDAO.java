@@ -8,7 +8,6 @@ package ejercicio.libreria.persistencia;
 import ejercicio.libreria.entidades.Cliente;
 import ejercicio.libreria.entidades.Prestamo;
 import java.util.List;
-import javax.persistence.NoResultException;
 
 /**
  *
@@ -30,14 +29,11 @@ public class ClienteDAO extends DAO<Cliente> {
         System.out.println("[Buscando Cliente]");
         try {
             conectar();
-            Cliente cliente = em.createQuery("SELECT a FROM Cliente a WHERE a.dni LIKE :dni", Cliente.class)
+            Cliente cliente = em.createQuery("SELECT a FROM Cliente a WHERE a.documento = :dni", Cliente.class)
                     .setParameter("dni", dni)
                     .getSingleResult();
             desconectar();
             return cliente;
-        } catch (NoResultException e) {
-            System.out.println("No se encontró ningún autor con el nombre proporcionado: " + dni);
-            return null; // o lanzar una excepción personalizada aquí
         } catch (Exception e) {
             System.out.println("Error al buscar autor por nombre: " + e.getMessage());
             throw e;

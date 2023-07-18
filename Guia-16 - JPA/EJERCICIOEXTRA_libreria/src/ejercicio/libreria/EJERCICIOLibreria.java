@@ -6,7 +6,10 @@
 package ejercicio.libreria;
 
 import ejercicio.libreria.Enum.entidadesEnum;
+import ejercicio.libreria.entidades.Cliente;
+import ejercicio.libreria.entidades.Libro;
 import ejercicio.libreria.servicios.*;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -60,6 +63,8 @@ public class EJERCICIOLibreria {
         LibroServicio ls = new LibroServicio();
         AutorServicio as = new AutorServicio();
         EditorialServicio es = new EditorialServicio();
+        PrestamoServicio ps = new PrestamoServicio();
+        ClienteServicio cs = new ClienteServicio();
 
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
@@ -222,8 +227,26 @@ public class EJERCICIOLibreria {
                             varC = leer.nextInt();
                             switch (varC) {
                                 case 1:
+                                    System.out.println("Ingrese el DNI : ");
+                                    long dnicliente = leer.nextInt();
+                                    System.out.println("Ingrese el Nombre : ");
+                                    String nombreCliente = leer.next();
+                                    System.out.println("Ingrese el Apellido : ");
+                                    String apellidoCliente = leer.next();
+                                    System.out.println("Ingrese el Telefono : ");
+                                    String telefono = leer.next();
+                                    cs.crearCliente(dnicliente, nombreCliente, telefono, telefono);                                
                                     break;
                                 case 2:
+                                    System.out.println("Ingrese el DNI del cliente : ");
+                                    int dni = leer.nextInt();
+                                    System.out.println("Ingrese la fecha Devolucion Dia/Mes/Año : ");
+                                    String date = leer.next();
+                                    Cliente c = cs.buscarClientePorDNI(dni);
+                                    System.out.println("Ingrese el ID del Libro : ");
+                                    long idlibro = leer.nextLong();
+                                    Libro libropres = ls.buscarLibroPorId(idlibro);
+                                    ps.hacerPrestamo(c, date , libropres);
                                     break;
                                 case 3:
                                     break;
@@ -248,7 +271,7 @@ public class EJERCICIOLibreria {
             } while (opc != 0);
         } catch (Exception e) {
             System.out.println("ERROR 404");
-            System.out.println(e);
+            System.out.println(e.toString());
         }
     }
 }

@@ -48,20 +48,19 @@ public class LibroDAO extends DAO<Libro> {
 
     public Libro buscarLibroId(long id) throws Exception {
 
-        System.out.println("[Buscando Editorial]");
+        System.out.println("[Buscando Libro]");
 
         Libro Libro;
         try {
             super.conectar();
 
-            Libro = em.find(Libro.class, id);
-
-            // System.out.println(" Encontrado : " + Libro);
+            Libro = em.createQuery("SELECT l FROM Libro l WHERE l.isbn = :id", Libro.class).setParameter("id", id).getSingleResult();
+            System.out.println(Libro.toString());
             desconectar();
             return Libro;
-        } catch (SQLClientInfoException eSQL) {
+        } catch (Exception e) {
             System.out.println(" Error al Buscar Editorial ");
-            System.out.println(eSQL);
+            System.out.println(e);
             return null;
         }
     }
