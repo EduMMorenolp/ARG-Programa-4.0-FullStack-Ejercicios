@@ -9,7 +9,6 @@ import ejercicio.libreria.Enum.entidadesEnum;
 import ejercicio.libreria.entidades.Cliente;
 import ejercicio.libreria.entidades.Libro;
 import ejercicio.libreria.servicios.*;
-import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -68,8 +67,10 @@ public class EJERCICIOLibreria {
 
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
 
-        /*
+        
         // ---- CARGANDO BASE DE DATOS AUTOMATICAMENTE ----
+        /*
+        try{
         // Ejemplo 1
         ls.crearLibro("El Gran Gatsby", 1925, 10, as.crearAutor("F. Scott Fitzgerald"), es.crearEditorial("Scribners"));
 
@@ -84,7 +85,10 @@ public class EJERCICIOLibreria {
 
         // Ejemplo 5
         ls.crearLibro("Don Quijote de la Mancha", 1605, 25, as.crearAutor("Miguel de Cervantes"), es.crearEditorial("Francisco de Robles"));
-         */
+        }catch ( Exception e){
+            System.out.println(" ERROR al crear libro AUTOMATICAMENTE ");
+        }
+        */
         // ls.buscarLibroPorNombre("1984");
         try {
             int opc;
@@ -246,11 +250,16 @@ public class EJERCICIOLibreria {
                                     System.out.println("Ingrese el ID del Libro : ");
                                     long idlibro = leer.nextLong();
                                     Libro libropres = ls.buscarLibroPorId(idlibro);
-                                    ps.hacerPrestamo(c, date , libropres);
+                                    if ( ls.verificarRestantes(libropres)){
+                                        ps.hacerPrestamo(c, date , libropres);
+                                    }
                                     break;
                                 case 3:
                                     break;
                                 case 4:
+                                    break;
+                                case 5:
+                                    ls.listarLibros();
                                     break;
                                 case 0:
                                     System.out.println(" Saliendo del Menu Clientes ... ");

@@ -5,8 +5,7 @@
  */
 package ejercicio.libreria.persistencia;
 
-import ejercicio.libreria.entidades.Libro;
-import java.sql.SQLClientInfoException;
+import ejercicio.libreria.entidades.Libro;;
 import java.util.Collections;
 import java.util.List;
 import javax.persistence.NoResultException;
@@ -53,7 +52,6 @@ public class LibroDAO extends DAO<Libro> {
         Libro Libro;
         try {
             super.conectar();
-
             Libro = em.createQuery("SELECT l FROM Libro l WHERE l.isbn = :id", Libro.class).setParameter("id", id).getSingleResult();
             System.out.println(Libro.toString());
             desconectar();
@@ -116,5 +114,20 @@ public class LibroDAO extends DAO<Libro> {
             System.out.println("Error al buscar libros por nombre de editorial: " + e.getMessage());
             return Collections.emptyList(); // Devuelve una lista vacía en caso de error
         }
+    }
+    
+    public List<Libro> listarLibros(){
+         try {
+            conectar();
+
+            List<Libro> libros = em.createQuery(
+                    "SELECT l FROM libro l", Libro.class).getResultList();
+            desconectar();
+            return libros;
+        } catch (Exception e) {
+            System.out.println("Error al listar los libros ");
+            return Collections.emptyList(); // Devuelve una lista vacía en caso de error
+        }
+          
     }
 }

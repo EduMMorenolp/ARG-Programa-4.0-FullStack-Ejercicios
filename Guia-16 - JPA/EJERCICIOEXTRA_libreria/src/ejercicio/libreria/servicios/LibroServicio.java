@@ -10,6 +10,7 @@ import ejercicio.libreria.entidades.Editorial;
 import ejercicio.libreria.entidades.Libro;
 import ejercicio.libreria.persistencia.LibroDAO;
 import java.util.List;
+import java.util.Objects;
 
 
 
@@ -133,5 +134,30 @@ public class LibroServicio {
             System.out.println("No se encontro el nombre");
         }
         
+    }
+    
+    public boolean verificarRestantes(Libro libro){
+        
+        boolean aux;
+        
+        if ( Objects.equals(libro.getEjemplares(), libro.getEjemplaresPrestados()) ){
+            aux = false;
+            System.out.println(" No hay mas ejemplares ");
+        } else {
+            System.out.println(" Hay disponible un ejemplar. ");
+            libro.setEjemplaresPrestados(libro.getEjemplaresPrestados() + 1);
+            libro.setEjemplaresRestantes(libro.getEjemplaresRestantes() - 1);
+            aux = true;
+        }
+        
+        return aux;
+    }
+    
+    public void listarLibros(){
+        
+        List<Libro> listaLibros = lDAO.listarLibros();      
+        listaLibros.forEach((listaLibro) -> {
+            System.out.println(listaLibro.toString());
+        });
     }
 }

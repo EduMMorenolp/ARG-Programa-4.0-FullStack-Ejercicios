@@ -40,10 +40,15 @@ public class PrestamoServicio {
         p.setLibro(libro);
         
         pDAO.ingresarPrestamo(p);
+        
         } catch ( Exception e){
             System.out.println(" Error al hacer Prestamo ");
         }
     }
+    
+    
+    
+    
     
     public void hacerDevolucion(Libro libro){
         

@@ -51,6 +51,7 @@ public class Libro implements Serializable {
         this.alta = alta;
         this.autor = autor;
         this.editorial = editorial;
+        this.ejemplaresRestantes = ejemplares;
     }
 
     public Editorial getEditorial() {
