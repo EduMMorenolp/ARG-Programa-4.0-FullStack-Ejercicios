@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIA 17 - HTML y CSS</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+    <!-- Manos a la Obra - Actividad: Presentación Personal – Parte1 -->
+    <!-- 
+        1) Crear un archivo HTML. Para realizar esto, abriremos el editor Visual Studio Code (el IDE que 
+        utilizaremos en este módulo) y localizaremos la barra de navegación que se haya en la parte 
+        superior del programa. Iremos al apartado “File” y dentro de las opciones seleccionaremos 
+        “New File”. Como se puede observar en la siguiente imagen
+        2) Crear estructura principal de un documento HTML. Utilizando un shortcut (atajo de teclado) 
+        vamos a crear la estructura principal de nuestro documento. El shortcut es un signo de 
+        exclamación “!” y seleccionaremos la primera opción como se puede ver en la siguiente 
+        imagen
+        3) Agregar etiquetas de texto. Ahora agrega al documento (dentro de la etiqueta <body>) los
+        siguientes elementos:
+        • Un encabezado <h1> con tu nombre.
+        • Un párrafo con una breve presentación.
+        • Resalta con negrita lo que consideres más importante del párrafo.
+        • Utiliza saltos de línea si los consideras necesarios.
+        4) Renderizar el documento HTML. Renderizar significa desplegar nuestro documento en la 
+        web. Para desplegar el documento que acabamos de crear haremos lo siguiente:
+        a) Guardar el documento. Puedes usar el shortcut ctrl + s o buscar la opción “Save” en las 
+        opciones de “File” (primera opción de la barra de tareas).
+        b) Buscar el documento en tu ordenador. Busca el documento y ábrelo. Se abrirá en tu 
+        navegador web predeterminado
+    -->
+    <h1> Eduardo M Moreno </h1>
+
+    <h2> Soy un programador recién iniciado con una pasión por la tecnología y
+        la resolución de problemas.
+        <br>
+        <strong> En busca de oportunidades y proyectos
+            emocionantes.</strong>
+    </h2>
+
+    <!-- Manos a la Obra - Actividad: Presentación Personal – Parte 2 -->
+    <!-- 
+        1) Agrega un encabezado de menor relevancia que el usado en la actividad anterior 
+        (Presentación Personal – Parte 1) y nómbralo “Aptitudes Personales”. 
+        2) Implementar listas desordenadas. Luego crea una lista y agrega tus principales aptitudes 
+        (por ejemplo: asertividad, trabajo en equipo, escucha activa, entre otros).
+        3) Debajo agrega un nuevo encabezado (igual relevancia que en el punto 1) nombrado 
+        “Tecnologías”
+        4) Implementar listas ordenadas. Debajo del encabezado enumera las tecnologías que 
+        conoces y has aprendido en este curso. (Java, MySQL, HTML entre otras)
+    -->
+    <h3> Aptitudes Personales
+        <ul>
+            <li>Comunicación efectiva</li>
+            <li>Trabajo en equipo</li>
+            <li>Adaptabilidad</li>
+            <li>Resolución de problemas</li>
+            <li type="circle">Aprendizaje rápido</li>
+        </ul>
+    </h3>
+    <h3> Tecnologías
+        <ol type="I">
+            <li>Java</li>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Git</li>
+            <li>GitHub</li>
+        </ol>
+    </h3>
+
+    <!-- Manos a la Obra - Actividad: Presentación Personal - Enlaces -->
+    <!-- 
+        1) Agregar un enlace externo sobre un texto. Agrega un enlace externo con dirección a tu 
+        LinkedIn personal (si no tienes puede ser al home page de LinkedIn) bajo el texto
+        “LinkedIn Personal”
+    -->
+    <h2>
+        <a href="https://www.linkedin.com/in/eduardo-m-moreno-programador/"> LinkedIn Personal </a>
+    </h2>
+
+    <!-- Manos a la Obra - Actividad Presentación Personal - Imágenes. -->
+    <!--
+        Ahora que sabemos utilizar la etiqueta <img> y sus atributos básicos, lo incluyamos en nuestra 
+        página.
+        1) Agregar una imagen. Debajo del encabezado con nuestro nombre, pondremos una
+        imagen nuestra que tengamos en nuestro ordenador.
+        2) Agregar un enlace externo sobre una imagen. Al final de la página agrega una imagen de
+        un personaje de películas o series que te guste con un enlace a un recurso que lo
+        represente puede ser: un video de YouTube, alguna web, algún recurso de Netflix ¡lo que
+        prefieras
+    -->
+    <h1> Eduardo M Moreno </h1>
+    <img src="fotoperfil.png" alt="FotoPerfil">
+
+    <h1> PAIN NARUTO </h1>
+    <img src="https://beebom.com/wp-content/uploads/2023/01/pain.jpg?quality=75&strip=all" alt="FotoPain">
+
+    <!-- Actividad: Presentación Personal – Estilos CSS -->
+    <!--
+        En esta actividad incorporaremos algunos estilos a la página que hemos creado, con el motivo de 
+        practicar lo aprendido sobre CSS.
+        En el Anexo CSS (material disponible en el aula virtual) encontraras diferentes formas de utilizar las 
+        propiedades que utilizaremos en la actividad para así, sacarle más provecho.
+        1) Abre tu IDE y crea un nuevo archivo (en la actividad 1 se explica cómo). Pero esta vez, con 
+        la extensión “css” en lugar de “html”. Puedes nombrarlo cómo prefieras. Te 
+        recomendamos algunos nombres: “estilos.css”, “style.css”.
+        2) Agrega una declaración CSS con selector universal (estas aplican a todo el documento).
+        Dentro de esta declaración especificaremos el valor de las siguientes propiedades:
+        a. background-color: (elige el color que prefieras).
+        b. font-family: (elige la fuente que prefieras).
+        3) Agregaremos una declaración CSS con selector de etiqueta, para todas las etiquetas H1 (o 
+        el encabezado de mayor relevancia que posea tu documento HTML). En esta declaración 
+        te pediremos que especifiques los valores para las siguientes propiedades:
+        a. font-size: (elige el tamaño que prefieras. Recomendamos usar px).
+        b. color: (elige el color que prefieras).
+    -->
+
+
+</body>
+
+</html>
