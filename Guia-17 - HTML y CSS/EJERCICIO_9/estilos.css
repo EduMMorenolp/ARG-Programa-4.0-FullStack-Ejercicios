@@ -1,0 +1,71 @@
+
+
+#titulo {
+    color : #099;
+}
+
+strong {
+    color : red;
+}
+
+.destacado {
+    color :rgb(212, 160, 14);
+}
+
+#subtitulo, em {
+     color : blue;
+}
+
+p.span {
+    color: red;
+}
+
+.especial {
+    color : rgb(233, 67, 233);
+}
+
+#adicional {
+    color :rgb(212, 160, 14);
+}
+
+#especial {
+    color : violet;
+}
+
+#adicional a{
+    color: green;
+}
+
+th, td, tr .especial{
+    border: 2px solid black;
+}
+
+thead .especial {
+    color : rgb(211, 211, 15);
+}
+
+tbody tr {
+    color : green;
+}
+
+tbody strong {
+    color : rgb(211, 211, 15);
+}
+
+tbody .especial[scope="row"] {
+    color : rgb(211, 211, 15);
+}
+
+tbody th[scope="row"] {
+    color : red;
+}
+
+tbody em {
+    color : green;
+}
+
+tfoot th {
+    color : red;
+}
+
+
