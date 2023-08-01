@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO EXTRA 2</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+    <!--
+        Determinar las reglas CSS necesarias para mostrar la siguiente tabla con el aspecto final 
+        mostrado en la imagen (modificar el código HTML que se considere necesario añadiendo 
+        los atributos class oportunos).
+        Tabla original:
+        Tabla final:
+        Pasos a realizar: 
+            1. Alinear el texto de las celdas, cabeceras y título. Definir los bordes de la tabla, celdas y 
+            cabeceras (color gris oscuro #333).
+            2. Formatear las cabeceras de fila y columna con la imagen de fondo correspondiente en 
+            cada caso (fondo_gris.gif, euro.png, dolar.png, yen.png, libra.png). Modificar el tipo de 
+            letra de la tabla y utilizar Arial. El color azul claro es #E6F3FF.
+            3. Mostrar un color alterno en las filas de datos (color amarillo claro #FFFFCC).
+            Nota: el código para este ejercicio se encuentra en GitHub o Moodle. 
+    -->
+    <table class="normal" summary="Tipos de cambio">
+        <tr>
+            <th class="cabecera-columna" class="cambio" scope="col">Cambio</th>
+            <th class="cabecera-columna" scope="col">Compra</th>
+            <th class="cabecera-columna" scope="col">Venta</th>
+            <th class="cabecera-columna" scope="col">M&aacute;ximo</th>
+            <th class="cabecera-columna" scope="col">M&iacute;nimo</th>
+        </tr>
+        <tr>
+            <th class="cabecera-fila" scope="row"><img src="imagenes/euro.png" alt="Icono 1">Euro/Dolar</th>
+            <td>1.2524</td>
+            <td>1.2527</td>
+            <td>1.2539</td>
+            <td>1.2488</td>
+        </tr>
+        <tr>
+            <th class="cabecera-fila" scope="row"><img src="imagenes/dolar.png" alt="Icono 2">Dolar/Yen</th>
+            <td>119.01</td>
+            <td>119.05</td>
+            <td>119.82</td>
+            <td>119.82</td>
+        </tr>
+        <tr>
+            <th class="cabecera-fila" scope="row"><img src="imagenes/libra.png" alt="Icono 3">Libra/Dolar</th>
+            <td>1.8606</td>
+            <td>1.8611</td>
+            <td>1.8651</td>
+            <td>1.8522</td>
+        </tr>
+        <tr>
+            <th class="cabecera-fila" scope="row"><img src="imagenes/yen.png" alt="Icono 4">Euro/Yen</th>
+            <td>149.09</td>
+            <td>149.13</td>
+            <td>149.79</td>
+            <td>148.96</td>
+        </tr>
+    </table>
+</body>
+
+</html>

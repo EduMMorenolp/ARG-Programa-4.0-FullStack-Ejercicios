@@ -1,0 +1,29 @@
+.normal {
+  border: 1px solid #000;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+}
+.normal th {
+  border: 1px solid #000;
+  padding: 3px;
+}
+
+.normal td {
+  border: 1px solid #000;
+  padding: 3px;
+  text-align: center;
+}
+
+.cabecera-fila {
+  text-align: left;
+  background-color: #e6f3ff;
+  height: 25px;
+}
+
+.cabecera-columna {
+  background-color: #cccaca;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffcc;
+}
