@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>EJERCICIO EXTRAS 5</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
+
 <body>
     <!--
         Ahora deberemos hacer una página para el detalle del producto. Una página que muestre 
         el nombre, el precio del producto y un botón para comprar y otro para agregar al carrito. A 
         esta página se accederá con el botón en a la tabla de ver detalle.
     -->
-    
-    
+    <div class="container-fluid">
+        <div class="col">
+
+            <div class="row-cols-3 lef">
+                <img src="imagenes/producto.png">
+            </div>
+
+            <div class="row-cols-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title text-center"><strong> $9.95 </strong></h3>
+                        <div class="card-header text-center">
+                            <h5>Producto de Muestra</h5>
+                        </div>
+                        <br>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae quaerat
+                            fuga odit, temporibus nostrum quo exercitationem vitae atque error natus! Saepe aliquam quos
+                            minima voluptas pariatur mollitia quam ipsam sit.</p>
+
+                        <a href="#" class="btn btn-primary "><strong>Agregar al Carrito </strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .btn {
+            background-color: yellow;
+            color: black;
+        }
+
+        h3 {
+            padding: 30px;
+        }
+        .card-body {
+            background-color: rgb(211, 207, 207);
+        }
+
+        .card-body a {
+            display: block;
+        }
+    </style>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
