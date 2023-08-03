@@ -16,13 +16,12 @@
         esta página se accederá con el botón en a la tabla de ver detalle.
     -->
     <div class="container-fluid">
-        <div class="col">
-
-            <div class="row-cols-3 lef">
-                <img src="imagenes/producto.png">
+        <div class="row">
+            <div class="col-4">
+                <img src="imagenes/producto.png" class="image">
             </div>
 
-            <div class="row-cols-3">
+            <div class="col-5">
                 <div class="card">
                     <div class="card-body">
                         <h3 class="card-title text-center"><strong> $9.95 </strong></h3>
@@ -35,6 +34,8 @@
                             minima voluptas pariatur mollitia quam ipsam sit.</p>
 
                         <a href="#" class="btn btn-primary "><strong>Agregar al Carrito </strong></a>
+                        <br>
+                        <a href="#" class="btn btn-primary "><strong> Comprar </strong></a>
                     </div>
                 </div>
             </div>
@@ -46,16 +47,22 @@
             background-color: yellow;
             color: black;
         }
-
         h3 {
             padding: 30px;
+        }
+        .col-5 {
+            padding-top: 50px;
         }
         .card-body {
             background-color: rgb(211, 207, 207);
         }
-
         .card-body a {
             display: block;
+        }
+        .image {
+            width: 100%;
+            max-height: 100%;
+            min-width: max-content;
         }
     </style>
 
