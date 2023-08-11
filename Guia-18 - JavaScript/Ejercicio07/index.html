@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 07</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--
+        Escriba un programa en el cual se ingrese un valor límite positivo, y a continuación 
+        solicite números al usuario hasta que la suma de los números introducidos supere el 
+        límite inicial. 
+    -->
+
+    <div class="container mt-5">
+        <h1>Menu de Operaciones </h1>
+        <form id="estadoForm">
+            <div class="mb-3">
+                <label for="number1" class="form-label">Ingrese el limite numerico : </label>
+                <br>
+                <input id="number1">
+                <br>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar Numero</button>
+        </form>
+        <div class="mt-3" id="resultado"></div>
+    </div>
+
+    <script>
+        document.getElementById('estadoForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const numero1 = parseInt(document.getElementById('number1').value);
+            if (numero1 <= 0) {
+                alert('Por favor, ingrese un número positivo en el límite numérico.');
+                return;
+            }
+
+            let aux = 0;
+            do {
+                let nuevoNumero = parseInt(prompt("Ingrese un número:", "0"));
+                aux += nuevoNumero;
+                console.log(aux);
+            } while (aux < numero1)
+
+            resultado.innerHTML = `<p> Usted a llegado al limite numerico, Felicitaciones. </p>`;
+        })
+    </script>
+</body>
+
+</html>

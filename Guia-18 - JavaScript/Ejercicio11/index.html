@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+
+
+</head>
+
+<body>
+    <!--
+        Escribir una función que reciba un String y devuelva la palabra más larga. 
+        String Ejemplo: “Guia de JavaScript”
+        Resultado esperado : “JavaScript
+    -->
+
+    <script>
+        function palabraMasLarga(cadena) {
+            // Dividir la cadena en palabras
+            const palabras = cadena.split(' ');
+
+            // Inicializar una variable para almacenar la palabra más larga
+            let palabraMasLarga = '';
+
+            // Recorrer las palabras y comparar su longitud
+            for (let i = 0; i < palabras.length; i++) {
+                if (palabras[i].length > palabraMasLarga.length) {
+                    palabraMasLarga = palabras[i];
+                }
+            }
+
+            return palabraMasLarga;
+        }
+
+        // Ejemplo de uso
+        const cadenaEjemplo = "Guia de JavaScript";
+        const palabraLarga = palabraMasLarga(cadenaEjemplo);
+        console.log(palabraLarga); // Salida: "JavaScript"
+    </script>
+</body>
+
+</html>

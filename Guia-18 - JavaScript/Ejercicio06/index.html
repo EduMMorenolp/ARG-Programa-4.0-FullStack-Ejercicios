@@ -10,47 +10,40 @@
 </head>
 
 <body>
+
     <!--
-        Escriba un programa en el cual se ingrese un valor límite positivo, y a continuación 
-        solicite números al usuario hasta que la suma de los números introducidos supere el 
-        límite inicial. 
+        Realizar un programa que, dado un número entero, visualice en pantalla si es par o impar. 
+        En caso de que el valor ingresado sea 0, se debe mostrar “el número no es par ni impar”. 
     -->
 
     <div class="container mt-5">
-        <h1>Menu de Operaciones </h1>
+        <h1>Numero Par o Impar </h1>
         <form id="estadoForm">
             <div class="mb-3">
-                <label for="number1" class="form-label">Ingrese el limite numerico : </label>
+                <label for="number1" class="form-label">Ingrese un numero : </label>
                 <br>
                 <input id="number1">
                 <br>
-                <label for="number2" class="form-label">Ingrese un numero : </label>
-                <br>
-                <input id="number2">
             </div>
-            <button type="submit" class="btn btn-primary">Consultar</button>
+            <button type="submit" class="btn btn-primary">¿Numero Par o Impar?</button>
         </form>
         <div class="mt-3" id="resultado"></div>
     </div>
 
-
     <script>
-
         document.getElementById('estadoForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             const numero1 = parseInt(document.getElementById('number1').value);
-            const numero2 = parseInt(document.getElementById('number2').value);
-            
-            let aux = 0;
 
-            do {
-                aux += numero2;
-                console.log(aux);
-            } while ( aux < numero1 )
+            if (numero1 == 0){
+                resultado.innerHTML = `<p> El Numero no es PAR ni IMPAR </p>`;
+            } else if (numero1 % 2 == 0)  {
+                resultado.innerHTML = `<p> Su Numero es PAR </p>`;
+            } else {
+                resultado.innerHTML = `<p> Su Numero es IMPAR </p>`;
+            }
         })
-
-
     </script>
 </body>
 
