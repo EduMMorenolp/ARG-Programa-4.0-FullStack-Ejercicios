@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 01</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- 
+            Escribir un algoritmo en el cual se consulte al usuario que ingrese ¿cómo está el día de 
+            hoy? (soleado, nublado, lloviendo). A continuación, mostrar por pantalla un mensaje que 
+            indique “El día de hoy está ...”, completando el mensaje con el dato que ingresó el usuario. 
+    -->
+
+
+  <div class="container mt-5">
+    <h1>Consulta del Estado del Día</h1>
+    <form id="estadoForm">
+      <div class="mb-3">
+        <label for="estadoDia" class="form-label">¿Cómo está el día de hoy?</label>
+        <select class="form-select" id="estadoDia" required>
+          <option value="" disabled selected>Seleccione una opción</option>
+          <option value="soleado">Soleado</option>
+          <option value="nublado">Nublado</option>
+          <option value="lloviendo">Lloviendo</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+    <div class="mt-3" id="resultado"></div>
+  </div>
+
+  <script>
+    document.getElementById('estadoForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const estadoSeleccionado = document.getElementById('estadoDia').value;
+      const resultadoDiv = document.getElementById('resultado');
+      
+      if (estadoSeleccionado === 'soleado') {
+        resultadoDiv.innerHTML = '<p>El día de hoy está soleado.</p>';
+      } else if (estadoSeleccionado === 'nublado') {
+        resultadoDiv.innerHTML = '<p>El día de hoy está nublado.</p>';
+      } else if (estadoSeleccionado === 'lloviendo') {
+        resultadoDiv.innerHTML = '<p>El día de hoy está lloviendo.</p>';
+      } else {
+        resultadoDiv.innerHTML = '<p>Por favor, seleccione una opción válida.</p>';
+      }
+    });
+  </script>
+</body>
+</html>
