@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20</title>
+</head>
+
+<body>
+
+    <!--
+        Realizar un programa que obtenga la siguiente matriz [[3], [6], [9], [12], [15]] y devuelve y 
+        muestre el siguiente array [6, 9, 12, 15, 18].
+    -->
+
+    <script>
+        let matrizOriginal = [[3], [6], [9], [12], [15]];
+        console.log(matrizOriginal);
+        let matrizModificada = matrizOriginal.flat();
+        delete matrizModificada[0];
+        matrizModificada.push(18);
+        console.log(matrizModificada);
+    </script>
+
+</body>
+
+</html>

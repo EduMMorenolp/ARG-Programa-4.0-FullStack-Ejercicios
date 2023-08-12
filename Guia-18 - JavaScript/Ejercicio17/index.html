@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 17</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!--
+        Realizar un programa que elimine los dos últimos elementos de un array. Mostrar el resultado
+    -->
+
+    <div class="mt-3" id="vectorOriginal"></div>
+    <div class="mt-3" id="vetorModificado"></div>
+
+    <script>
+
+        let v1 = [];
+        let v2 = [];
+
+        function numeroAleatorio(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        function llenarVectores() {
+            for (let i = 0; i < 5; i++) {
+                v1.push(numeroAleatorio(1, 10));
+            }
+        }
+
+        llenarVectores();
+
+        console.log(v1);
+        vectorOriginal.innerHTML = `<h1> Vector Original : [${v1}] </h1>`;
+        v2 = v1;
+
+        delete v2[4];
+        delete v2[3];
+
+        console.log(v2);
+        vetorModificado.innerHTML = `<h1> Vector Modificado : [${v2}] </h1>`;
+
+    </script>
+</body>
+
+</html>
