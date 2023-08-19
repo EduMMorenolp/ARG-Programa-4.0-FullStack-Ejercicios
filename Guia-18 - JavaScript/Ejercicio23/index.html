@@ -21,6 +21,12 @@
             <label for="cantCaracter" class="form-label">Cantidad de Caracteres : </label>
             <br>
             <input id="cantCaracter">
+            <br>
+            <label class="form-label">Ingrese Texto a Resaltar</label>
+            <br>
+            <textarea id="texto"></textarea>
+            <br>
+            <button class="btn-outline-dark" id="buttun" type="submit">Resaltar Texto</button>
             <div id="parrafo">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, corrupti nobis ratione obcaecati
                     minima delectus,
@@ -40,15 +46,25 @@
             </div>
         </form>
         <div class="mt-3">
-            <h2 id="resultado"></h2>
+            <h3> Texto Resaltado : </h3>
+            <div id="resultado"></div>
         </div>
     </div>
 
     <script src="scripts.js"></script>
 
+
+
     <style>
         .resaltado {
             background-color: yellow;
+        }
+
+        #texto {
+            width: 300px;
+            height: 150px;
+            resize: both;
+            /* Permite redimensionar vertical y horizontalmente */
         }
     </style>
 </body>

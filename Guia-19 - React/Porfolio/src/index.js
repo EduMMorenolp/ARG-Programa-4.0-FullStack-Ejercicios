@@ -10,6 +10,7 @@ root.render(
     <App />
     <App />
     <Inicio></Inicio>
+    <App />
 
   </React.StrictMode>
 );

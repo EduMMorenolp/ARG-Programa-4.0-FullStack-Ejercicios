@@ -1,11 +1,14 @@
 import './App.css';
-import Inicio from './componentes/Inicio';
+import {Inicio, MyProgressBar} from './componentes/Inicio';
 
 function App() {
   return (
     <div className="App">
       <p> Desde App</p>
       <Inicio></Inicio>
+      <MyProgressBar></MyProgressBar>
+      <MyProgressBar></MyProgressBar>
+      <MyProgressBar></MyProgressBar>
     </div>
   );
 }

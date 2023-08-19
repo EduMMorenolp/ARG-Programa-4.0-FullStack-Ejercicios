@@ -23,3 +23,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  var boton = document.getElementById("buttun");
+  var resultado = document.getElementById("resultado");
+  boton.addEventListener("click", function () {
+    var texto = document.getElementById("texto");
+    var numCaracter = document.getElementById("cantCaracter").value;
+    var textoModificado = resaltarTexto(texto.value, numCaracter);
+    resultado.innerHTML = textoModificado;
+  });
+});
+
+function resaltarTexto(palabra, numCaracter) {
+  const words = palabra.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    if (words[i].length === parseInt(numCaracter)) {
+      words[i] = `<span class="resaltado">${words[i]}</span>`;
+    }
+  }
+  return words.join(" ");
+}
