@@ -1,7 +1,4 @@
-
-import React from "react";  
-
-export const Ejemplo = () => {
+export function Ejemplo() {
   const titulo = " Hola Perrito ";
   const subTitulo = " Sub titulo ";
 
@@ -11,4 +8,4 @@ export const Ejemplo = () => {
       <h2> {subTitulo} </h2>
     </div>
   );
-};
+}

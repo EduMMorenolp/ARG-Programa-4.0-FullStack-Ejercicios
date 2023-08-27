@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import { Ejemplo } from "./componentes/ejemplo";
 
@@ -13,7 +12,6 @@ del árbol de componentes y de como es el llamado desde index.js
 */
 
 function App() {
-
   return (
     <div className="App">
       <Ejemplo></Ejemplo>
