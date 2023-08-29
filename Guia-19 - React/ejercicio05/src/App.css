@@ -1,0 +1,28 @@
+.App {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 15px;
+    line-height: 1.5;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
