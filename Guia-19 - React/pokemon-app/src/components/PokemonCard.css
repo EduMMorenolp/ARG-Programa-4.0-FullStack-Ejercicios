@@ -1,0 +1,203 @@
+/* PokemonCard.css */
+
+/* Estilos generales para las tarjetas de Pokémon */
+.pokemon-card {
+  border-radius: 10px;
+  padding: 16px;
+  width: 200px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px;
+  color: white; /* Cambia el color del texto para mayor legibilidad */
+}
+
+.pokemon-card img {
+  max-width: 100%;
+}
+
+.pokemon-card h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  color: #333;
+  text-transform: capitalize;
+}
+
+.pokemon-card p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.pokemon-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.pokemon-card li {
+  margin-bottom: 5px;
+  color: #888;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pokemon-card strong {
+  font-weight: bold;
+  color: #333;
+}
+
+/* Colores para los tipos de Pokémon */
+.pokemon-type {
+  padding: 2px 8px;
+  border-radius: 5px;
+}
+
+.pokemon-type.grass {
+  background-color: #78c850;
+  color: white;
+  border: 2px solid #78c850; /* Color del contorno */
+}
+
+.pokemon-type.fire {
+  background-color: #f08030;
+  color: white;
+  border: 2px solid #f08030; /* Color del contorno */
+}
+
+.pokemon-type.water {
+  background-color: #6890f0;
+  color: white;
+  border: 2px solid #6890f0; /* Color del contorno */
+}
+
+.pokemon-type.electric {
+  background-color: #f8d030;
+  color: white;
+  border: 2px solid #f8d030; /* Color del contorno */
+}
+
+.pokemon-type.psychic {
+  background-color: #f85888;
+  color: white;
+  border: 2px solid #f85888; /* Color del contorno */
+}
+
+.pokemon-type.ice {
+  background-color: #98d8d8;
+  color: white;
+  border: 2px solid #98d8d8; /* Color del contorno */
+}
+
+.pokemon-type.dragon {
+  background-color: #7038f8;
+  color: white;
+  border: 2px solid #7038f8; /* Color del contorno */
+}
+
+.pokemon-type.dark {
+  background-color: #705848;
+  color: white;
+  border: 2px solid #705848; /* Color del contorno */
+}
+
+.pokemon-type.fairy {
+  background-color: #ee99ac;
+  color: white;
+  border: 2px solid #ee99ac; /* Color del contorno */
+}
+
+.pokemon-type.fighting {
+  background-color: #c03028;
+  color: white;
+  border: 2px solid #c03028; /* Color del contorno */
+}
+
+.pokemon-type.flying {
+  background-color: #a890f0;
+  color: white;
+  border: 2px solid #a890f0; /* Color del contorno */
+}
+
+.pokemon-type.ghost {
+  background-color: #705898;
+  color: white;
+  border: 2px solid #705898; /* Color del contorno */
+}
+
+.pokemon-type.ground {
+  background-color: #e0c068;
+  color: white;
+  border: 2px solid #e0c068; /* Color del contorno */
+}
+
+.pokemon-type.poison {
+  background-color: #a040a0;
+  color: white;
+  border: 2px solid #a040a0; /* Color del contorno */
+}
+
+.pokemon-type.steel {
+  background-color: #b8b8d0;
+  color: white;
+  border: 2px solid #b8b8d0; /* Color del contorno */
+}
+
+/* Colores del contorno según el tipo de Pokémon */
+.pokemon-card.grass {
+  border: 3px solid #78c850;
+}
+
+.pokemon-card.fire {
+  border: 3px solid #f08030;
+}
+
+.pokemon-card.water {
+  border: 3px solid #6890f0;
+}
+
+.pokemon-card.electric {
+  border: 3px solid #f8d030;
+}
+
+.pokemon-card.psychic {
+  border: 3px solid #f85888;
+}
+
+.pokemon-card.ice {
+  border: 3px solid #98d8d8;
+}
+
+.pokemon-card.dragon {
+  border: 3px solid #7038f8;
+}
+
+.pokemon-card.dark {
+  border: 3px solid #705848;
+}
+
+.pokemon-card.fairy {
+  border: 3px solid #ee99ac;
+}
+
+.pokemon-card.fighting {
+  border: 3px solid #c03028;
+}
+
+.pokemon-card.flying {
+  border: 3px solid #a890f0;
+}
+
+.pokemon-card.ghost {
+  border: 3px solid #705898;
+}
+
+.pokemon-card.ground {
+  border: 3px solid #e0c068;
+}
+
+.pokemon-card.poison {
+  border: 3px solid #a040a0;
+}
+
+.pokemon-card.steel {
+  border: 3px solid #b8b8d0;
+}
