@@ -54,7 +54,10 @@ function PokemonCard({ pokemonId }) {
         </div>
     );
     /*
-    
+ 
     */
 }
+
+
+
 export default PokemonCard;

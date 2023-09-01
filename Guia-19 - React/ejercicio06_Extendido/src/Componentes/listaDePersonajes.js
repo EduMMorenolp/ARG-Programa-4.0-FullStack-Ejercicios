@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchCharacters } from "../Servicios/rickAndMortyService";
 import './listaDePersonajes.css';
-import { Carousel, CarouselItem, Nav} from 'react-bootstrap';
+import { Carousel, CarouselItem} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Lista() {

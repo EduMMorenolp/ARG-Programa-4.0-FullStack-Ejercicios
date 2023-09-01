@@ -143,61 +143,76 @@
 
 /* Colores del contorno según el tipo de Pokémon */
 .pokemon-card.grass {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #78c850;
 }
 
 .pokemon-card.fire {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #f08030;
 }
 
 .pokemon-card.water {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #6890f0;
 }
 
 .pokemon-card.electric {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #f8d030;
 }
 
 .pokemon-card.psychic {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #f85888;
 }
 
 .pokemon-card.ice {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #98d8d8;
 }
 
 .pokemon-card.dragon {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #7038f8;
 }
 
 .pokemon-card.dark {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #705848;
 }
 
 .pokemon-card.fairy {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #ee99ac;
 }
 
 .pokemon-card.fighting {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #c03028;
 }
 
 .pokemon-card.flying {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #a890f0;
 }
 
 .pokemon-card.ghost {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #705898;
 }
 
 .pokemon-card.ground {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #e0c068;
 }
 
 .pokemon-card.poison {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #a040a0;
 }
 
 .pokemon-card.steel {
+  background-color: rgb(255, 255, 255);
   border: 3px solid #b8b8d0;
 }
