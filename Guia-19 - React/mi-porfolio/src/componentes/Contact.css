@@ -1,0 +1,40 @@
+/* Contact.css (por ejemplo) */
+
+#contact {
+  background-color: #fff;
+  padding: 60px 0;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+#contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#contact li {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+#contact a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+#contact a:hover {
+  color: #0056b3;
+}

@@ -1,0 +1,18 @@
+/* Main.css (por ejemplo) */
+
+#main {
+  background-color: #f5f5f5;
+  padding: 100px 0;
+  text-align: center;
+}
+
+#main h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+#main p {
+  font-size: 18px;
+  color: #666;
+}

@@ -1,0 +1,88 @@
+/* Footer.css */
+
+footer {
+  background-color: #333; /* Color de fondo del Footer */
+  color: #fff; /* Color del texto */
+  padding: 2px;
+  text-align: center;
+  display: flex;
+  border-radius: 15px;
+}
+
+.container {
+  
+  max-width: 960px; /* Ancho máximo del contenido del Footer */
+  margin: 0 auto; /* Centrar el contenido en el Footer */
+}
+
+a {
+  
+  text-decoration: none;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ff5733; /* Cambiar el color al pasar el mouse */
+}
+
+/* BARRA LATERAL DE REDES */
+.sidebar {
+  display: flexbox;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  display: inline-block;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.sidebarblanco a {
+  color: #968f8f;
+}
+
+.social-name {
+  display: none; /* Oculta el nombre completo inicialmente */
+}
+
+.sidebar a:hover .social-name {
+  display: inline; /* Muestra el nombre completo cuando se hace hover */
+  color: #555; /* Cambia el color del nombre */
+  font-weight: normal; /* Restaura el peso de la fuente a normal */
+  margin-left: 5px; /* Agrega un margen a la izquierda del nombre */
+}
+
+.sidebar a:hover .fab.fa-linkedin {
+  color: #0077b5; /* Cambia el color al azul de LinkedIn */
+}
+.sidebar a:hover .fab.fa-github {
+  color: #211f1f; /* Cambia el color al negro de GitHub */
+}
+.sidebar a:hover .fab.fa-instagram {
+  color: #e4405f; /* Cambia el color al rosa de Instagram */
+}
+.sidebar a:hover .fab.fa-twitter {
+  color: #1da1f2; /* Cambia el color al azul de Twitter */
+}
+.sidebar a:hover .fab.fa-discord {
+  color: #7289da; /* Cambia el color al azul de Discord */
+}
+.sidebar a:hover .fab.fa-youtube {
+  color: #ff0000; /* Cambia el color al rojo de YouTube */
+}
+.sidebar a:hover .fab.fa-twitch {
+  color: #9146ff; /* Cambia el color al morado de Twitch */
+}

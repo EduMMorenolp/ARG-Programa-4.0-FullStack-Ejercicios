@@ -1,0 +1,42 @@
+/* Projects.css (por ejemplo) */
+
+#projects {
+    background-color: #fff; /* Color de fondo de la sección de proyectos */
+    padding: 40px;
+  }
+  
+  #projects h2 {
+    font-size: 24px;
+    color: #333; /* Color del título */
+  }
+  
+  .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .project {
+    flex: 1;
+    border: 1px solid #ddd; /* Borde de los proyectos */
+    padding: 20px;
+    background-color: #f9f9f9; /* Color de fondo de los proyectos */
+  }
+  
+  .project h3 {
+    font-size: 20px;
+    color: #333; /* Color del título del proyecto */
+  }
+  
+  .project p {
+    font-size: 16px;
+    color: #666; /* Color del texto del proyecto */
+  }
+  
+  .project a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff; /* Color del enlace */
+  }
+  

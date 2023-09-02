@@ -1,3 +1,16 @@
+
+# Proyecto "Mi Portafolio"
+By Eduardo Manuel Moreno
+
+Este proyecto es mi portafolio personal, creado con React, donde muestro mis habilidades, proyectos y experiencia en desarrollo web. Aquí podrás conocer más sobre mí y explorar algunos de los proyectos en los que he trabajado.
+
+Características:
+- Secciones de presentación, sobre mí, proyectos y contacto.
+- Navegación fácil a través de las secciones con React Router.
+- Estilo personalizado con CSS para una presentación atractiva.
+
+#### ¡Gracias por visitar mi portafolio!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
