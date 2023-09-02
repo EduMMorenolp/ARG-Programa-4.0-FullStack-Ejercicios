@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import './BattleApp.css';
 import PokemonLoader from './PokemonCard';
+import PokemonUno from './PokemonUno';
+
 
 function BattleApp() {
-    const [pokemondata1Id, setPokemon1Data] = useState();
-    const [pokemon2Id, setPokemon2Data] = useState(1);
+    const [pokemon1Id, setPokemon1Data] = useState(6);
+    const [pokemon2Id, setPokemon2Data] = useState(3);
     const [turn, setTurn] = useState('jugador');
 
-    console.log(pokemondata1Id)
+    const [vidaPokemon1, setVidaPokemon1] = useState(20);
+
+    const reducirVidaPokemon1 = () => {
+        console.log('Reducir Vida');
+        setVidaPokemon1(vidaPokemon1 - 10);
+        console.log(vidaPokemon1);
+    };
 
     const handlePokemon1DataLoaded = data => {
         setPokemon1Data(data);
@@ -20,6 +28,7 @@ function BattleApp() {
     const handleAttack = () => {
         // Lógica para realizar un ataque
         if (turn === 'jugador') {
+            reducirVidaPokemon1();
             // Realizar el ataque del jugador al oponente
             // Actualiza el estado del oponente
             // Cambiar el turno al oponente
@@ -46,15 +55,15 @@ function BattleApp() {
         <div className="battle-app">
             <div className="Pokemon1">
                 {/* Cargar datos del primer Pokémon usando PokemonLoader */}
-                <PokemonLoader pokemonId={5} onPokemonDataLoaded={handlePokemon1DataLoaded} />
+                <PokemonLoader pokemonId={pokemon1Id} onPokemonDataLoaded={handlePokemon1DataLoaded} />
             </div>
             <div className="ComandosBatalla">
                 <h1>Turno de: {turn === 'jugador' ? 'Jugador' : 'Oponente'}</h1>
                 <button onClick={handleAttack}>Usar Ataque</button>
             </div>
-            <div className="Pokemon2">
-                {/* Cargar datos del segundo Pokémon usando PokemonLoader */}
-                <PokemonLoader pokemonId={pokemon2Id} onPokemonDataLoaded={handlePokemon2DataLoaded} />
+            <div className="Pokemon3">
+                {/* Paso de la vida y la función de reducción a PokemonUno */}
+                <PokemonUno pokemonId={pokemon2Id} vida={vidaPokemon1} reducirVida={reducirVidaPokemon1} />
             </div>
         </div>
     );

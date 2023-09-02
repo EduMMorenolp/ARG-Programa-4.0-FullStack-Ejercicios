@@ -7,9 +7,12 @@
 }
 
 .Pokemon1,
-.Pokemon2 {
+.Pokemon2{
   flex: 1;
   text-align: center;
+}
+
+.Pokemon3{
 }
 
 .ComandosBatalla {
