@@ -8,8 +8,6 @@ function Main() {
     const [pokemonList, setPokemonList] = useState([]);
     const [currentPokemonIndex, setCurrentPokemonIndex] = useState(0);
 
-    console.log(pokemonList)
-
     const handleIdChange = (e) => {
         setPokemonId(e.target.value);
     };
@@ -33,7 +31,7 @@ function Main() {
 
     const handleNextPokemon = () => {
         setCurrentPokemonIndex((prevIndex) => {
-            if (pokemonList.length === 1) {
+            if (pokemonList.length === 0) {
                 return prevIndex;
             }
             const newIndex = (prevIndex + 1) % pokemonList.length;
@@ -48,7 +46,6 @@ function Main() {
                 return prevIndex;
             }
             const newIndex = prevIndex === 0 ? pokemonList.length - 1 : prevIndex - 1;
-            console.log('Previous Index:', newIndex);
             return newIndex;
         });
     };
