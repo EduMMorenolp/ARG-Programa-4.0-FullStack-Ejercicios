@@ -1,11 +1,10 @@
-
-import BattleApp from './components/BattleApp';
+import Main from './components/Main';
 
 function App() {
 
   return (
-    <div>
-      <BattleApp></BattleApp>
+    <div className="App">
+      <Main/>
     </div>
   );
 }

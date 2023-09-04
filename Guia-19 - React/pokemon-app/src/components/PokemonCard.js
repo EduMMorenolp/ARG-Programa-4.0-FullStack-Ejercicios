@@ -1,19 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import './PokemonCard.css';
 
-function PokemonCard({ pokemonId }) {
+function PokemonCard({ pokemonId, pokemonName }) {
     const [pokemonData, setPokemonData] = useState(null);
 
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`)
-            .then(response => response.json())
-            .then(data => {
-                setPokemonData(data);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-            });
-    }, [pokemonId]);
+        if (pokemonId || pokemonName) {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId || pokemonName}`)
+                .then(response => response.json())
+                .then(data => {
+                    setPokemonData(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                });
+        }
+    }, [pokemonId, pokemonName]);
 
     if (!pokemonData) {
         return <div>Cargando...</div>;

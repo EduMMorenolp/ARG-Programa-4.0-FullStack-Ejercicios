@@ -1,0 +1,56 @@
+/* Main.css */
+
+.main-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2; 
+    border-radius: 10px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.search-by-id,
+.search-by-name {
+    flex: 1;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ffcc00; /* Borde amarillo */
+    border-radius: 5px; 
+}
+
+.pokemon-carousel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
