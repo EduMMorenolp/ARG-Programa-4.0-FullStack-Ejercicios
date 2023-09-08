@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './componentes/Navbar';
+import Barra from './componentes/Barra';
 import Footer from './componentes/Footer';
 import Projects from './componentes/Projects';
 import Contact from './componentes/Contact';
@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
-      <Navbar/>
+      <Barra/>
       <Main></Main>
       <Projects></Projects>
       <Contact></Contact>
