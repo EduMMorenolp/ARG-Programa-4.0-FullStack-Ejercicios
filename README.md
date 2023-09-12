@@ -38,6 +38,6 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
   <img src="https://profile-counter.glitch.me/ARGPrograma4FullStackEjer/count.svg?"  />
 </div>
 
-
-
+### Con mucho esfuerzo y constancia, pude concluir mi objetivo: plena presencialidad y reconocimientos de mis compañeros. Muchas Gracias a todos y todas .. 
+<img src="https://github.com/EduMMorenolp/ARG-Programa-4.0-FullStack-Ejercicios/blob/master/Pulsos%20al%20Final%20de%20Curso.png?raw=true" alt="FotoEGG" width="300">
 
