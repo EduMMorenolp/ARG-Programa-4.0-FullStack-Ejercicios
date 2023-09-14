@@ -14,6 +14,10 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 
 [![Puedes colaborar Clikeando en Donar](https://img.shields.io/badge/Clikeando%20aqui%20puedes%20colaborar%20-Donar-blue)](https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848810689e018813682e960130)
 
+### QR Cafecito 
+
+<img src="./QRCafecitoSolo.png" alt="QR Cafecito" style="object-fit: contain;"  />
+<br/>
 
 <img src="https://doc.eggeducacion.com/static/media/logo.4c3ffc62.svg" alt="FotoEGG" width="300">
 
