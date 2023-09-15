@@ -41,8 +41,8 @@ nav {
 }
 
 .sidebar a:hover .social-name {
-  display: inline; /* Muestra el nombre completo cuando se hace hover */
-  margin-left: 5px; /* Agrega un margen a la izquierda del nombre */
+  display: inline;
+  margin-left: 5px; 
 }
 
 .sidebar a:hover .fab.fa-linkedin {
@@ -57,12 +57,14 @@ nav {
 .sidebar a:hover .fab.fa-twitter {
   color: #1da1f2; /* Cambia el color al azul de Twitter */
 }
-.sidebar a:hover .fab.fa-discord {
-  color: #7289da; /* Cambia el color al azul de Discord */
+
+.nombre-estilo {
+  font-size: 24px;
+  color: #FF0000;
 }
-.sidebar a:hover .fab.fa-youtube {
-  color: #ff0000; /* Cambia el color al rojo de YouTube */
-}
-.sidebar a:hover .fab.fa-twitch {
-  color: #9146ff; /* Cambia el color al morado de Twitch */
+
+.nombre-container {
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
 }

@@ -1,14 +1,38 @@
-import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Barra.css';
+import React, { useState, useEffect, Fragment } from 'react';
 
 function Barra() {
+    const [nombre] = useState("Eduardo.M.Moreno");
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const duracionIntervalo = 500;
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (currentIndex < nombre.length) {
+                setCurrentIndex(currentIndex + 1);
+            } else {
+                setCurrentIndex(1);
+            }
+        }, duracionIntervalo);
+
+        return () => clearInterval(interval);
+    }, [currentIndex, nombre]);
+
     return (
         <Navbar expand="lg" className="bg-body">
             <Container>
-                <Navbar.Brand href="#home">Eduardo Manuel Moreno</Navbar.Brand>
+                <Navbar.Brand href="#home">
+                    <Fragment>
+                        <div className="nombre-container">
+                            <span className="nombre-estilo">
+                                {nombre.slice(0, currentIndex)}
+                            </span>
+                        </div>
+                    </Fragment>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="custom-collapse">
                     <Nav className="me-auto center">
@@ -51,5 +75,8 @@ function Barra() {
         </Navbar>
     );
 }
+
+
+
 export default Barra;
 
