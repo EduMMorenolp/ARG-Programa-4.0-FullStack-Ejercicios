@@ -14,6 +14,10 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 
 [![Puedes colaborar Clikeando en Donar](https://img.shields.io/badge/Clikeando%20aqui%20puedes%20colaborar%20-Donar-blue)](https://www.mercadopago.com.ar/subscriptions/checkout?preapproval_plan_id=2c9380848810689e018813682e960130)
 
+### QR Cafecito 
+
+<img src="./QRCafecitoSolo.png" alt="QR Cafecito" style="object-fit: contain;"  />
+<br/>
 
 <img src="https://doc.eggeducacion.com/static/media/logo.4c3ffc62.svg" alt="FotoEGG" width="300">
 
@@ -38,6 +42,6 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
   <img src="https://profile-counter.glitch.me/ARGPrograma4FullStackEjer/count.svg?"  />
 </div>
 
-
-
+### Con mucho esfuerzo y constancia, pude concluir mi objetivo: plena presencialidad y reconocimientos de mis compañeros. Muchas Gracias a todos y todas .. 
+<img src="https://github.com/EduMMorenolp/ARG-Programa-4.0-FullStack-Ejercicios/blob/master/Pulsos%20al%20Final%20de%20Curso.png?raw=true" alt="FotoEGG" width="300">
 
