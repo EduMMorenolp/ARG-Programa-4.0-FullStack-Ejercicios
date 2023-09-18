@@ -3,10 +3,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import './Barra.css';
 import React, { useState, useEffect, Fragment } from 'react';
+import textContent from '../textContent';
 
-function Barra() {
-    const [nombre] = useState("Eduardo.M.Moreno");
+
+function Barra({ onSectionChange }) {
+    const [nombre] = useState("Eduardo M Moreno");
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [languageContent, setLanguage] = useState(textContent['espanol']);
     const duracionIntervalo = 500;
 
     useEffect(() => {
@@ -20,6 +23,17 @@ function Barra() {
 
         return () => clearInterval(interval);
     }, [currentIndex, nombre]);
+
+    const handleNavLinkClick = (sectionName) => {
+        onSectionChange(sectionName);
+    };
+
+    const handleLanguageChange = () => {
+        const newLanguage = languageContent === textContent['espanol'] ? textContent['english'] : textContent['espanol'];
+        
+        setLanguage(newLanguage);
+        console.log("Cambiando Idioma a", newLanguage);
+    };
 
     return (
         <Navbar expand="lg" className="bg-body">
@@ -35,13 +49,21 @@ function Barra() {
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" className="custom-collapse">
-                    <Nav className="me-auto center">
-                        <Nav.Link href="#Inicio">Inicio</Nav.Link>
-                        <Nav.Link href="#Habilidades">Habilidades</Nav.Link>
-                        <Nav.Link href="#Proyectos">Proyectos</Nav.Link>
-                        <Nav.Link href="#Certificados">Certificados</Nav.Link>
-                        <Nav.Link href="#Contacto">Contacto</Nav.Link>
-                    </Nav>
+                    <Nav.Link onClick={() => handleNavLinkClick("Inicio")}>
+                        {languageContent.inicio}
+                    </Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick("Habilidades")}>
+                        {languageContent.habilidades}
+                    </Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick("Proyectos")}>
+                        {languageContent.proyectos}
+                    </Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick("Certificados")}>
+                        {languageContent.certificados}
+                    </Nav.Link>
+                    <Nav.Link onClick={() => handleNavLinkClick("Contacto")}>
+                        {languageContent.contacto}
+                    </Nav.Link>
                 </Navbar.Collapse>
                 <div className="sidebar">
                     <ul>
@@ -70,6 +92,11 @@ function Barra() {
                             </a>
                         </li>
                     </ul>
+                </div>
+                <div className="language-button">
+                    <button onClick={handleLanguageChange}>
+                        {languageContent === textContent['espanol'] ? 'In English' : 'En Español'}
+                    </button>
                 </div>
             </Container>
         </Navbar>

@@ -1,0 +1,81 @@
+/* Estilos para las tarjetas de habilidades */
+.tarjeta {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+/* Estilos para los títulos de las tarjetas */
+.tarjeta h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Estilos para el contenedor de las columnas */
+.columnas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Estilos para cada columna */
+.ceddi,
+.cl,
+.ccdv,
+.cde,
+.chp,
+.cbdd { /* Agregamos .cbdd al selector para aplicar estos estilos a la tarjeta de Base de Datos */
+    flex-basis: calc(33.33% - 20px);
+    text-align: left;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+/* Estilos para el zoom al pasar el cursor sobre las columnas */
+.ceddi:hover,
+.cl:hover,
+.ccdv:hover,
+.cde:hover,
+.chp:hover,
+.cbdd:hover { /* Agregamos .cbdd:hover para aplicar el zoom a la tarjeta de Base de Datos */
+    transform: scale(1.05);
+}
+
+/* Estilos para las listas */
+.tarjeta ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tarjeta ul li {
+    margin: 5px 0;
+}
+
+/* Estilos para los iconos */
+.tarjeta ul li i {
+    margin-right: 5px;
+    font-size: 18px;
+}
+
+/* Estilos para la imagen de Canva */
+.tarjeta ul li img {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+
+  
+  
+  
