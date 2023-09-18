@@ -1,8 +1,8 @@
-/* Main.css (por ejemplo) */
+/* Main.css */
 
 #main {
   background-color: #f5f5f5;
-  padding: 100px 0;
+  padding: 20px 0;
   text-align: center;
 }
 
@@ -15,4 +15,28 @@
 #main p {
   font-size: 18px;
   color: #666;
+}
+
+.tarjeta {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.tarjeta h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.tarjeta img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-top: 15px;
 }
