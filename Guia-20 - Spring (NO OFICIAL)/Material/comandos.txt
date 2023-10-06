@@ -1,0 +1,16 @@
+Si no tenemos el bash_profile: touch .bash_profile.
+
+Abrir el bash: open -e .bash_profile
+
+Comandos a pegar: 
+export JAVA_HOME=$(/usr/libexec/java_home)
+export M2_HOME=/Applications/apache-maven-3.8.1
+
+(Poner la versión del maven que descargamos, por ejemplo si es 3.8.2, poner apache-maven-3.8.2).
+
+export PATH=$PATH:$M2_HOME/bin
+
+Actualizar Bash: source .bash_profile
+
+Comando Maven: mvn -version
+Comando Java: java -version
