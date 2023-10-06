@@ -17,7 +17,6 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 ### QR Cafecito 
 
 <img src="./QRCafecitoSolo.png" alt="QR Cafecito" height="200"  />
-<br/>
 
 ### QR Cafecito PayPal
 
