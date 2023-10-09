@@ -17,7 +17,7 @@ function Barra({ onSectionChange }) {
             if (currentIndex < nombre.length) {
                 setCurrentIndex(currentIndex + 1);
             } else {
-                setCurrentIndex(1);
+                setCurrentIndex(nombre.length);
             }
         }, duracionIntervalo);
 
@@ -65,34 +65,7 @@ function Barra({ onSectionChange }) {
                         {languageContent.contacto}
                     </Nav.Link>
                 </Navbar.Collapse>
-                <div className="sidebar">
-                    <ul>
-                        <li>
-                            <a href="https://www.linkedin.com/in/eduardo-m-moreno-programador/" rel="noreferrer">
-                                <i className="fab fa-linkedin"></i>
-                                <span className="social-name" style={{ color: '#0077B5' }}>LinkedIn</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/EduMMorenolp" rel="noreferrer">
-                                <i className="fab fa-github"></i>
-                                <span className="social-name" style={{ color: '#211F1F' }}>GitHub</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.instagram.com/edu.m.morenolp/" rel="noreferrer">
-                                <i className="fab fa-instagram"></i>
-                                <span className="social-name" style={{ color: '#E4405F' }}>Instagram</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://twitter.com/EduMMorenolp" rel="noreferrer">
-                                <i className="fab fa-twitter"></i>
-                                <span className="social-name" style={{ color: '#1DA1F2' }}>Twitter</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+                
                 <div className="language-button">
                     <button onClick={handleLanguageChange}>
                         {languageContent === textContent['espanol'] ? 'In English' : 'En Español'}

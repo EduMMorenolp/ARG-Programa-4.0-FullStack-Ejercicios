@@ -5,19 +5,25 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'Proyecto 1',
+      title: 'Portfolio 0.1 v',
       description: 'Descripción del proyecto 1.',
       link: 'https://www.ejemplolink1.com',
     },
     {
       id: 2,
-      title: 'Proyecto 2',
+      title: 'Aprender a Programar',
       description: 'Descripción del proyecto 2.',
       link: 'https://www.ejemplolink2.com',
     },
     {
       id: 3,
       title: 'Proyecto 3',
+      description: 'Descripción del proyecto 2.',
+      link: 'https://www.ejemplolink2.com',
+    },
+    {
+      id: 4,
+      title: 'Proyecto 4',
       description: 'Descripción del proyecto 2.',
       link: 'https://www.ejemplolink2.com',
     },

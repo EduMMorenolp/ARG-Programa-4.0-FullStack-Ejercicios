@@ -1,10 +1,64 @@
 /* Footer.css */
 
 footer {
-  background-color: #333; /* Color de fondo del Footer */
-  color: #fff; /* Color del texto */
-  padding: 2px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0; /* Aumentamos el espacio vertical para mayor separación */
   text-align: center;
-  display: flex;
   border-radius: 15px;
 }
+
+/* BARRA LATERAL DE REDES */
+.sidebar {
+  display: inline;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px;
+}
+
+.sidebar li {
+  display: inline-block;
+  padding: 0px 5px;
+}
+
+.sidebar a {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.sidebarblanco a {
+  color: #968f8f;
+}
+
+.social-name {
+  display: none; /* Oculta el nombre completo inicialmente */
+}
+
+.sidebar .fab {
+  font-size: 20px; /* Tamaño de los íconos */
+  margin-right: 5px; 
+}
+
+.sidebar a:hover .social-name {
+  display: inline;
+  margin-left: 5px; 
+}
+
+.sidebar a:hover .fab.fa-linkedin {
+  color: #0077b5; /* Cambia el color al azul de LinkedIn */
+}
+.sidebar a:hover .fab.fa-github {
+  color: #ffffff; /* Cambia el color al negro de GitHub */
+}
+.sidebar a:hover .fab.fa-instagram {
+  color: #e4405f; /* Cambia el color al rosa de Instagram */
+}
+.sidebar a:hover .fab.fa-twitter {
+  color: #1da1f2; /* Cambia el color al azul de Twitter */
+}
+
