@@ -51,3 +51,12 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 
 <img src="./Ranking2023.png" alt="Ranking2023" height="500" />
 <br/>
+
+# CERTIFICADOS 
+
+<img src="./CERTIFICADOS/Introducción a la Programación.jpeg" alt="QR Cafecito" height="400" />
+
+<img src="./CERTIFICADOS/Backend 1_ Introducción a Java.jpeg" alt="QR Cafecito" height="400" />
+
+<img src="./CERTIFICADOS/Backend 2_ Java Y Base de Datos.jpeg" alt="QR Cafecito" height="493" />
+<br/>
