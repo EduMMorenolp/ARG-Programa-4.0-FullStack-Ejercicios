@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>EggNews - Crear Noticia</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Noticias EggNews</h1>
+
+            <!-- Formulario para crear noticias -->
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Crear Noticia</h2>
+                    <form method="post" action="crearNoticia">
+                        <div class="form-group">
+                            <label for="titulo">Título:</label>
+                            <input type="text" class="form-control" id="titulo" name="titulo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cuerpo">Cuerpo:</label>
+                            <textarea class="form-control" id="cuerpo" name="cuerpo" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Crear Noticia</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Enlace para ver las noticias existentes -->
+            <div class="container">
+                <h1>Noticias EggNews</h1>
+
+                <!-- Botón para ver las noticias más recientes -->
+                <a href="inicio" class="btn btn-primary mt-3">Ver las Noticias Más Recientes</a>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>
