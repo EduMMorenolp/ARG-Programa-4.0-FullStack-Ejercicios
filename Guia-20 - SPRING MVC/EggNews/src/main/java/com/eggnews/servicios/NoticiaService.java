@@ -28,6 +28,18 @@ public class NoticiaService {
         noticiaRepository.save(noticia);
     }
 
+    public void eliminarNoticia(Long id) {
+        noticiaRepository.deleteById(id);
+    }
+
+    public void modificarNoticia(Noticia noticia) {
+        noticiaRepository.save(noticia);
+    }
+
+    public Noticia obtenerNoticia(Long id) {
+        return noticiaRepository.findById(id).orElse(null);
+    }
+
     public List<Noticia> obtenerTodasLasNoticias() {
         return noticiaRepository.findAll();
     }

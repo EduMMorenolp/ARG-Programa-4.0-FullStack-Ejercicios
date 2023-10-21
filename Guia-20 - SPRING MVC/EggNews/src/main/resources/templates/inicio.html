@@ -30,10 +30,13 @@
 
             <!-- Noticias existentes -->
             <div class="card mt-4">
+                <a href="/" class="btn btn-primary mt-3">Volver al Inicio</a>
                 <div class="card-body">
                     <h2 class="card-title">Noticias Recientes</h2>
                     <div class="card" th:each="noticia : ${noticias}">
                         <div class="card-body">
+
+                            <h6 class="card-id">ID: <span th:text="${noticia.id}"></span></h6>
                             <h5 class="card-title" th:text="${noticia.titulo}"></h5>
                             <p class="card-text" th:text="${noticia.cuerpo}"></p>
                         </div>
