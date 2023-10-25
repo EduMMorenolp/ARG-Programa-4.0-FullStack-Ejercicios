@@ -49,24 +49,30 @@ public class NoticiaControlador {
         return "inicio";
     }
 
-    @PostMapping("/actualizarNoticia")
-    public String actualizarNoticia(@ModelAttribute("noticia") Noticia noticia) {
-        noticiaService.modificarNoticia(noticia);
-        return "redirect:/inicio";
-    }
-
     @GetMapping("/eliminarNoticia/{id}")
     public String eliminarNoticia(@PathVariable Long id) {
         noticiaService.eliminarNoticia(id);
         return "redirect:/inicio";
     }
-    
+
     @GetMapping("/editarNoticia")
-    public String editarNoticia(@PathVariable Long id, Model model) {
+    public String editarNoticia(@RequestParam("id") Long id, Model model) {
         Noticia noticia = noticiaService.obtenerNoticia(id);
-        model.addAttribute("noticia", noticia);
+        if (noticia == null) {
+            // Si la noticia no existe, agrega un mensaje de error al modelo
+            model.addAttribute("error", "La noticia con el ID proporcionado no existe.");
+        } else {
+            model.addAttribute("noticia", noticia);
+        }
         return "editarNoticia";
     }
-    
-    
+
+    @PostMapping("/actualizarNoticia")
+    public String actualizarNoticia(@RequestParam("noticiaId") Long noticiaId, @ModelAttribute Noticia noticia) {
+        Noticia noticiaExistente = noticiaService.obtenerNoticia(noticiaId);
+        noticiaExistente.setTitulo(noticia.getTitulo());
+        noticiaExistente.setCuerpo(noticia.getCuerpo());
+        noticiaService.guardarNoticia(noticiaExistente);
+        return "redirect:/inicio";
+    }
 }

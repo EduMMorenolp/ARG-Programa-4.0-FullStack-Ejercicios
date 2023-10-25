@@ -12,13 +12,14 @@
 
             <div class="card">
                 <div class="card-body">
-                    <form method="post" action="/actualizarNoticia">
-                        <label for="noticiaId">ID de la Noticia:</label>
-                        <input type="text" id="noticiaId" name="noticiaId">
-                        <input type="hidden" name="id" th:value="${noticia.id}" />
+                    <form method="post" action="/actualizarNoticia" th:object="${noticia}">
+                        <div class="form-group">
+                            <label for="noticiaId">ID de la Noticia:</label>
+                            <input type="text" id="noticiaId" name="noticiaId" th:value="${noticia.id}" />
+                        </div>
                         <div class="form-group">
                             <label for="titulo">Título Nuevo:</label>
-                            <input type="text" class="form-control" id="titulo" name="titulo" th:value="${noticia.titulo}" required>
+                            <input type="text" class="form-control" id="titulo" name="titulo" th:value="${noticia.titulo}" required />
                         </div>
                         <div class="form-group">
                             <label for="cuerpo">Cuerpo Nuevo:</label>

@@ -36,7 +36,10 @@
                 <form method="get" action="/editarNoticia">
                     <div class="form-group">
                         <label for="id">Editar Noticia por ID:</label>
-                        <input type="text" class="form-control" id="id" name="id" placeholder="ID de la noticia" required>
+                        <input type="long" class="form-control" id="id" name="id" placeholder="ID de la noticia" required>
+                    </div>
+                    <div th:if="${error}" class="alert alert-danger">
+                        <p th:text="${error}"></p>
                     </div>
                     <button type="submit" class="btn btn-success">Editar Noticia</button>
                 </form>
@@ -74,7 +77,7 @@
             }
             });
         </script>
-        
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
