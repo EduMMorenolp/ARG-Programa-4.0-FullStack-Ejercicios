@@ -9,6 +9,16 @@
             "projectName": "EggNews",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EjemploGuiaApplication<biblioteca>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.examplospring.EjemploGuia.EjemploGuiaApplication",
+            "projectName": "biblioteca",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }

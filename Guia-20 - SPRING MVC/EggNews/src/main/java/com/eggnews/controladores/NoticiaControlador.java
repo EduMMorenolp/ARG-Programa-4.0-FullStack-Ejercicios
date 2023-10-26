@@ -8,9 +8,9 @@ package com.eggnews.controladores;
 import com.eggnews.entidades.Noticia;
 import com.eggnews.servicios.NoticiaService;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +26,6 @@ public class NoticiaControlador {
 
     private final NoticiaService noticiaService;
 
-    @Autowired
     public NoticiaControlador(NoticiaService noticiaService) {
         this.noticiaService = noticiaService;
     }
@@ -56,15 +55,15 @@ public class NoticiaControlador {
     }
 
     @GetMapping("/editarNoticia")
-    public String editarNoticia(@RequestParam("id") Long id, Model model) {
+    public String editarNoticia(@RequestParam("id") Long id, ModelMap model) {
         Noticia noticia = noticiaService.obtenerNoticia(id);
         if (noticia == null) {
-            // Si la noticia no existe, agrega un mensaje de error al modelo
-            model.addAttribute("error", "La noticia con el ID proporcionado no existe.");
+            model.put("error", "La noticia con el ID proporcionado no existe.");
+            return "index.html";
         } else {
-            model.addAttribute("noticia", noticia);
+            model.put("noticia", noticia);
+            return "editarNoticia";
         }
-        return "editarNoticia";
     }
 
     @PostMapping("/actualizarNoticia")

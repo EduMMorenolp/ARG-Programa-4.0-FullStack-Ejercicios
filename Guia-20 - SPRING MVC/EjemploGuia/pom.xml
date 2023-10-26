@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.egg</groupId>
-    <artifactId>biblioteca</artifactId>
+    <artifactId>EjemploGuia</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>EjemploGuiaHolaMundo</name>
     <description>Ejemplo Guia Hola Mundo</description>
