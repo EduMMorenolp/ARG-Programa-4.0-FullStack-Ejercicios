@@ -60,7 +60,7 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 
 <img src="./CERTIFICADOS/Backend 2_ Java Y Base de Datos.jpeg" alt="Certificado Java y BBDD" height="493" />
 
-<img src="./CERTIFICADOS/Certificado_CuartoTramoFrontend.jpeg" alt="Certificado de FrontEnd" height="493" />
+<img src="./CERTIFICADOS/Certificado_CuartoTramoFrontend.png" alt="Certificado de FrontEnd" height="493" />
 
-<img src="./CERTIFICADOS/Certificado_ProgramaciónFullStack.jpeg" alt="Certificado Dev FullStack" height="493" />
+<img src="./CERTIFICADOS/Certificado_ProgramaciónFullStack.png" alt="Certificado Dev FullStack" height="493" />
 <br/>
