@@ -19,6 +19,36 @@
             "projectName": "biblioteca",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EggNewsApplication<Biblioteca>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.eggnews.EggNewsApplication",
+            "projectName": "Biblioteca",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EggNewsApplication<Biblioteca>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.biblioteca.EggNewsApplication",
+            "projectName": "Biblioteca",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-BibliotecaApplication<Biblioteca>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.biblioteca.BibliotecaApplication",
+            "projectName": "Biblioteca",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
