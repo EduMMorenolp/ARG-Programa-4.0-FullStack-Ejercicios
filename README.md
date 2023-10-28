@@ -54,9 +54,13 @@ La idea es que los estudiantes puedan utilizar este repositorio como una guía p
 
 # CERTIFICADOS 
 
-<img src="./CERTIFICADOS/Introducción a la Programación.jpeg" alt="QR Cafecito" height="400" />
+<img src="./CERTIFICADOS/Introducción a la Programación.jpeg" alt="Certificado Introduccion en la Programacion" height="400" />
 
-<img src="./CERTIFICADOS/Backend 1_ Introducción a Java.jpeg" alt="QR Cafecito" height="400" />
+<img src="./CERTIFICADOS/Backend 1_ Introducción a Java.jpeg" alt="Certificado Introduccion Java" height="400" />
 
-<img src="./CERTIFICADOS/Backend 2_ Java Y Base de Datos.jpeg" alt="QR Cafecito" height="493" />
+<img src="./CERTIFICADOS/Backend 2_ Java Y Base de Datos.jpeg" alt="Certificado Java y BBDD" height="493" />
+
+<img src="./CERTIFICADOS/Certificado_CuartoTramoFrontend.jpeg" alt="Certificado de FrontEnd" height="493" />
+
+<img src="./CERTIFICADOS/Certificado_ProgramaciónFullStack.jpeg" alt="Certificado Dev FullStack" height="493" />
 <br/>
