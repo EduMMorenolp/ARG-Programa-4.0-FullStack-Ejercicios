@@ -2,7 +2,6 @@ package com.biblioteca.servicios;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,14 +28,14 @@ public class LibroServicio {
     private EditorialRepositorio editorialRepositorio;
 
     @Transactional
-    public void crearLibro(Long isbn, String titulo, Integer Ejemplares, String idAutor, String isbnEditorial) throws MiException {
+    public void crearLibro(Long isbn, String titulo, Integer Ejemplares, Long idAutor, Long IdEditorial)
+            throws MiException {
 
-
-        validar(isbn, titulo, Ejemplares, idAutor, isbnEditorial);
+        validar(isbn, titulo, Ejemplares, idAutor, IdEditorial);
 
         Libro libro = new Libro();
         Autor autor = autorRepositorio.findById(idAutor).get();
-        Editorial editorial = editorialRepositorio.findById(isbnEditorial).get();
+        Editorial editorial = editorialRepositorio.findById(IdEditorial).get();
 
         libro.setIsbn(isbn);
         libro.setTitulo(titulo);
@@ -50,23 +49,15 @@ public class LibroServicio {
         libroRepositorio.save(libro);
     }
 
-    public List<Libro> listarLibros() {
+    @Transactional
+    public void modificarLibro(Long isbn, String titulo, Integer Ejemplares, Long idAutor, Long IdEditorial)
+            throws MiException {
 
-        List<Libro> libros = new ArrayList<>();
-
-        libros = libroRepositorio.findAll();
-
-        return libros;
-
-    }
-
-    public void modificarLibro(Long isbn, String titulo, Integer Ejemplares, String idAutor, String isbnEditorial) throws MiException {
-
-        validar(isbn, titulo, Ejemplares, idAutor, isbnEditorial);
+        validar(isbn, titulo, Ejemplares, idAutor, IdEditorial);
 
         Optional<Libro> respuestaLibro = libroRepositorio.findById(isbn);
         Optional<Autor> respuestaAutor = autorRepositorio.findById(idAutor);
-        Optional<Editorial> respuestaEditorial = editorialRepositorio.findById(isbnEditorial);
+        Optional<Editorial> respuestaEditorial = editorialRepositorio.findById(IdEditorial);
 
         Autor autor = new Autor();
         Editorial editorial = new Editorial();
@@ -91,7 +82,22 @@ public class LibroServicio {
         }
     }
 
-    private void validar(Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial)
+    public List<Libro> listarLibros() {
+
+        List<Libro> libros = new ArrayList<>();
+
+        libros = libroRepositorio.findAll();
+
+        return libros;
+
+    }
+
+    @Transactional(readOnly = true)
+    public Libro getOne(Long id) {
+        return libroRepositorio.getById(id);
+    }
+
+    private void validar(Long isbn, String titulo, Integer ejemplares, Long idAutor, Long idEditorial)
             throws MiException {
 
         if (isbn == null) {
@@ -103,11 +109,11 @@ public class LibroServicio {
         if (ejemplares == null) {
             throw new MiException("Ejemplares no puede ser nulo");
         }
-        if (idAutor.isEmpty() || idAutor == null) {
+        if (idAutor == null) {
             throw new MiException("El Autor no puede ser nulo o estar vacio");
         }
 
-        if (idEditorial.isEmpty() || idEditorial == null) {
+        if (idEditorial == null) {
             throw new MiException("La Editorial no puede ser nula o estar vacia");
         }
     }

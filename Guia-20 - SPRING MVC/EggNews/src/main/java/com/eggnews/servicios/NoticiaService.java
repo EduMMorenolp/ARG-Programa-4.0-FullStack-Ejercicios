@@ -8,7 +8,6 @@ package com.eggnews.servicios;
 import com.eggnews.entidades.Noticia;
 import com.eggnews.repositorios.NoticiaRepositorio;
 import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -19,7 +18,6 @@ public class NoticiaService {
 
     private final NoticiaRepositorio noticiaRepository;
 
-    @Autowired
     public NoticiaService(NoticiaRepositorio noticiaRepository) {
         this.noticiaRepository = noticiaRepository;
     }

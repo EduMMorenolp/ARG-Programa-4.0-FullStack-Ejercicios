@@ -39,7 +39,7 @@ public class EditorialServicio {
         return editoriales;
     }
 
-    public void modificarEditorial(String id, String nombre) throws MiException {
+    public void modificarEditorial(Long id, String nombre) throws MiException {
 
         validar(nombre);
 
@@ -55,10 +55,16 @@ public class EditorialServicio {
         }
     }
 
+    @Transactional(readOnly = true)
+    public Editorial getOne(Long id){
+        return editorialRepositorio.getById(id);
+    }
+
     private void validar(String nombre) throws MiException {
 
         if (nombre.isEmpty() || nombre == null) {
             throw new MiException("el nombre de la editorial no puede ser nulo o estar vacio");
         }
     }
+
 }

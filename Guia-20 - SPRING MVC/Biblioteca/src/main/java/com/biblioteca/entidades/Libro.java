@@ -1,6 +1,5 @@
 package com.biblioteca.entidades;
 
-import java.io.Serializable;
 import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,16 +15,17 @@ import lombok.Data;
 
 @Entity
 @Data // Autogenerador de Getters y Setters (Dependencias en pom Lombok)
-@Table(name = "libro") // Puedes personalizar el nombre de la tabla si es necesario
-public class Libro implements Serializable {
+@Table(name = "Libros") // Puedes personalizar el nombre de la tabla si es necesario
+public class Libro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long isbn;
+    private Long idlibro;
+    private Long isbn; // No lo uso como ID, no me parece practico.
     private String titulo;
     private Integer ejemplares;
 
-    @Column(name = "altas")
+    @Column(name = "alta")
     private LocalDate altas;
 
     @ManyToOne

@@ -39,7 +39,7 @@ public class AutorServicio {
         return autores;
     }
 
-    public void modificarAutor(String nombre, String id) throws MiException {
+    public void modificarAutor(String nombre, Long id) throws MiException {
 
         validar(nombre);
 
@@ -52,6 +52,24 @@ public class AutorServicio {
 
             autorRepositorio.save(autor);
         }
+    }
+
+    public void modificarAutor(Long id, String nombre) throws MiException {
+
+        validar(nombre);
+
+        Optional<Autor> respuesta = autorRepositorio.findById(id);
+
+        if (respuesta.isPresent()) {
+            Autor autor = respuesta.get();
+            autor.setNombre(nombre);
+            autorRepositorio.save(autor);
+        }
+    }
+
+    @Transactional(readOnly = true)
+    public Autor getOne(Long id) {
+        return autorRepositorio.getById(id);
     }
 
     private void validar(String nombre) throws MiException {
