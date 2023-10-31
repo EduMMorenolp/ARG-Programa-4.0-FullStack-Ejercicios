@@ -55,10 +55,14 @@
     <div class="container mt-4">
         <h2>Modificar Libro</h2>
         <form method="POST" action="/libro/modificar">
-            <input type="hidden" name="isbn" th:value="${libro.isbn}" />
+            <input type="hidden" name="idlibro" th:value="${libro.idlibro}" />
             <div class="form-group">
                 <label for="titulo">Título:</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" th:value="${libro.titulo}" required />
+            </div>
+            <div class="form-group">
+                <label for="titulo">ISBN:</label>
+                <input type="text" class="form-control" id="isbn" name="isbn" th:value="${libro.isbn}" required />
             </div>
             <div class="form-group">
                 <label for="autor">Autor:</label>

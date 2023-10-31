@@ -50,12 +50,12 @@ public class LibroServicio {
     }
 
     @Transactional
-    public void modificarLibro(Long isbn, String titulo, Integer Ejemplares, Long idAutor, Long IdEditorial)
+    public void modificarLibro(Long idLibro, Long isbn, String titulo, Integer Ejemplares, Long idAutor, Long IdEditorial)
             throws MiException {
 
         validar(isbn, titulo, Ejemplares, idAutor, IdEditorial);
 
-        Optional<Libro> respuestaLibro = libroRepositorio.findById(isbn);
+        Optional<Libro> respuestaLibro = libroRepositorio.findById(idLibro);
         Optional<Autor> respuestaAutor = autorRepositorio.findById(idAutor);
         Optional<Editorial> respuestaEditorial = editorialRepositorio.findById(IdEditorial);
 
@@ -68,11 +68,11 @@ public class LibroServicio {
         if (respuestaEditorial.isPresent()) {
             editorial = respuestaEditorial.get();
         }
-
+       
         if (respuestaLibro.isPresent()) {
 
             Libro libro = respuestaLibro.get();
-
+             
             libro.setTitulo(titulo);
             libro.setAutor(autor);
             libro.setEditorial(editorial);

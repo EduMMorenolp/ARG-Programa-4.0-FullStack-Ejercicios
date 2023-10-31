@@ -83,14 +83,16 @@ public class LibroControlador {
     }
 
     @PostMapping("/modificar")
-    public String modificar(@RequestParam Long isbn, @RequestParam String titulo,
-            @RequestParam Integer ejemplares,
-            @RequestParam Long idAutor, @RequestParam Long idEditorial, ModelMap modelo) {
+    public String modificar(Long idlibro, Long isbn, String titulo, Integer ejemplares, Long idAutor, Long idEditorial,
+            ModelMap modelo) {
         try {
-            libroServicio.modificarLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
+            libroServicio.modificarLibro(idlibro, isbn, titulo, ejemplares, idAutor, idEditorial);
             modelo.put("exito", "El Libro fue modificado correctamente.");
+            List<Libro> libros = libroServicio.listarLibros();
+            modelo.addAttribute("libros", libros);
         } catch (MiException ex) {
             System.out.println("Error al modificar el Libro: " + ex);
+            System.out.println("Error modificar");
             modelo.put("error", ex.getMessage());
             return "libro_mod.html";
         }

@@ -59,6 +59,8 @@ public class AutorControlador {
         try {
             autorServicio.modificarAutor(id, nombre);
             modelo.put("exito", "El Autor fue Editado correctamente!");
+            List<Autor> autores = autorServicio.listarAutores();
+            modelo.addAttribute("autores", autores);
         } catch (MiException ex) {
             System.out.println("Error al Editar Autor: " + ex);
             modelo.put("error", ex.getMessage());

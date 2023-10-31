@@ -53,16 +53,19 @@ public class EditorialControlador {
 
     @GetMapping("/modificar/{id}")
     public String modificar(@PathVariable Long id, ModelMap modelo) {
-        modelo.put("editorial", editorialServicio.getOne(id));  
+        modelo.put("editorial", editorialServicio.getOne(id));
         return "editorial_mod.html";
     }
 
     @PostMapping("/modificar")
     public String modificado(@RequestParam Long id, @RequestParam String nombre, ModelMap modelo) {
-       try {
-            
+        try {
+
             editorialServicio.modificarEditorial(id, nombre);
             modelo.put("exito", "El Editorial fue Editado correctamente!");
+            List<Editorial> editoriales = editorialServicio.listarEditoriales();
+
+            modelo.addAttribute("editoriales", editoriales);
         } catch (MiException ex) {
             System.out.println("Error al Registrar Autor :" + ex);
             modelo.put("error", ex.getMessage());

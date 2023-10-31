@@ -59,6 +59,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">ISBN</th>
                     <th scope="col">Título</th>
                     <th scope="col">Ejemplares</th>
                     <th scope="col">Autor</th>
@@ -68,6 +69,7 @@
             <tbody>
                 <tr th:each="libro : ${libros}">
                     <th scope="row" th:text="${libro.idlibro}"></th>
+                    <td th:text="${libro.isbn}"></td>
                     <td th:text="${libro.titulo}"></td>
                     <td th:text="${libro.ejemplares}"></td>
                     <td th:text="${libro.autor.nombre}"></td>
