@@ -87,16 +87,14 @@ public class LibroControlador {
             ModelMap modelo) {
         try {
             libroServicio.modificarLibro(idlibro, isbn, titulo, ejemplares, idAutor, idEditorial);
-            modelo.put("exito", "El Libro fue modificado correctamente.");
-            List<Libro> libros = libroServicio.listarLibros();
-            modelo.addAttribute("libros", libros);
+            modelo.put("exito", "El Libro fue modificado correctamente.");  
         } catch (MiException ex) {
             System.out.println("Error al modificar el Libro: " + ex);
             System.out.println("Error modificar");
             modelo.put("error", ex.getMessage());
             return "libro_mod.html";
         }
-        return "libro_list.html";
+        return "redirect:../libro/lista";
     }
 
 }
