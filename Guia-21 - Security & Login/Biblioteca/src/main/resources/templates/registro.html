@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Biblioteca Egg - Registrate!</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <form class="formulario" th:action="@{/registro}" method="POST">
+                    <div class="form-group my-3">
+                        <h3 class="card-title">Regístrate</h3>
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="text" class="form-control" name="nombre" placeholder="Nombre" th:value="${nombre}">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="email" class="form-control" name="email" placeholder="Email" th:value="${email}">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña"
+                            th:value="${password}">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="password" class="form-control" name="password2" placeholder="Repetir Contraseña"
+                            th:value="${password2}">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3 botones">Registrarme</button>
+                </form>
+
+                <section class=" text-center container">
+                    <div class="row mt-3">
+                        <div class="divVolver">
+                            <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                        </div>
+                    </div>
+                </section>
+
+
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                    <div class="card-body">
+                        <h5 class="card-title">Error!</h5>
+                        <p class="card-text" th:text="${error}"></p>
+                    </div>
+                </div>
+                <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito">
+                    <div class="card-body">
+                        <h5 class="card-title">Exito!</h5>
+                        <p class="card-text" th:text="${exito}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
