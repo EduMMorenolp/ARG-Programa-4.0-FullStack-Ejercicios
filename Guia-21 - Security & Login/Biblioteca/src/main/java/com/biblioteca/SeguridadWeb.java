@@ -20,8 +20,8 @@ public class SeguridadWeb extends WebSecurityConfigurerAdapter {
          */
 
         http
-                .authorizeRequests()
-                .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll();
+                .authorizeRequests(requests -> requests
+                        .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll());
 
     }
 }
