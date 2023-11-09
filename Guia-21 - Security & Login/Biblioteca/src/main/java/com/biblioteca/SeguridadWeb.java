@@ -11,11 +11,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SeguridadWeb extends WebSecurityConfigurerAdapter {
 
-
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll();
-  
-        }
+
+        /*
+         * @Autowired
+         * orivate UsuarioServicio usuaruioServicio;
+         */
+
+        http
+                .authorizeRequests()
+                .antMatchers("/css/*", "/js/*", "/img/*", "/**").permitAll();
+
+    }
 }
