@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div th:replace="navbar :: navbar"></div>
+    <div th:replace="fragments/navbar :: navbar"></div>
     <div class="container">
         <h1>Lista de Libros</h1>
         <table class="table table-bordered table-striped">
@@ -55,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div th:replace="footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
     <!-- Agrega la referencia a Bootstrap JS y jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

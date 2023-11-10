@@ -22,7 +22,7 @@ import com.biblioteca.repositorios.UsuarioRepositorio;
 
 
 @Service
-public class PortalServicio implements UserDetailsService {
+public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;

@@ -38,12 +38,17 @@
             </li>
 
             <!-- Opción "Iniciar" -->
-            <li class="nav-item">
-                <a class="nav-link" href="">Iniciar Sesión</a>
-            </li>
-            <!-- Opción "Crear Cuenta" -->
-            <li class="nav-item">
-                <a class="nav-link" href="/registrarU">Crear Cuenta</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="editorialesDropdown" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Usuarios
+                </a>
+                <div class="dropdown-menu"><a class="dropdown-item" href="/login">Iniciar Sesión</a>
+                    <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                    <!-- Opción "Crear Cuenta" -->
+                    <a class="dropdown-item" href="/registrarU">Crear Cuenta</a>
+                </div>
+
             </li>
         </ul>
     </div>

@@ -11,7 +11,7 @@
 
 <body>
     <header>
-        <div th:replace="navbar :: navbar"></div>
+        <div th:replace="fragments/navbar :: navbar"></div>
     </header>
     <main class="container">
         <h1>Bienvenido a la Biblioteca Digital</h1>
@@ -19,7 +19,7 @@
             menú de navegación para acceder a las diferentes secciones y realizar diversas acciones, como listar, crear
             y editar registros.</p>
     </main>
-    <div th:replace="footer :: footer"></div>
+    <div th:replace="fragments/footer :: footer"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js"></script>
     <style>

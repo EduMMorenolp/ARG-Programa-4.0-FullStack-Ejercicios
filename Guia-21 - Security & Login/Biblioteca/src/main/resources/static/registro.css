@@ -1,0 +1,73 @@
+/* Estilo para el formulario de registro */
+.formulario {
+    margin-top: 20px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.botones {
+    width: 100%;
+}
+
+/* Estilo para el botón "Volver" */
+.botonVolver {
+    margin-top: 10px;
+}
+
+/* Estilo para los mensajes de error y éxito */
+.mensajeError, .mensajeExito {
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.mensajeError {
+    background-color: #dc3545;
+}
+
+.mensajeExito {
+    background-color: #28a745;
+    color: #fff;
+}
+
+/* Estilo para el contenedor de "Volver" */
+.divVolver {
+    text-align: center;
+}
+
+/* Estilo para el encabezado del formulario */
+.card-title {
+    text-align: center;
+}
+
+/* Estilo para el botón de registro */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+/* Cambiar color al botón cuando se le hace hover */
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para el botón "Volver" */
+.btn-secondary {
+    background-color: #6c757d;
+    border: none;
+}
+
+/* Cambiar color al botón "Volver" cuando se le hace hover */
+.btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Cambiar el color de fondo del cuerpo del formulario */
+body {
+    background-color: #f0f0f0;
+}
