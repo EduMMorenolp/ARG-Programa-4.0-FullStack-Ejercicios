@@ -19,17 +19,12 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre del Autor</th>
-                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody th:each="autor : ${autores}">
                 <tr>
                     <th scope="row" th:text="${autor.idautor}"></th>
                     <td th:text="${autor.nombre}"></td>
-                    <td>
-                        <a th:href="@{/autor/modificar/__${autor.idautor}__}"><i class="fas fa-feather-alt"></i>
-                            Modificar</a>
-                    </td>
                 </tr>
             </tbody>
         </table>

@@ -18,18 +18,12 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Nombre de la Editorial</th>
-                    <th scope="col">Acciones</th>
                 </tr>
             </thead>
             <tbody th:each="editorial : ${editoriales}">
                 <tr>
                     <th scope="row" th:text="${editorial.ideditorial}"></th>
                     <td th:text="${editorial.nombre}"></td>
-                    <td>
-                        <a th:href="@{/editorial/modificar/__${editorial.ideditorial}__}"><i class="fas fa-feather-alt"> </i>
-                            Modificar </a>
-                    </td>
-
                 </tr>
             </tbody>
         </table>

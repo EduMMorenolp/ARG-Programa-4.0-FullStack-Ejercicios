@@ -4,6 +4,7 @@ package com.biblioteca.servicios;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +16,24 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import com.biblioteca.entidades.Usuario;
 import com.biblioteca.enumeraciones.Rol;
 import com.biblioteca.exepciones.MiException;
 import com.biblioteca.repositorios.UsuarioRepositorio;
-
 
 @Service
 public class UsuarioServicio implements UserDetailsService {
 
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
+
+    @Transactional
+    public List<Usuario> obtenerTodosLosUsuarios() {
+        return usuarioRepositorio.findAll();
+    }
 
     @Transactional
     public void registrar(String nombre, String email, String password, String password2)
@@ -76,7 +84,13 @@ public class UsuarioServicio implements UserDetailsService {
 
             permisos.add(p);
 
-            return new User(usuario.getEmail(),usuario.getPassword(),permisos);
+            ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+
+            HttpSession session = attr.getRequest().getSession(true);
+
+            session.setAttribute("usuariosession", usuario);
+
+            return new User(usuario.getEmail(), usuario.getPassword(), permisos);
         } else {
             return null;
         }

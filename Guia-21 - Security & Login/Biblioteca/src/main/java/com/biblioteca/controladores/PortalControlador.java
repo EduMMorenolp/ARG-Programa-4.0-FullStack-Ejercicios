@@ -1,5 +1,7 @@
 package com.biblioteca.controladores;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.biblioteca.entidades.Usuario;
 import com.biblioteca.exepciones.MiException;
 import com.biblioteca.servicios.UsuarioServicio;
 
@@ -21,15 +24,17 @@ public class PortalControlador {
 
     @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
     @GetMapping("/")
-    public String index() {
+    public String index(HttpSession session) {
+
+        Usuario logueado = (Usuario) session.getAttribute("usuariosession");
+
+        if (logueado.getRol().toString().equals("ADMIN")) {
+            return "redirect:/admin/dashboard";
+        }
         return "index";
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-    @GetMapping("/inicio")
-    public String indexinicio() {
-        return "index";
-    }
+    
 
     @GetMapping("/registrarU")
     public String registrar() {
@@ -38,7 +43,7 @@ public class PortalControlador {
 
     @GetMapping("/login")
     public String login(@RequestParam(required = false) Long error, ModelMap modelo) {
-        if (error != null){
+        if (error != null) {
             modelo.put("error", "Usuario o Contraseña invalidos");
         }
         return "login";
@@ -53,7 +58,7 @@ public class PortalControlador {
 
             modelo.put("exito", "Usuario registrado correctamente");
 
-            return "registro";
+            return "index";
         } catch (MiException ex) {
 
             modelo.put("error", "Error al cargar");

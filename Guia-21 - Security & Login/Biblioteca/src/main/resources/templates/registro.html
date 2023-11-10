@@ -9,7 +9,29 @@
 </head>
 
 <body>
-    <div th:replace="fragments/navbar :: navbar"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+        <a class="navbar-brand" href="/">Biblioteca Digital</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Opción "Iniciar" -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="editorialesDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Usuarios
+                    </a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="/login">Iniciar Sesión</a>
+                        <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                        <!-- Opción "Crear Cuenta" -->
+                        <a class="dropdown-item" href="/registrarU">Crear Cuenta</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">

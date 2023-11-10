@@ -66,7 +66,7 @@ public class AutorControlador {
             modelo.put("error", ex.getMessage());
             return "autor_mod.html";
         }
-        return "autor_list.html";
+        return "panel";
     }
 
 }

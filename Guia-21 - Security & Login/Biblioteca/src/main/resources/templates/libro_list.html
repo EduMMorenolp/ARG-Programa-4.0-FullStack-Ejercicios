@@ -32,11 +32,6 @@
                     <td th:text="${libro.ejemplares}"></td>
                     <td th:text="${libro.autor.nombre}"></td>
                     <td th:text="${libro.editorial.nombre}"></td>
-                    <td>
-                        <a th:href="@{'/libro/modificar/' + ${libro.idlibro}}">
-                            <i class="fas fa-feather-alt"></i> Modificar
-                        </a>
-                    </td>
                 </tr>
             </tbody>
         </table>

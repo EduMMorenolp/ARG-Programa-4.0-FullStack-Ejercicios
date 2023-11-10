@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+        <a class="navbar-brand" href="/">Biblioteca Digital</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="autoresDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Autores
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="autoresDropdown">
+                        <a class="dropdown-item" href="/autor/lista"> Lista de Autores</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="librosDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Libros
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="librosDropdown">
+                        <a class="dropdown-item" href="/libro/lista"> Lista de Libros</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="editorialesDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Editoriales
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="editorialesDropdown">
+                        <a class="dropdown-item" href="/editorial/lista"> Lista de Editoriales</a>
+                    </div>
+                </li>
+
+                <!-- Opción "Iniciar" -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="editorialesDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Usuarios
+                    </a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="/perfil">Perfil</a>
+                        <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="container mt-5">
+        <h2>Panel de Control</h2>
+        <a class="btn btn-primary" href="/">Volver al Inicio</a>
+        <div class="row mt-4">
+            <!-- Autores -->
+            <div class="col-md-3">
+                <div class="card d-flex flex-fill">
+                    <div class="card-body">
+                        <h5 class="card-title">Autores</h5>
+                        <p class="card-text">Administrar autores</p>
+                        <a href="#autores" class="btn btn-primary">Ver Autores</a>
+                        <a href="/autores/crear" class="btn btn-success">Crear Autor</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Editoriales -->
+            <div class="col-md-3">
+                <div class="card d-flex flex-fill">
+                    <div class="card-body">
+                        <h5 class="card-title">Editoriales</h5>
+                        <p class="card-text">Administrar editoriales</p>
+                        <a href="#editoriales" class="btn btn-primary">Ver Editoriales</a>
+                        <a href="/editoriales/crear" class="btn btn-success">Crear Editorial</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Libros -->
+            <div class="col-md-3">
+                <div class="card d-flex flex-fill">
+                    <div class="card-body">
+                        <h5 class="card-title">Libros</h5>
+                        <p class="card-text">Administrar libros</p>
+                        <a href="#libros" class="btn btn-primary">Ver Libros</a>
+                        <a href="/libros/crear" class="btn btn-success">Crear Libro</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Usuarios -->
+            <div class="col-md-3">
+                <div class="card d-flex flex-fill">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuarios</h5>
+                        <p class="card-text">Administrar usuarios</p>
+                        <a href="#usuarios" class="btn btn-primary">Ver Usuarios</a>
+                        <a href="/usuarios/crear" class="btn btn-success">Crear Usuario</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="libros" class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Lista de Libros</h1>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">ISBN</th>
+                                    <th scope="col">Título</th>
+                                    <th scope="col">Ejemplares</th>
+                                    <th scope="col">Autor</th>
+                                    <th scope="col">Editorial</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody th:each="libro : ${libros}">
+                                <tr>
+                                    <th scope="row" th:text="${libro.idlibro}"></th>
+                                    <td th:text="${libro.isbn}"></td>
+                                    <td th:text="${libro.titulo}"></td>
+                                    <td th:text="${libro.ejemplares}"></td>
+                                    <td th:text="${libro.autor.nombre}"></td>
+                                    <td th:text="${libro.editorial.nombre}"></td>
+                                    <td>
+                                        <a th:href="@{'/libro/modificar/' + ${libro.idlibro}}"
+                                            class="btn btn-info btn-sm">
+                                            <i class="fas fa-feather-alt"></i> Modificar
+                                        </a>
+                                        <a th:href="@{'/libro/eliminar/' + ${libro.idlibro}}"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="autores" class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Lista de Autores</h1>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Nombre del Autor</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody th:each="autor : ${autores}">
+                                <tr>
+                                    <th scope="row" th:text="${autor.idautor}"></th>
+                                    <td th:text="${autor.nombre}"></td>
+                                    <td>
+                                        <a th:href="@{'/autor/modificar/' + ${autor.idautor}}"
+                                            class="btn btn-info btn-sm">
+                                            <i class="fas fa-feather-alt"></i> Modificar
+                                        </a>
+                                        <a th:href="@{'/autor/eliminar/' + ${autor.idautor}}"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="editoriales" class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Lista de Editoriales</h1>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Nombre de la Editorial</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody th:each="editorial : ${editoriales}">
+                                <tr>
+                                    <th scope="row" th:text="${editorial.ideditorial}"></th>
+                                    <td th:text="${editorial.nombre}"></td>
+                                    <td>
+                                        <a th:href="@{'/editorial/modificar/' + ${editorial.ideditorial}}"
+                                            class="btn btn-info btn-sm">
+                                            <i class="fas fa-feather-alt"></i> Modificar
+                                        </a>
+                                        <a th:href="@{'/editorial/eliminar/' + ${editorial.ideditorial}}"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="usuarios" class="row mt-4">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h1>Lista de Usuarios</h1>
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Rol</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody th:each="usuario : ${usuarios}">
+                                <tr>
+                                    <th scope="row" th:text="${usuario.id}"></th>
+                                    <td th:text="${usuario.nombre}"></td>
+                                    <td th:text="${usuario.email}"></td>
+                                    <td th:text="${usuario.rol}"></td>
+                                    <td>
+                                        <a th:href="@{'/admin/modificarUsuario/' + ${usuario.id}}"
+                                            class="btn btn-info btn-sm">
+                                            <i class="fas fa-feather-alt"></i> Modificar
+                                        </a>
+                                        <a th:href="@{'/admin/eliminarUsuario/' + ${usuario.id}}"
+                                            class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash-alt"></i> Eliminar
+                                        </a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

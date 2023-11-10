@@ -41,7 +41,7 @@
                 <input type="number" class="form-control" id="ejemplares" name="ejemplares" th:value="${libro.ejemplares}" required />
             </div>
             <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-            <a class="btn btn-primary" href="/">Volver al Inicio</a>
+            <a class="btn btn-primary" href="/admin/dashboard">Volver al Inicio</a>
         </form>  
         <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
             <div class="card-body">
