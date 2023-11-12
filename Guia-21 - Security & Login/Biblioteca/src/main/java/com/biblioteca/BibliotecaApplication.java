@@ -1,15 +1,23 @@
 package com.biblioteca;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javafx.application.Application;
+
 @SpringBootApplication
-public class BibliotecaApplication {
+public class BibliotecaApplication implements CommandLineRunner{
 
     public static void main(String[] args) {
         SpringApplication.run(BibliotecaApplication.class, args);
     }
 
+	@Override
+    public void run(String... args) throws Exception {
+        // Inicia la aplicación JavaFX
+        new Thread(() -> Application.launch(JavaFxApplication.class, args)).start();
+    }
     /**
      *
      * EJERCICIOS DE APRENDIZAJE Para la realización de este trabajo práctico se
