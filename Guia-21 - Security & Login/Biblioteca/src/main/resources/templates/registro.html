@@ -36,7 +36,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
 
-                <form class="formulario" th:action="@{/registroU}" method="POST">
+                <form class="formulario" th:action="@{/registroU}" method="POST" enctype="multipart/form-data">
                     <div class="form-group my-3">
                         <h3 class="card-title">Regístrate</h3>
                     </div>
@@ -46,6 +46,15 @@
                     <div class="form-group my-3">
                         <input type="email" class="form-control" name="email" placeholder="Email" th:value="${email}">
                     </div>
+                    <!-- Boton para subir imagen -->
+                    <label for="inputFile" class="btn btn-primary">
+                        <input id="inputFile" type="file" style="display:none;" name="archivo"
+                            onchange="mostrarNombreArchivo()">
+                        Subir Imagen
+                    </label>
+
+                    <p id="nombreArchivo" style="margin-top: 10px;"></p>
+
                     <div class="form-group my-3">
                         <input type="password" class="form-control" name="password" placeholder="Contraseña"
                             th:value="${password}">
@@ -85,6 +94,19 @@
     <div th:replace="fragments/footer :: footer"></div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function mostrarNombreArchivo() {
+            // Obtener el elemento de entrada de archivo
+            var inputFile = document.getElementById('inputFile');
+
+            // Obtener el nombre del archivo
+            var nombreArchivo = inputFile.value.split('\\').pop();
+
+            // Mostrar el nombre del archivo en el párrafo
+            document.getElementById('nombreArchivo').textContent = 'Nombre del archivo: ' + nombreArchivo;
+        }
+    </script>
     <style>
         .navbar {
             padding: 10px;
@@ -205,5 +227,4 @@
         }
     </style>
 </body>
-
 </html>

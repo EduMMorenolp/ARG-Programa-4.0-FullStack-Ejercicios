@@ -41,6 +41,10 @@ public class UsuarioServicio implements UserDetailsService {
         return usuarioRepositorio.findAll();
     }
 
+    public Usuario obtenerPorId(Long id) {
+        return usuarioRepositorio.findById(id).orElse(null);
+    }
+
     @Transactional
     public void registrar(MultipartFile archivo, String nombre, String email, String password, String password2)
             throws MiException {
@@ -139,7 +143,11 @@ public class UsuarioServicio implements UserDetailsService {
 
     }
 
-    public Usuario getOne(Long id, Long id2) {
+    /**
+     * @param id
+     * @return
+     */
+    public Usuario getOne(Long id) {
         return usuarioRepositorio.getOne(id);
     }
 

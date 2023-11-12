@@ -35,7 +35,18 @@ public class PortalControlador {
         return "index";
     }
 
-    
+    @PreAuthorize("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+    @GetMapping("/perfil")
+    public String mostrarPerfil(HttpSession session, ModelMap model) {
+        Usuario usuario = (Usuario) session.getAttribute("usuariosession");
+
+        if (usuario != null) {
+            model.addAttribute("usuario", usuario);
+            return "perfil";
+        } else {
+            return "redirect:/error";
+        }
+    }
 
     @GetMapping("/registrarU")
     public String registrar() {
@@ -52,7 +63,7 @@ public class PortalControlador {
 
     @PostMapping("/registroU")
     public String registro(@RequestParam String nombre, @RequestParam String email, @RequestParam String password,
-            @RequestParam String password2, ModelMap modelo,MultipartFile archivo) {
+            @RequestParam String password2, ModelMap modelo, MultipartFile archivo) {
 
         try {
             usuarioServicio.registrar(archivo, nombre, email, password, password2);

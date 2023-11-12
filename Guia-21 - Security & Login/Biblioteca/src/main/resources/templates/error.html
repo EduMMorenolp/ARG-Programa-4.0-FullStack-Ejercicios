@@ -11,18 +11,37 @@
 
 <body>
     <header>
-        <div th:replace="fragments/navbar :: navbar"></div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+            <a class="navbar-brand" href="/">Biblioteca Digital</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <!-- Opción "Iniciar" -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="editorialesDropdown" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Usuarios
+                        </a>
+                        <div class="dropdown-menu"><a class="dropdown-item" href="/login">Iniciar Sesión</a>
+                            <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                            <!-- Opción "Crear Cuenta" -->
+                            <a class="dropdown-item" href="/registrarU">Crear Cuenta</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <main class="container">
         <br>
-        <h1>Bienvenido a la Biblioteca Digital</h1>
-        <br>
-        <h1 class="tituloLibros" th:if="${session.usuariosession != null}"
-            th:text=" 'Hola de vuelta '+ ${session.usuariosession.nombre} "></h1>
-        <br>
+        <div class="tituloBiblioteca">
+            <a class="navbar-brand" th:text="'Error ' + ${codigo}">ERROR BIBLIOTECA</a>
+            <p class="tituloLibros" th:text="${mensaje}"></p>
 
-        <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}" alt="Sin Imagen Cargada">
-
+        </div>
         <br>
         <p>En esta plataforma, puedes explorar y gestionar información sobre autores, libros y editoriales. Utiliza el
             menú de navegación para acceder a las diferentes secciones y realizar diversas acciones, como listar, crear
@@ -69,15 +88,6 @@
             /* Cambia el color de fondo al pasar el mouse */
             color: #ffd700;
             /* Cambia el color del texto al pasar el mouse */
-        }
-
-        .logo {
-            display: block;
-            margin: 10px auto;
-            max-width: 100%;
-            max-height: 200px;
-            margin-top: 10px;
-            border-radius: 30px;
         }
     </style>
 </body>

@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+    <nav id="inicio" class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
         <a class="navbar-brand" href="/">Biblioteca Digital</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,15 +54,14 @@
                     <div class="dropdown-menu"><a class="dropdown-item" href="/perfil">Perfil</a>
                         <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
                     </div>
-
                 </li>
             </ul>
         </div>
     </nav>
 
 
-    <div class="container mt-5">
-        <h2>Panel de Control</h2>
+    <div  class="container mt-5">
+        <h2 >Panel de Control Admin</h2>
         <a class="btn btn-primary" href="/">Volver al Inicio</a>
         <div class="row mt-4">
             <!-- Autores -->
@@ -119,6 +118,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>Lista de Libros</h1>
+                        <a class="btn btn-primary" href="#inicio">Volver al Arriba</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -162,6 +162,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>Lista de Autores</h1>
+                        <a class="btn btn-primary" href="#inicio">Volver al Arriba</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -197,6 +198,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>Lista de Editoriales</h1>
+                        <a class="btn btn-primary" href="#inicio">Volver al Arriba</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -232,6 +234,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h1>Lista de Usuarios</h1>
+                        <a class="btn btn-primary" href="#inicio">Volver al Arriba</a>
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -388,6 +391,41 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+        }
+
+        /* Estilo para las tarjetas de Autores, Editoriales, Libros y Usuarios */
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            text-align: center;
+        }
+
+        .card-text {
+            text-align: center;
+        }
+
+        /* Estilo para los botones de Ver y Crear en las tarjetas */
+        .card-body .btn {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        /* Estilo para las tablas de Lista de Libros, Autores, Editoriales y Usuarios */
+        .table {
+            margin-top: 20px;
+        }
+
+        /* Estilo para las celdas de las tablas */
+        .table th,
+        .table td {
+            text-align: center;
+        }
+
+        /* Estilo para los botones Modificar y Eliminar en las tablas */
+        .table .btn {
+            margin-right: 5px;
         }
     </style>
 </body>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container mt-5">
+        <h1 class="text-center">Perfil de Usuario <span th:text="${usuario.nombre}"></span></h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Información del Usuario -->
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Información del Usuario </h5>
+                        <p><strong>Nombre:</strong> <span th:text="${usuario.nombre}"></span></p>
+                        <p><strong>Email:</strong> <span th:text="${usuario.email}"></span></p>
+                        <p><strong>Rol:</strong> <span th:text="${usuario.rol}"></span></p>
+                    </div>
+                </div>
+
+                <!-- Imagen del Usuario -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">Imagen del Usuario</h5>
+                        <!-- Aquí puedes mostrar la imagen del usuario -->
+                        <img class="logo" th:src="@{/imagen/perfil/__${session.usuariosession.id}__}"
+                            alt="Imagen del Usuario">
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="mt-4">
+                    <a href="/editar-perfil" class="btn btn-info">Editar Perfil</a>
+
+                </div>
+                <div class="mt-4">
+                    <a href="/cambiar-contrasena" class="btn btn-info">Cambiar Contraseña</a>
+                </div>
+
+                <div class="mt-4">
+                    <a href="/" class="btn btn-primary">Volver a Inicio</a>
+                </div>
+
+                <br>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        .logo {
+            display: block;
+            margin: 10px auto;
+            max-width: 100%;
+            max-height: 200px;
+            margin-top: 10px;
+            border-radius: 30px;
+        }
+    </style>
+
+</body>
+
+</html>
