@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>EggNews - Crear Noticia</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1>EggNews</h1>
+
+        <!-- Formulario para crear noticias -->
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Crear Noticia</h2>
+                <form method="post" action="crearNoticia">
+                    <div class="form-group">
+                        <label for="titulo">Título:</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cuerpo">Cuerpo:</label>
+                        <textarea class="form-control" id="cuerpo" name="cuerpo" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear Noticia</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Botones para acceder a ver, editar y eliminar noticias por ID -->
+        <div class="container mt-4">
+            <h2>Opciones</h2>
+            <br>
+            <a href="/inicio" class="btn btn-primary">Ver Noticias</a>
+            <hr>
+            <form method="get" action="/editarNoticia">
+                <div class="form-group">
+                    <label for="id">Editar Noticia por ID:</label>
+                    <input type="long" class="form-control" id="id" name="id" placeholder="ID de la noticia" required>
+                </div>
+                <div th:if="${error}" class="alert alert-danger">
+                    <p th:text="${error}">ID No Existente</p>
+                </div>
+                <button id="editarNoticia" type="submit" class="btn btn-success">Editar Noticia</button>
+            </form>
+
+            <div class="form-group mt-3">
+                <label for="noticiaId">Eliminar Noticia por ID:</label>
+                <input type="text" class="form-control" id="noticiaId" name="noticiaId" placeholder="ID de la noticia"
+                    required>
+                    <br>
+                <a href="#" id="eliminarNoticia" class="btn btn-danger">Eliminar Noticia</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-center py-3">
+        <div class="container">
+            <div class="btn-group" role="group" aria-label="Cambiar Idioma">
+                <a th:href="@{/(lang=es)}" class="btn btn-light">Idioma Español</a>
+                <a th:href="@{/(lang=en)}" class="btn btn-light">Idioma Inglés</a>
+            </div>
+        </div>
+    </footer>
+
+    
+
+
+    <script>
+        // JavaScript para manejar la eliminación de noticias
+        document.getElementById("eliminarNoticia").addEventListener("click", function () {
+            var noticiaId = document.getElementById("noticiaId").value;
+            if (noticiaId) {
+                if (confirm("¿Estás seguro de que deseas eliminar esta noticia?")) {
+                    // Realizar la solicitud de eliminación al servidor
+                    fetch("/eliminarNoticia/" + noticiaId, {
+                        method: "GET"
+                    })
+                        .then(function (response) {
+                            if (response.status === 200) {
+                                alert("Noticia eliminada exitosamente.");
+                                // Redireccionar o realizar otras acciones después de la eliminación
+                            } else {
+                                alert("No se pudo eliminar la noticia. Verifica el ID de la noticia.");
+                            }
+                        });
+                }
+            } else {
+                alert("Debes ingresar un ID de noticia válido.");
+            }
+        })
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
