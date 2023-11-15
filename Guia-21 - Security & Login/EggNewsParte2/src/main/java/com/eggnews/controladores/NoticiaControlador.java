@@ -36,22 +36,23 @@ public class NoticiaControlador {
         Noticia nuevaNoticia = new Noticia();
         nuevaNoticia.setTitulo(titulo);
         nuevaNoticia.setCuerpo(cuerpo);
+        nuevaNoticia.setCreador(null);
         noticiaService.guardarNoticia(nuevaNoticia);
 
         return "index.html";
     }
 
-    @GetMapping("/inicio")
+    @GetMapping("/listNoticias")
     public String mostrarNoticias(Model model) {
         List<Noticia> noticias = noticiaService.obtenerTodasLasNoticias();
         model.addAttribute("noticias", noticias);
-        return "inicio";
+        return "listNoticias";
     }
 
     @GetMapping("/eliminarNoticia/{id}")
     public String eliminarNoticia(@PathVariable Long id) {
         noticiaService.eliminarNoticia(id);
-        return "redirect:/inicio";
+        return "redirect:/listNoticias";
     }
 
     @GetMapping("/editarNoticia")
@@ -72,6 +73,6 @@ public class NoticiaControlador {
         noticiaExistente.setTitulo(noticia.getTitulo());
         noticiaExistente.setCuerpo(noticia.getCuerpo());
         noticiaService.guardarNoticia(noticiaExistente);
-        return "redirect:/inicio";
+        return "redirect:/listNoticias";
     }
 }

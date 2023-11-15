@@ -9,13 +9,14 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Noticias EggNews</h1>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container mt-4">
+        <h1 class="mb-4">Noticias EggNews</h1>
 
-        <form method="get" action="/editarNoticia">
+        <form method="get" action="/editarNoticia" class="mb-4">
             <div class="form-group">
                 <label for="id">Editar Noticia por ID:</label>
-                <input type="long" class="form-control" id="id" name="id" placeholder="ID de la noticia" required>
+                <input type="number" class="form-control" id="id" name="id" placeholder="ID de la noticia" required>
             </div>
             <div th:if="${error}" class="alert alert-danger">
                 <p th:text="${error}">ID No Existente</p>
@@ -25,29 +26,24 @@
 
         <div class="form-group mt-3">
             <label for="noticiaId">Eliminar Noticia por ID:</label>
-            <input type="text" class="form-control" id="noticiaId" name="noticiaId" placeholder="ID de la noticia"
-                required>
+            <input type="number" class="form-control" id="noticiaId" name="noticiaId" placeholder="ID de la noticia" required>
             <br>
             <a href="#" id="eliminarNoticia" class="btn btn-danger">Eliminar Noticia</a>
         </div>
         <hr>
+
         <!-- Noticias existentes -->
         <a href="/" class="btn btn-primary mt-3">Volver al Inicio</a>
-        <div class="card mt-4">
-
+        <div class="card mt-4" th:each="noticia : ${noticias}">
             <div class="card-body">
-                <h2 class="card-title">Noticias Recientes</h2>
-                <div class="card" th:each="noticia : ${noticias}">
-                    <div class="card-body">
-
-                        <h6 class="card-id">ID: <span th:text="${noticia.id}"></span></h6>
-                        <h5 class="card-title" th:text="${noticia.titulo}"></h5>
-                        <p class="card-text" th:text="${noticia.cuerpo}"></p>
-                    </div>
-                </div>
+                <h6 class="card-id">ID: <span th:text="${noticia.id}"></span></h6>
+                <h5 class="card-title" th:text="${noticia.titulo}"></h5>
+                <p class="card-text" th:text="${noticia.cuerpo}"></p>
             </div>
         </div>
     </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

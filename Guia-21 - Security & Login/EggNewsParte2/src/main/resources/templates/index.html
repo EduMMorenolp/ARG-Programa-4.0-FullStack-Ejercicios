@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div th:replace="fragments/navbar :: navbar"></div>
     <div class="container">
         <h1>EggNews</h1>
 
@@ -34,7 +35,7 @@
         <div class="container mt-4">
             <h2>Opciones</h2>
             <br>
-            <a href="/inicio" class="btn btn-primary">Ver Noticias</a>
+            <a href="/listNoticias" class="btn btn-primary">Ver Noticias</a>
             <hr>
             <form method="get" action="/editarNoticia">
                 <div class="form-group">
@@ -51,23 +52,13 @@
                 <label for="noticiaId">Eliminar Noticia por ID:</label>
                 <input type="text" class="form-control" id="noticiaId" name="noticiaId" placeholder="ID de la noticia"
                     required>
-                    <br>
+                <br>
                 <a href="#" id="eliminarNoticia" class="btn btn-danger">Eliminar Noticia</a>
             </div>
         </div>
     </div>
 
-    <footer class="bg-dark text-center py-3">
-        <div class="container">
-            <div class="btn-group" role="group" aria-label="Cambiar Idioma">
-                <a th:href="@{/(lang=es)}" class="btn btn-light">Idioma Español</a>
-                <a th:href="@{/(lang=en)}" class="btn btn-light">Idioma Inglés</a>
-            </div>
-        </div>
-    </footer>
-
-    
-
+    <div th:replace="fragments/footer :: footer"></div>
 
     <script>
         // JavaScript para manejar la eliminación de noticias
@@ -97,6 +88,47 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <style>
+        .navbar {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Estilos para el menú desplegable */
+        .dropdown-menu {
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        .dropdown-item {
+            color: white;
+            /* Color del texto de los elementos del menú desplegable */
+            transition: background-color 0.3s, color 0.3s;
+            /* Transición para cambio de color y fondo de los elementos */
+        }
+
+        .dropdown-item:hover {
+            background-color: #555;
+            /* Cambia el color de fondo al pasar el mouse */
+            color: #ffd700;
+            /* Cambia el color del texto al pasar el mouse */
+        }
+    </style>
 </body>
 
 </html>
