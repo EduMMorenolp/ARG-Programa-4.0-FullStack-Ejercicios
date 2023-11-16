@@ -33,11 +33,13 @@ public class Usuario {
     }
 
     // Constructor con parámetros
-    public Usuario(String nombreUsuario, String password, Date fechaAlta2, Rol rol2, Boolean activo) {
+    public Usuario(String nombreUsuario, String password, Date fechaAlta, Rol rol, Boolean activo) {
         this.nombreUsuario = nombreUsuario;
         this.password = password;
-        this.fechaAlta = fechaAlta2;
-        this.rol = rol2;
+        this.fechaAlta = fechaAlta;
+        this.rol = rol;
         this.activo = activo;
     }
+
+        
 }

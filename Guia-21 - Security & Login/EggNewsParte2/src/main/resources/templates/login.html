@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <title>Biblioteca Egg - Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/registro.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="navbar">
+        <a class="navbar-brand" href="/">Biblioteca Digital</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <!-- Opción "Iniciar" -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="editorialesDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Usuarios
+                    </a>
+                    <div class="dropdown-menu"><a class="dropdown-item" href="/login">Iniciar Sesión</a>
+                        <a class="dropdown-item" href="/logout">Cerrar Sesión</a>
+                        <!-- Opción "Crear Cuenta" -->
+                        <a class="dropdown-item" href="/registrarU">Crear Cuenta</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <form class="formulario" th:action="@{/logincheck}" method="POST">
+                    <div class="form-group my-3">
+                        <h3 class="card-title">Iniciar Sesión</h3>
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="text" class="form-control" name="nombreUsuario" placeholder="Usuario">
+                    </div>
+                    <div class="form-group my-3">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3 botones">Iniciar Sesión</button>
+                </form>
+
+                <section class="text-center container">
+                    <div class="row mt-3">
+                        <div class="divVolver">
+                            <a th:href="@{/}" class="btn btn-secondary my-2 botonVolver botones">Volver</a>
+                        </div>
+                    </div>
+                </section>
+
+                <div th:if="${error != null}" class="card text-white bg-danger mb-3 mensajeError">
+                    <div class="card-body">
+                        <h5 class="card-title">Error 👎</h5>
+                        <p class="card-text" th:text="${error}"></p>
+                    </div>
+                </div>
+                <div th:if="${exito != null}" class="card text-white bg-success mb-3 mt-3 mensajeExito">
+                    <div class="card-body">
+                        <h5 class="card-title">Exito!</h5>
+                        <p class="card-text" th:text="${exito}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <style>
+        .navbar {
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Estilos para el menú desplegable */
+        .dropdown-menu {
+            background-color: #333;
+            border-radius: 10px;
+        }
+
+        .dropdown-item {
+            color: white;
+            /* Color del texto de los elementos del menú desplegable */
+            transition: background-color 0.3s, color 0.3s;
+            /* Transición para cambio de color y fondo de los elementos */
+        }
+
+        .dropdown-item:hover {
+            background-color: #555;
+            /* Cambia el color de fondo al pasar el mouse */
+            color: #ffd700;
+            /* Cambia el color del texto al pasar el mouse */
+        }
+
+        /* Estilo para el formulario de registro */
+        .formulario {
+            margin-top: 20px;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        .botones {
+            width: 100%;
+        }
+
+        /* Estilo para el botón "Volver" */
+        .botonVolver {
+            margin-top: 10px;
+        }
+
+        /* Estilo para los mensajes de error y éxito */
+        .mensajeError,
+        .mensajeExito {
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .mensajeError {
+            background-color: #dc3545;
+        }
+
+        .mensajeExito {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        /* Estilo para el contenedor de "Volver" */
+        .divVolver {
+            text-align: center;
+        }
+
+        /* Estilo para el encabezado del formulario */
+        .card-title {
+            text-align: center;
+        }
+
+        /* Estilo para el botón de registro */
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        /* Cambiar color al botón cuando se le hace hover */
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para el botón "Volver" */
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+
+        /* Cambiar color al botón "Volver" cuando se le hace hover */
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+
+        /* Cambiar el color de fondo del cuerpo del formulario */
+        body {
+            background-image: url("vecteezy_retro-big-library-illustration-ai-generative_23531243_238.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
+</body>
+
+</html>
